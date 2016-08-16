@@ -1,0 +1,62 @@
+﻿@model Kramatdjati.Models.JPDeptARincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Posting</h2>
+<h4>Jadual Produksi Departemen A</h4>
+<h4>Perincian</h4>
+<hr />
+
+<div>
+ <h3>Apakah data akan diposting?</h3>
+    <dl class="dl-horizontal">
+         <dt>
+            @Html.DisplayNameFor(model => model.KodeBarangJadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodeBarangJadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Batch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Batch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lembar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lembar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.resep.KodeResep )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.resep.KodeResep )
+        </dd>
+
+    </dl>
+    <p>
+        @Html.ActionLink("Posting", "Posting", new { id = Model.JPDeptARincianID  }, new { @class = "btn btn-default" })
+    </p>
+
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index", new { Id = ViewBag.JPDeptARincianID })
+</p>

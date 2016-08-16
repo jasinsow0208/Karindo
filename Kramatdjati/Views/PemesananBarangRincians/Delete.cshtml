@@ -1,0 +1,57 @@
+﻿@model Kramatdjati.Models.PemesananBarangRincian
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus </h2>
+<h4>Perincian Pemesanan Barang</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+  
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bahanbaku.KodeBahanBaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bahanbaku.KodeBahanBaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bahanbaku.Keterangan )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bahanbaku.Keterangan )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+            @Html.DisplayFor(model=>model.bahanbaku.satuan.Keterangan )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HargaSatuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HargaSatuan)
+        </dd>
+    
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { id = ViewBag.PemesananBarangID })
+        </div>
+    }
+</div>

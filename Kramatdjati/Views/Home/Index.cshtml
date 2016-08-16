@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+
+<br />
+<br />
+
+
+
+@if (User.IsInRole("Gudang"))
+{
+    <div class="col-md-6 col-md-offset-3 ">
+        @Html.ActionLink("Penerimaan barang dari supplier", "index", "PenerimaanBarangs", null, new { @class = "btn btn-primary btn-block" })<br />
+        @Html.ActionLink("Pengeluaran barang ke produksi ", "index", "PengeluaranBahanBaku", null, new { @class = "btn btn-primary btn-block" })<br />
+        @Html.ActionLink("Pengeluarang barang ke customer", "index", "PengeluaranGudangs", null, new { @class = "btn btn-primary btn-block" })<br />
+        @Html.ActionLink("Gudang", "index", "Gudangs", null, new { @class = "btn btn-primary btn-block" })<br />
+        @Html.ActionLink("Pindah Gudang", "index", "PindahGudangs", null, new { @class = "btn btn-primary btn-block" })<br />
+    </div>
+}
+else
+{
+    <div class="panel panel-primary">
+        <div class="panel-heading">Karindo Integrated System</div>
+        <h1>Selamat datang di Karindo Integrated System</h1>
+        <br />
+        <h5>Masih dalam tahap pengembangan</h5>
+    </div>
+}
+
+@Html.ActionLink("Sign Out", "Logout", "Account", null, new { @class = "btn btn-primary" })

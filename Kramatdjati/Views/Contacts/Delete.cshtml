@@ -1,0 +1,109 @@
+﻿@model Kramatdjati.Models.Contact
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Supplier/Customer</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+    <dl class="dl-horizontal">
+            <dt>
+            @Html.DisplayNameFor(model => model.Perusahaan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Perusahaan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kontak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kontak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Alamat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Alamat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kota)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kota)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Propinsi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Propinsi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Negara)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Negara)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Telepon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Telepon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Fax)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Fax)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PPN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoRekHutang.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoRekHutang.AccCode)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

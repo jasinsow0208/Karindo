@@ -1,0 +1,34 @@
+﻿@model Kramatdjati.Models.MasterRoleDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>MasterRoleDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.MasterForm.KodeForm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MasterForm.KodeForm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MasterRole.NamaRole)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MasterRole.NamaRole)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MasterRoleDetailID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,106 @@
+﻿@model Kramatdjati.Models.tblDefault
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblDefault</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccHutangBelumFaktur.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccHutangBelumFaktur.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccPiutangBelumFaktur.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccPiutangBelumFaktur.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccPPNKeluaran.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccPPNKeluaran.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccPPNMasukan.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccPPNMasukan.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccSelisihKurs.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccSelisihKurs.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccUangMukaPembelian.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccUangMukaPembelian.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccUangMukaPenjualan.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccUangMukaPenjualan.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CurrentYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CurrentYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpeningPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpeningPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OpeningYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OpeningYear)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.tblDefaultId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

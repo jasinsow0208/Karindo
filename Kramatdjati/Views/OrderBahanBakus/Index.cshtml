@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Kramatdjati.Models.OrderBahanBaku>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Penimbangan</h2>
+<h4><b>Kode Barang Jadi:@ViewBag.KodeBarangJadi</b></h4>
+<h4>Batch:@ViewBag.Batch </h4>
+<h4>Lembar:@ViewBag.Lembar</h4>
+<h4>Keterangan:@ViewBag.Catatan</h4>
+<p>
+    @Html.ActionLink("Tambah", "Create", "OrderBahanBakus", new { id = @ViewBag.JPDeptARincianID }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.resep.KodeResep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.resep.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().jpDeptARincian.Batch)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().jpDeptARincian.Lembar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Posting)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.resep.KodeResep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.resep.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.jpDeptARincian.Batch )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.jpDeptARincian.Lembar )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Posting)
+                </td>
+                <td>
+                    @if (item.Posting == false)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.OrderBahanBakuID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.OrderBahanBakuID }, new { @class = "btn btn-xs btn-danger" })
+                        @Html.ActionLink("Posting", "Details", new { id = item.OrderBahanBakuID }, new { @class = "btn btn-xs btn-success" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "JPDeptARincians", new { id = ViewBag.JPDeptAID }, null)
+</div>
+

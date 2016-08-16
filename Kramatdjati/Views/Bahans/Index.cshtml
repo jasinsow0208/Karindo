@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Kramatdjati.Models.Bahan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Bahan</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", null, new{@class="btn btn-primary"})
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BahanID }, new { @class="btn btn-xs btn-primary"})
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BahanID },  new { @class="btn btn-xs btn-danger"})
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

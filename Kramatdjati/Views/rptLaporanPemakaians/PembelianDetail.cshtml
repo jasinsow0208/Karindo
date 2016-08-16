@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Kramatdjati.Models.KartuStok >
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Informasi Pembelian</h2>
+<div class="col-md-4">
+    <h4>Kode Barang:@ViewBag.KodeBarang</h4>
+    <h4>Bulan:@ViewBag.Period</h4>
+    <h4>Tahun:@ViewBag.Tahun</h4>
+    <h4>Jenis Persediaan:@ViewBag.JenisPersediaan</h4>
+</div>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TglKomputer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th class="text-right ">
+                Qty Beli
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().HargaSatuan)
+            </th>
+            <th class="text-right ">
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{decimal QtyTotal = Model.Sum(a => a.Masuk );
+        decimal HargaTotal = Model.Sum(a => a.Masuk * a.HargaSatuan );
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglKomputer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td class="text-right ">
+                    @Html.DisplayFor(modelItem => item.Masuk)
+                </td>
+                <td class="text-right ">
+                    @Html.DisplayFor(modelItem => item.HargaSatuan)
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.Masuk * item.HargaSatuan)
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot >
+        <tr>
+            <td>
+             </td>
+            <td>
+               
+            </td>
+            <td class="text-right ">
+                @String.Format("{0:N2}",@QtyTotal )
+            </td>
+            <td class="text-right ">
+                
+            </td>
+            <td class="text-right ">
+                @String.Format("{0:N2}", @HargaTotal )
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Index", "rptLaporanPemakaians", new { Bulan = ViewBag.Period, Tahun = ViewBag.Tahun, JenisPersediaanID = ViewBag.JenisPersediaanID }, null)
+</p>

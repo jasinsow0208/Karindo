@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Kramatdjati.Models.SAPiutang>
+
+@{
+    ViewBag.Title = "Saldo Awal Piutang";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Saldo Awal Piutang</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "SAPiutangs", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.contact.Perusahaan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglInvoice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoInvoice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglJatuhTempo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jumlah)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact.Perusahaan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglInvoice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoInvoice)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglJatuhTempo)
+                </td>
+                <td>
+                    @String.Format("{0:N2}", item.Jumlah)
+                </td>
+                <td>@if (item.Posting == false)
+                {
+                    @Html.ActionLink("Edit", "Edit", "SAPiutangs", new { id = item.SAPiutangID }, new { @class = "btn btn-xs btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", "SAPiutangs", new { id = item.SAPiutangID }, new { @class = "btn btn-xs btn-danger" })
+                    @Html.ActionLink("Posting", "Details", "SAPiutangs", new { id = item.SAPiutangID }, new { @class = "btn btn-xs btn-primary" })
+                }
+                  </td>
+            </tr>
+        }
+    </tbody>
+</table>

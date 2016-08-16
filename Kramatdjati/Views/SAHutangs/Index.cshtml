@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Kramatdjati.Models.SAHutang>
+
+@{
+    ViewBag.Title = "Saldo Awal Hutang";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Saldo Awal Hutang</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "SAHutangs", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.contact.Perusahaan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglInvoice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoInvoice)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglJatuhTempo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </th>
+         <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.contact.Perusahaan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglInvoice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoInvoice)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglJatuhTempo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jumlah)
+        </td>
+        <td>@if (item.Posting == false)
+            {
+                @Html.ActionLink("Edit", "Edit","SAHutangs", new { id=item.SAHutangID }, new { @class = "btn btn-xs btn-primary"}) 
+                @Html.ActionLink("Delete", "Delete", "SAHutangs", new { id = item.SAHutangID }, new { @class = "btn btn-xs btn-danger" })
+                @Html.ActionLink("Posting", "Details", "SAHutangs", new { id = item.SAHutangID }, new { @class = "btn btn-xs btn-primary" })
+            }
+
+  
+        </td>
+    </tr>
+}
+
+</table>

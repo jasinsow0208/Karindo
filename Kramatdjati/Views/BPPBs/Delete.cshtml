@@ -1,0 +1,80 @@
+﻿@model Kramatdjati.Models.BPPB
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BPPB</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TglPenimbangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglPenimbangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglProduksi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglProduksi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoBPPB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoBPPB)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diminta)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diminta)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diserahkan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diserahkan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diterima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diterima)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

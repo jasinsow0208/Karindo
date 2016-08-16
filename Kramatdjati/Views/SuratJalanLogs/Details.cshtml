@@ -1,0 +1,50 @@
+﻿@model Kramatdjati.Models.SuratJalanLog
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>SuratJalanLog</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.SuratJalanID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SuratJalanID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglProses)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglProses)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Operator)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Operator)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.SuratJalanLogID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

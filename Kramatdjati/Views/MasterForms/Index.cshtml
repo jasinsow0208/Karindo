@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Kramatdjati.Models.MasterForm>
+
+@{
+    ViewBag.Title = "Master Form";
+}
+
+<h2>Form</h2>
+
+<p>
+  @*  @Html.ActionLink("Create New", "Create")*@
+    @Html.ActionLink("Tambah Data Form ", "ModalCreate", "MasterForms", null, new { @class = "modal-link btn btn-success" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KodeForm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NamaForm)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KodeForm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NamaForm)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keterangan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit ", "ModalEdit", "MasterForms", new { id = item.MasterFormID }, new { @class = "modal-link" })|
+            @Html.ActionLink("Hapus ", "ModalDelete", "MasterForms", new { id = item.MasterFormID }, new { @class = "modal-link" })
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.MasterFormID }) |*@
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.MasterFormID })*@
+        </td>
+    </tr>
+}
+
+</table>

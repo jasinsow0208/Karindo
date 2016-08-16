@@ -1,0 +1,1643 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{F06F004F-6F47-4438-8137-11032DFD44AD}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kramatdjati</RootNamespace>
+    <AssemblyName>Kramatdjati</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="itextsharp">
+      <HintPath>..\..\..\DownloadsExt\itextsharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Owin">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Owin.2.2.1\lib\net45\Microsoft.AspNet.Identity.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Owin">
+      <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Host.SystemWeb">
+      <HintPath>..\packages\Microsoft.Owin.Host.SystemWeb.3.0.1\lib\net45\Microsoft.Owin.Host.SystemWeb.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security">
+      <HintPath>..\packages\Microsoft.Owin.Security.3.0.1\lib\net45\Microsoft.Owin.Security.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.Cookies">
+      <HintPath>..\packages\Microsoft.Owin.Security.Cookies.3.0.1\lib\net45\Microsoft.Owin.Security.Cookies.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Owin.Security.OAuth">
+      <HintPath>..\packages\Microsoft.Owin.Security.OAuth.3.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WebForms, Version=11.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL" />
+    <Reference Include="Newtonsoft.Json, Version=7.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Newtonsoft.Json.7.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="Owin">
+      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
+    </Reference>
+    <Reference Include="Postal, Version=1.0.0.0, Culture=neutral, PublicKeyToken=45719375b8b4d528, processorArchitecture=MSIL">
+      <HintPath>..\packages\Postal.Mvc5.1.2.0\lib\net45\Postal.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="RazorEngine, Version=3.4.1.0, Culture=neutral, PublicKeyToken=9ee697374c7e744a, processorArchitecture=MSIL">
+      <HintPath>..\packages\RazorEngine.3.4.1\lib\net45\RazorEngine.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ReportViewerForMvc, Version=1.0.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ReportViewerForMvc.1.0.1\lib\net45\ReportViewerForMvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.6.4\lib\net40\Rotativa.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\Karindo.mdf" />
+    <Content Include="App_Data\Karindo_log.ldf">
+      <DependentUpon>Karindo.mdf</DependentUpon>
+    </Content>
+    <Content Include="Catatan\CustomRole.txt" />
+    <Content Include="Catatan\InisialisasiDB.txt" />
+    <Content Include="Catatan\MigrasiDatabase.txt" />
+    <Content Include="Catatan\ToDo.txt" />
+    <Content Include="Content\bootstrap-datepicker.css" />
+    <Content Include="Content\bootstrap-datepicker.min.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker.standalone.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.css" />
+    <Content Include="Content\bootstrap-datepicker3.min.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.css" />
+    <Content Include="Content\bootstrap-datepicker3.standalone.min.css" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap-timepicker.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
+    <Content Include="Content\Cetak.css" />
+    <Content Include="Content\datepicker.css" />
+    <Content Include="Content\jqueryui\images\ui-bg_diagonals-thick_18_b81900_40x40.png" />
+    <Content Include="Content\jqueryui\images\ui-bg_diagonals-thick_20_666666_40x40.png" />
+    <Content Include="Content\jqueryui\images\ui-bg_flat_10_000000_40x100.png" />
+    <Content Include="Content\jqueryui\images\ui-bg_glass_100_f6f6f6_1x400.png" />
+    <Content Include="Content\jqueryui\images\ui-bg_glass_100_fdf5ce_1x400.png" />
+    <Content Include="Content\jqueryui\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\jqueryui\images\ui-bg_gloss-wave_35_f6a828_500x100.png" />
+    <Content Include="Content\jqueryui\images\ui-bg_highlight-soft_100_eeeeee_1x100.png" />
+    <Content Include="Content\jqueryui\images\ui-bg_highlight-soft_75_ffe45c_1x100.png" />
+    <Content Include="Content\jqueryui\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\jqueryui\images\ui-icons_228ef1_256x240.png" />
+    <Content Include="Content\jqueryui\images\ui-icons_ef8c08_256x240.png" />
+    <Content Include="Content\jqueryui\images\ui-icons_ffd27a_256x240.png" />
+    <Content Include="Content\jqueryui\images\ui-icons_ffffff_256x240.png" />
+    <Content Include="Content\jqueryui\jquery-ui.min.css" />
+    <Content Include="Content\jqueryui\jquery-ui.min.js" />
+    <Content Include="Content\Site.css" />
+    <Content Include="Content\themes\base\accordion.css" />
+    <Content Include="Content\themes\base\all.css" />
+    <Content Include="Content\themes\base\autocomplete.css" />
+    <Content Include="Content\themes\base\base.css" />
+    <Content Include="Content\themes\base\button.css" />
+    <Content Include="Content\themes\base\core.css" />
+    <Content Include="Content\themes\base\datepicker.css" />
+    <Content Include="Content\themes\base\dialog.css" />
+    <Content Include="Content\themes\base\draggable.css" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_65_ffffff_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_dadada_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_75_e6e6e6_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_glass_95_fef1ec_1x400.png" />
+    <Content Include="Content\themes\base\images\ui-bg_highlight-soft_75_cccccc_1x100.png" />
+    <Content Include="Content\themes\base\images\ui-icons_222222_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_2e83ff_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_454545_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_888888_256x240.png" />
+    <Content Include="Content\themes\base\images\ui-icons_cd0a0a_256x240.png" />
+    <Content Include="Content\themes\base\menu.css" />
+    <Content Include="Content\themes\base\progressbar.css" />
+    <Content Include="Content\themes\base\resizable.css" />
+    <Content Include="Content\themes\base\selectable.css" />
+    <Content Include="Content\themes\base\selectmenu.css" />
+    <Content Include="Content\themes\base\slider.css" />
+    <Content Include="Content\themes\base\sortable.css" />
+    <Content Include="Content\themes\base\spinner.css" />
+    <Content Include="Content\themes\base\tabs.css" />
+    <Content Include="Content\themes\base\theme.css" />
+    <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Global.asax" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap-theme.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="ReportViewerWebForm.aspx" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
+    <Content Include="RPTReports\rptFakturJualNonPPN.aspx" />
+    <Content Include="RPTReports\rptFakturJualPPN.aspx" />
+    <Content Include="RPTReports\rptSuratJalan.aspx" />
+    <Content Include="RPTReports\rptSuratJalanNF.aspx" />
+    <Content Include="RPTReports\rptSuratJalanPPN.aspx" />
+    <Content Include="RPTReports\rptSuratJalanPPNNF.aspx" />
+    <Content Include="RPTReports\rptViewer.aspx" />
+    <Content Include="Scripts\bootstrap-datepicker.js" />
+    <Content Include="Scripts\bootstrap-datepicker.min.js" />
+    <Content Include="Scripts\bootstrap-timepicker.min.js" />
+    <Content Include="Scripts\DataTables\css\dataTables.bootstrap.css" />
+    <Content Include="Scripts\DataTables\css\dataTables.bootstrap.min.css" />
+    <Content Include="Scripts\DataTables\css\dataTables.foundation.css" />
+    <Content Include="Scripts\DataTables\css\dataTables.foundation.min.css" />
+    <Content Include="Scripts\DataTables\css\dataTables.jqueryui.css" />
+    <Content Include="Scripts\DataTables\css\dataTables.jqueryui.min.css" />
+    <Content Include="Scripts\DataTables\css\jquery.dataTables.css" />
+    <Content Include="Scripts\DataTables\css\jquery.dataTables.min.css" />
+    <Content Include="Scripts\DataTables\css\jquery.dataTables_themeroller.css" />
+    <Content Include="Scripts\DataTables\images\favicon.ico" />
+    <Content Include="Scripts\DataTables\images\sort_asc.png" />
+    <Content Include="Scripts\DataTables\images\sort_asc_disabled.png" />
+    <Content Include="Scripts\DataTables\images\sort_both.png" />
+    <Content Include="Scripts\DataTables\images\sort_desc.png" />
+    <Content Include="Scripts\DataTables\images\sort_desc_disabled.png" />
+    <Content Include="Scripts\DataTables\js\dataTables.bootstrap.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.bootstrap.min.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.foundation.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.foundation.min.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.jqueryui.js" />
+    <Content Include="Scripts\DataTables\js\dataTables.jqueryui.min.js" />
+    <Content Include="Scripts\DataTables\js\jquery.dataTables.js" />
+    <Content Include="Scripts\DataTables\js\jquery.dataTables.min.js" />
+    <Content Include="Scripts\DataTables\js\jquery.js" />
+    <Content Include="Scripts\DataTables\images\Sorting icons.psd" />
+    <Content Include="App_Browsers\qt.browser" />
+    <None Include="Properties\PublishProfiles\Karindo.pubxml" />
+    <Content Include="RPTDatasets\StokBarang.xsc">
+      <DependentUpon>StokBarang.xsd</DependentUpon>
+    </Content>
+    <Content Include="RPTDatasets\dsTestCetak.xsc">
+      <DependentUpon>dsTestCetak.xsd</DependentUpon>
+    </Content>
+    <Content Include="RPTDatasets\dsSuratJalan.xsc">
+      <DependentUpon>dsSuratJalan.xsd</DependentUpon>
+    </Content>
+    <Content Include="RPTDatasets\dsFakturJual.xsc">
+      <DependentUpon>dsFakturJual.xsd</DependentUpon>
+    </Content>
+    <None Include="RPTDatasets\dsFakturJual.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFakturJual.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RPTDatasets\dsFakturJual.xss">
+      <DependentUpon>dsFakturJual.xsd</DependentUpon>
+    </Content>
+    <None Include="RPTDatasets\dsSuratJalan.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSuratJalan.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RPTDatasets\dsSuratJalan.xss">
+      <DependentUpon>dsSuratJalan.xsd</DependentUpon>
+    </Content>
+    <None Include="RPTDatasets\dsTestCetak.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsTestCetak.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RPTDatasets\dsTestCetak.xss">
+      <DependentUpon>dsTestCetak.xsd</DependentUpon>
+    </Content>
+    <None Include="RPTDatasets\StokBarang.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StokBarang.Designer.cs</LastGenOutput>
+    </None>
+    <Content Include="RPTDatasets\StokBarang.xss">
+      <DependentUpon>StokBarang.xsd</DependentUpon>
+    </Content>
+    <None Include="Scripts\jquery-2.1.4.intellisense.js" />
+    <Content Include="images\ReportFormat.png" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Bootstrap3.2.0\bootstrap.min.css" />
+    <Content Include="Scripts\Bootstrap3.2.0\bootstrap.min.js" />
+    <Content Include="Scripts\Bootstrap3.2.0\jquery-1.7.1.min.js" />
+    <Content Include="Scripts\Bootstrap3.2.0\jquery.dataTables.min.css" />
+    <Content Include="Scripts\Bootstrap3.2.0\jquery.dataTables.min.js" />
+    <Content Include="Scripts\cldr.js" />
+    <Content Include="Scripts\cldr\event.js" />
+    <Content Include="Scripts\cldr\supplemental.js" />
+    <Content Include="Scripts\cldr\unresolved.js" />
+    <Content Include="Scripts\DatePickerReady.js" />
+    <Content Include="Scripts\globalize.js" />
+    <Content Include="Scripts\globalize\currency.js" />
+    <Content Include="Scripts\globalize\date.js" />
+    <Content Include="Scripts\globalize\message.js" />
+    <Content Include="Scripts\globalize\number.js" />
+    <Content Include="Scripts\globalize\plural.js" />
+    <Content Include="Scripts\globalize\relative-time.js" />
+    <Content Include="Scripts\jquery-2.1.4.js" />
+    <Content Include="Scripts\jquery-2.1.4.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.js" />
+    <Content Include="Scripts\jquery-ui-1.11.4.min.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.foundation.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\TimePickerOnly.js" />
+    <Content Include="Views\Shared\ReportViewerASPX.aspx" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Scripts\jquery-2.1.4.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_Start\IdentityConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\AppRoleFormsController.cs" />
+    <Compile Include="Controllers\BahanBakuPerGudangController.cs" />
+    <Compile Include="Controllers\BahanBakusController.cs" />
+    <Compile Include="Controllers\BahansController.cs" />
+    <Compile Include="Controllers\BPPBRinciansController.cs" />
+    <Compile Include="Controllers\BPPBsController.cs" />
+    <Compile Include="Controllers\BukuBesarController.cs" />
+    <Compile Include="Controllers\CetakLaporanController.cs" />
+    <Compile Include="Controllers\ClaimsController.cs" />
+    <Compile Include="Controllers\ContactsController.cs" />
+    <Compile Include="Controllers\DDLController.cs" />
+    <Compile Include="Controllers\DepartemenController.cs" />
+    <Compile Include="Controllers\DivisisController.cs" />
+    <Compile Include="Controllers\FakturJualRinciansController.cs" />
+    <Compile Include="Controllers\FakturJualsController.cs" />
+    <Compile Include="Controllers\GLAccountTypesController.cs" />
+    <Compile Include="Controllers\GudangBahanBakusController.cs" />
+    <Compile Include="Controllers\GudangsController.cs" />
+    <Compile Include="Controllers\HargaJualPerCustomersController.cs" />
+    <Compile Include="Controllers\HargaJualsController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InfoBarangBelumKirimController.cs" />
+    <Compile Include="Controllers\InfoPengirimanController.cs" />
+    <Compile Include="Controllers\InformasiPemesananBarangsController.cs" />
+    <Compile Include="Controllers\JenisController.cs" />
+    <Compile Include="Controllers\JenisDetailsController.cs" />
+    <Compile Include="Controllers\JenisKemasansController.cs" />
+    <Compile Include="Controllers\JenisPersediaansController.cs" />
+    <Compile Include="Controllers\JPDeptACompoundsController.cs" />
+    <Compile Include="Controllers\JPDeptARinciansController.cs" />
+    <Compile Include="Controllers\JPDeptAsController.cs" />
+    <Compile Include="Controllers\JPDeptASOesController.cs" />
+    <Compile Include="Controllers\JPDeptBRinciansController.cs" />
+    <Compile Include="Controllers\JPDeptBsController.cs" />
+    <Compile Include="Controllers\KartuStoksController.cs" />
+    <Compile Include="Controllers\KartuStoksGudangController.cs" />
+    <Compile Include="Controllers\KasBanksController.cs" />
+    <Compile Include="Controllers\LaporanStokController.cs" />
+    <Compile Include="Controllers\LPDeptARajangansController.cs" />
+    <Compile Include="Controllers\LPDeptARinciansController.cs" />
+    <Compile Include="Controllers\LPDeptAsController.cs" />
+    <Compile Include="Controllers\LPDeptBRinciansController.cs" />
+    <Compile Include="Controllers\LPDeptBsController.cs" />
+    <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\MasterFormsController.cs" />
+    <Compile Include="Controllers\MasterRoleDetailsController.cs" />
+    <Compile Include="Controllers\MasterRolesController.cs" />
+    <Compile Include="Controllers\MataUangsController.cs" />
+    <Compile Include="Controllers\OrderBahanBakusController.cs" />
+    <Compile Include="Controllers\OrderProduksisController.cs" />
+    <Compile Include="Controllers\PackingsController.cs" />
+    <Compile Include="Controllers\PasswordSerahTerimasController.cs" />
+    <Compile Include="Controllers\PemakaianPengembalianBarangRinciansController.cs" />
+    <Compile Include="Controllers\PemakaianPengembalianBarangsController.cs" />
+    <Compile Include="Controllers\PembayaranSODetailsController.cs" />
+    <Compile Include="Controllers\PembayaranSOesController.cs" />
+    <Compile Include="Controllers\PemesananBarangRinciansController.cs" />
+    <Compile Include="Controllers\PemesananBarangsController.cs" />
+    <Compile Include="Controllers\PenerimaanBahanBakuController.cs" />
+    <Compile Include="Controllers\PenerimaanBahanBakuRincianController.cs" />
+    <Compile Include="Controllers\PenerimaanBarangRinciansController.cs" />
+    <Compile Include="Controllers\PenerimaanBarangsController.cs" />
+    <Compile Include="Controllers\PengeluaranBahanBakuController.cs" />
+    <Compile Include="Controllers\PengeluaranBahanBakuRincianController.cs" />
+    <Compile Include="Controllers\PengeluaranGudangRinciansController.cs" />
+    <Compile Include="Controllers\PengeluaranGudangsController.cs" />
+    <Compile Include="Controllers\PenimbanganProduksiController.cs" />
+    <Compile Include="Controllers\PenimbanganProduksiRinciansController.cs" />
+    <Compile Include="Controllers\PersiapanPembayaranController.cs" />
+    <Compile Include="Controllers\PindahGudangRinciansController.cs" />
+    <Compile Include="Controllers\PindahGudangsController.cs" />
+    <Compile Include="Controllers\ResepRinciansController.cs" />
+    <Compile Include="Controllers\ResepsController.cs" />
+    <Compile Include="Controllers\RoleAdminController.cs" />
+    <Compile Include="Controllers\rptLaporanPemakaiansController.cs" />
+    <Compile Include="Controllers\SAHutangsController.cs" />
+    <Compile Include="Controllers\SalesOrderRinciansController.cs" />
+    <Compile Include="Controllers\SalesOrdersController.cs" />
+    <Compile Include="Controllers\SAPiutangsController.cs" />
+    <Compile Include="Controllers\SatuansController.cs" />
+    <Compile Include="Controllers\StatusKreditController.cs" />
+    <Compile Include="Controllers\StokOpnameRinciansController.cs" />
+    <Compile Include="Controllers\StokOpnamesController.cs" />
+    <Compile Include="Controllers\SuratJalanCetakRinciansController.cs" />
+    <Compile Include="Controllers\SuratJalanCetaksController.cs" />
+    <Compile Include="Controllers\SuratJalanLogsController.cs" />
+    <Compile Include="Controllers\SuratJalanRinciansController.cs" />
+    <Compile Include="Controllers\SuratJalansController.cs" />
+    <Compile Include="Controllers\tblDefaultsController.cs" />
+    <Compile Include="Controllers\tblGLAccountsController.cs" />
+    <Compile Include="Controllers\tblGLAccPeriodsController.cs" />
+    <Compile Include="Controllers\tblGLBatchDetailsController.cs" />
+    <Compile Include="Controllers\tblGLBatchDetailsReadOnlyController.cs" />
+    <Compile Include="Controllers\tblGLBatchesController.cs" />
+    <Compile Include="Controllers\tblGLBatchesReadOnlyController.cs" />
+    <Compile Include="Controllers\tblGLOpeningBalanceDetailsController.cs" />
+    <Compile Include="Controllers\tblGLOpeningBalancesController.cs" />
+    <Compile Include="Controllers\TutupSalesOrderRinciansController.cs" />
+    <Compile Include="Controllers\TutupSalesOrdersController.cs" />
+    <Compile Include="Controllers\UserRolesController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Infrastructure\AppIdentityDbContext.cs" />
+    <Compile Include="Infrastructure\AppRoleManager.cs" />
+    <Compile Include="Infrastructure\AppUserManager.cs" />
+    <Compile Include="Infrastructure\ClaimsAccessAttribute.cs" />
+    <Compile Include="Infrastructure\ClaimsRoles.cs" />
+    <Compile Include="Infrastructure\CustomAnnotations.cs" />
+    <Compile Include="Infrastructure\DecimalPrecisionAttribute.cs" />
+    <Compile Include="Infrastructure\DropDownListUtility.cs" />
+    <Compile Include="Infrastructure\IdentityHelpers.cs" />
+    <Compile Include="Infrastructure\LocationClaimsProvider.cs" />
+    <Compile Include="Migrations\201601141024317_SuratJalan1.cs" />
+    <Compile Include="Migrations\201601141024317_SuratJalan1.Designer.cs">
+      <DependentUpon>201601141024317_SuratJalan1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601141055279_tes.cs" />
+    <Compile Include="Migrations\201601141055279_tes.Designer.cs">
+      <DependentUpon>201601141055279_tes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601141408323_tes1.cs" />
+    <Compile Include="Migrations\201601141408323_tes1.Designer.cs">
+      <DependentUpon>201601141408323_tes1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601150033260_TambahanSuratJalan.cs" />
+    <Compile Include="Migrations\201601150033260_TambahanSuratJalan.Designer.cs">
+      <DependentUpon>201601150033260_TambahanSuratJalan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601151143173_Stok.cs" />
+    <Compile Include="Migrations\201601151143173_Stok.Designer.cs">
+      <DependentUpon>201601151143173_Stok.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601160201545_Contact.cs" />
+    <Compile Include="Migrations\201601160201545_Contact.Designer.cs">
+      <DependentUpon>201601160201545_Contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601160238161_Contact1.cs" />
+    <Compile Include="Migrations\201601160238161_Contact1.Designer.cs">
+      <DependentUpon>201601160238161_Contact1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601161301089_Gudang.cs" />
+    <Compile Include="Migrations\201601161301089_Gudang.Designer.cs">
+      <DependentUpon>201601161301089_Gudang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601161333397_Gudang1.cs" />
+    <Compile Include="Migrations\201601161333397_Gudang1.Designer.cs">
+      <DependentUpon>201601161333397_Gudang1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601161346558_Gudang2.cs" />
+    <Compile Include="Migrations\201601161346558_Gudang2.Designer.cs">
+      <DependentUpon>201601161346558_Gudang2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601180642046_default.cs" />
+    <Compile Include="Migrations\201601180642046_default.Designer.cs">
+      <DependentUpon>201601180642046_default.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602010425011_resep.cs" />
+    <Compile Include="Migrations\201602010425011_resep.Designer.cs">
+      <DependentUpon>201602010425011_resep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602011355367_PindahGudang.cs" />
+    <Compile Include="Migrations\201602011355367_PindahGudang.Designer.cs">
+      <DependentUpon>201602011355367_PindahGudang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602020301208_PindahGudang1.cs" />
+    <Compile Include="Migrations\201602020301208_PindahGudang1.Designer.cs">
+      <DependentUpon>201602020301208_PindahGudang1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602021500383_OrderProduksi.cs" />
+    <Compile Include="Migrations\201602021500383_OrderProduksi.Designer.cs">
+      <DependentUpon>201602021500383_OrderProduksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602030651084_OrderBahanBaku.cs" />
+    <Compile Include="Migrations\201602030651084_OrderBahanBaku.Designer.cs">
+      <DependentUpon>201602030651084_OrderBahanBaku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602031413501_SalesOrder.cs" />
+    <Compile Include="Migrations\201602031413501_SalesOrder.Designer.cs">
+      <DependentUpon>201602031413501_SalesOrder.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602150452023_JadualProduksi.cs" />
+    <Compile Include="Migrations\201602150452023_JadualProduksi.Designer.cs">
+      <DependentUpon>201602150452023_JadualProduksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602150525217_JadualProduksi1.cs" />
+    <Compile Include="Migrations\201602150525217_JadualProduksi1.Designer.cs">
+      <DependentUpon>201602150525217_JadualProduksi1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602150856367_JadualProduksi2.cs" />
+    <Compile Include="Migrations\201602150856367_JadualProduksi2.Designer.cs">
+      <DependentUpon>201602150856367_JadualProduksi2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602151315422_JadualProduksi3.cs" />
+    <Compile Include="Migrations\201602151315422_JadualProduksi3.Designer.cs">
+      <DependentUpon>201602151315422_JadualProduksi3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602170256237_LaporanProduksi.cs" />
+    <Compile Include="Migrations\201602170256237_LaporanProduksi.Designer.cs">
+      <DependentUpon>201602170256237_LaporanProduksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602170505250_JadualDeptB.cs" />
+    <Compile Include="Migrations\201602170505250_JadualDeptB.Designer.cs">
+      <DependentUpon>201602170505250_JadualDeptB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190407453_NoLot.cs" />
+    <Compile Include="Migrations\201602190407453_NoLot.Designer.cs">
+      <DependentUpon>201602190407453_NoLot.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190419433_NoLot1.cs" />
+    <Compile Include="Migrations\201602190419433_NoLot1.Designer.cs">
+      <DependentUpon>201602190419433_NoLot1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602190454421_NoLot2.cs" />
+    <Compile Include="Migrations\201602190454421_NoLot2.Designer.cs">
+      <DependentUpon>201602190454421_NoLot2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602200848474_tes2.cs" />
+    <Compile Include="Migrations\201602200848474_tes2.Designer.cs">
+      <DependentUpon>201602200848474_tes2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602240910271_Precision.cs" />
+    <Compile Include="Migrations\201602240910271_Precision.Designer.cs">
+      <DependentUpon>201602240910271_Precision.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602241317136_LaporanDeptA.cs" />
+    <Compile Include="Migrations\201602241317136_LaporanDeptA.Designer.cs">
+      <DependentUpon>201602241317136_LaporanDeptA.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603010358184_JenisKemasan.cs" />
+    <Compile Include="Migrations\201603010358184_JenisKemasan.Designer.cs">
+      <DependentUpon>201603010358184_JenisKemasan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603010846231_RajanganCompound.cs" />
+    <Compile Include="Migrations\201603010846231_RajanganCompound.Designer.cs">
+      <DependentUpon>201603010846231_RajanganCompound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603011034180_Compound.cs" />
+    <Compile Include="Migrations\201603011034180_Compound.Designer.cs">
+      <DependentUpon>201603011034180_Compound.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603011317531_CompoundGudangBahanBaku.cs" />
+    <Compile Include="Migrations\201603011317531_CompoundGudangBahanBaku.Designer.cs">
+      <DependentUpon>201603011317531_CompoundGudangBahanBaku.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603011411520_tabelDefault.cs" />
+    <Compile Include="Migrations\201603011411520_tabelDefault.Designer.cs">
+      <DependentUpon>201603011411520_tabelDefault.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603020240334_bppb.cs" />
+    <Compile Include="Migrations\201603020240334_bppb.Designer.cs">
+      <DependentUpon>201603020240334_bppb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603020332435_tableBPPB.cs" />
+    <Compile Include="Migrations\201603020332435_tableBPPB.Designer.cs">
+      <DependentUpon>201603020332435_tableBPPB.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603020710274_tableBPPB2.cs" />
+    <Compile Include="Migrations\201603020710274_tableBPPB2.Designer.cs">
+      <DependentUpon>201603020710274_tableBPPB2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603070936513_JPDeptBUkuran.cs" />
+    <Compile Include="Migrations\201603070936513_JPDeptBUkuran.Designer.cs">
+      <DependentUpon>201603070936513_JPDeptBUkuran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603100415105_LPDeptARajangan.cs" />
+    <Compile Include="Migrations\201603100415105_LPDeptARajangan.Designer.cs">
+      <DependentUpon>201603100415105_LPDeptARajangan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603311011347_PenimbanganProduksi.cs" />
+    <Compile Include="Migrations\201603311011347_PenimbanganProduksi.Designer.cs">
+      <DependentUpon>201603311011347_PenimbanganProduksi.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604021421123_Penimbangan.cs" />
+    <Compile Include="Migrations\201604021421123_Penimbangan.Designer.cs">
+      <DependentUpon>201604021421123_Penimbangan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604021427521_Penimbang.cs" />
+    <Compile Include="Migrations\201604021427521_Penimbang.Designer.cs">
+      <DependentUpon>201604021427521_Penimbang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604050327413_PasswordSerahTerima.cs" />
+    <Compile Include="Migrations\201604050327413_PasswordSerahTerima.Designer.cs">
+      <DependentUpon>201604050327413_PasswordSerahTerima.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604111037044_Packing.cs" />
+    <Compile Include="Migrations\201604111037044_Packing.Designer.cs">
+      <DependentUpon>201604111037044_Packing.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604111044436_Packing1.cs" />
+    <Compile Include="Migrations\201604111044436_Packing1.Designer.cs">
+      <DependentUpon>201604111044436_Packing1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604160831319_Pemakaian.cs" />
+    <Compile Include="Migrations\201604160831319_Pemakaian.Designer.cs">
+      <DependentUpon>201604160831319_Pemakaian.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604200708407_Log.cs" />
+    <Compile Include="Migrations\201604200708407_Log.Designer.cs">
+      <DependentUpon>201604200708407_Log.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604220415426_SuratJalanUpdate.cs" />
+    <Compile Include="Migrations\201604220415426_SuratJalanUpdate.Designer.cs">
+      <DependentUpon>201604220415426_SuratJalanUpdate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604260238213_suratJalanCetak.cs" />
+    <Compile Include="Migrations\201604260238213_suratJalanCetak.Designer.cs">
+      <DependentUpon>201604260238213_suratJalanCetak.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201604260241145_suratJalanCetak1.cs" />
+    <Compile Include="Migrations\201604260241145_suratJalanCetak1.Designer.cs">
+      <DependentUpon>201604260241145_suratJalanCetak1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605180302100_matauang.cs" />
+    <Compile Include="Migrations\201605180302100_matauang.Designer.cs">
+      <DependentUpon>201605180302100_matauang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605230738512_Default01.cs" />
+    <Compile Include="Migrations\201605230738512_Default01.Designer.cs">
+      <DependentUpon>201605230738512_Default01.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605270420047_HargaSatuan.cs" />
+    <Compile Include="Migrations\201605270420047_HargaSatuan.Designer.cs">
+      <DependentUpon>201605270420047_HargaSatuan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605270520027_HargaRata2.cs" />
+    <Compile Include="Migrations\201605270520027_HargaRata2.Designer.cs">
+      <DependentUpon>201605270520027_HargaRata2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605291400433_HargaJual.cs" />
+    <Compile Include="Migrations\201605291400433_HargaJual.Designer.cs">
+      <DependentUpon>201605291400433_HargaJual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201605300936524_mm.cs" />
+    <Compile Include="Migrations\201605300936524_mm.Designer.cs">
+      <DependentUpon>201605300936524_mm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606020953028_hargajualpercustomer.cs" />
+    <Compile Include="Migrations\201606020953028_hargajualpercustomer.Designer.cs">
+      <DependentUpon>201606020953028_hargajualpercustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606021011286_hargajualpercustomer1.cs" />
+    <Compile Include="Migrations\201606021011286_hargajualpercustomer1.Designer.cs">
+      <DependentUpon>201606021011286_hargajualpercustomer1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607300712080_SAPiutang.cs" />
+    <Compile Include="Migrations\201607300712080_SAPiutang.Designer.cs">
+      <DependentUpon>201607300712080_SAPiutang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201607311248033_FakturJual.cs" />
+    <Compile Include="Migrations\201607311248033_FakturJual.Designer.cs">
+      <DependentUpon>201607311248033_FakturJual.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608030400493_FakturJual1.cs" />
+    <Compile Include="Migrations\201608030400493_FakturJual1.Designer.cs">
+      <DependentUpon>201608030400493_FakturJual1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608040507048_FakturJual2.cs" />
+    <Compile Include="Migrations\201608040507048_FakturJual2.Designer.cs">
+      <DependentUpon>201608040507048_FakturJual2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608040832360_SAHutang.cs" />
+    <Compile Include="Migrations\201608040832360_SAHutang.Designer.cs">
+      <DependentUpon>201608040832360_SAHutang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608110506010_Pembayaran.cs" />
+    <Compile Include="Migrations\201608110506010_Pembayaran.Designer.cs">
+      <DependentUpon>201608110506010_Pembayaran.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608111021568_Pembayaran2.cs" />
+    <Compile Include="Migrations\201608111021568_Pembayaran2.Designer.cs">
+      <DependentUpon>201608111021568_Pembayaran2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608130324221_Contact2.cs" />
+    <Compile Include="Migrations\201608130324221_Contact2.Designer.cs">
+      <DependentUpon>201608130324221_Contact2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AppRole.cs" />
+    <Compile Include="Models\AppUserModels.cs" />
+    <Compile Include="Models\DynamicsRoleModel.cs" />
+    <Compile Include="Models\DynamicsRoleViewModel.cs" />
+    <Compile Include="Models\GLBatchView.cs" />
+    <Compile Include="Models\GLModel.cs" />
+    <Compile Include="Models\JadualProduksi.cs" />
+    <Compile Include="Models\Jenis.cs" />
+    <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\PemesananBarang.cs" />
+    <Compile Include="Models\SalesOrder.cs" />
+    <Compile Include="Models\UserViewModels.cs" />
+    <Compile Include="Models\ViewBarangJadi.cs" />
+    <Compile Include="Models\ViewBukuBesar.cs" />
+    <Compile Include="Models\ViewJenisKemasan.cs" />
+    <Compile Include="Models\ViewJurnalOtomatis.cs" />
+    <Compile Include="Models\ViewNoRek.cs" />
+    <Compile Include="Models\ViewReportModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="RPTDatasets\dsFakturJual.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFakturJual.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RPTDatasets\dsSuratJalan.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSuratJalan.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RPTDatasets\dsTestCetak.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsTestCetak.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RPTDatasets\StokBarang.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StokBarang.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="RPTReports\rptFakturJualNonPPN.aspx.cs">
+      <DependentUpon>rptFakturJualNonPPN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RPTReports\rptFakturJualNonPPN.aspx.designer.cs">
+      <DependentUpon>rptFakturJualNonPPN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RPTReports\rptFakturJualPPN.aspx.cs">
+      <DependentUpon>rptFakturJualPPN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RPTReports\rptFakturJualPPN.aspx.designer.cs">
+      <DependentUpon>rptFakturJualPPN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RPTReports\rptSuratJalan.aspx.cs">
+      <DependentUpon>rptSuratJalan.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RPTReports\rptSuratJalan.aspx.designer.cs">
+      <DependentUpon>rptSuratJalan.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RPTReports\rptSuratJalanNF.aspx.cs">
+      <DependentUpon>rptSuratJalanNF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RPTReports\rptSuratJalanNF.aspx.designer.cs">
+      <DependentUpon>rptSuratJalanNF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RPTReports\rptSuratJalanPPN.aspx.cs">
+      <DependentUpon>rptSuratJalanPPN.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RPTReports\rptSuratJalanPPN.aspx.designer.cs">
+      <DependentUpon>rptSuratJalanPPN.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RPTReports\rptSuratJalanPPNNF.aspx.cs">
+      <DependentUpon>rptSuratJalanPPNNF.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RPTReports\rptSuratJalanPPNNF.aspx.designer.cs">
+      <DependentUpon>rptSuratJalanPPNNF.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RPTReports\rptViewer.aspx.cs">
+      <DependentUpon>rptViewer.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RPTReports\rptViewer.aspx.designer.cs">
+      <DependentUpon>rptViewer.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Shared\ReportViewerASPX.aspx.cs">
+      <DependentUpon>ReportViewerASPX.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Views\Shared\ReportViewerASPX.aspx.designer.cs">
+      <DependentUpon>ReportViewerASPX.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\web.config" />
+    <Content Include="packages.config" />
+    <Content Include="Views\Admin\Index.cshtml" />
+    <Content Include="Views\Admin\Create.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Admin\Edit.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
+    <Content Include="Views\RoleAdmin\Index.cshtml" />
+    <Content Include="Views\RoleAdmin\Create.cshtml" />
+    <Content Include="Views\RoleAdmin\Edit.cshtml" />
+    <Content Include="Views\Home\UserProps.cshtml" />
+    <Content Include="Views\Claims\Index.cshtml" />
+    <Content Include="Views\MasterForms\Create.cshtml" />
+    <Content Include="Views\MasterForms\Delete.cshtml" />
+    <Content Include="Views\MasterForms\Details.cshtml" />
+    <Content Include="Views\MasterForms\Edit.cshtml" />
+    <Content Include="Views\MasterForms\Index.cshtml" />
+    <Content Include="Views\MasterRoles\Create.cshtml" />
+    <Content Include="Views\MasterRoles\Delete.cshtml" />
+    <Content Include="Views\MasterRoles\Details.cshtml" />
+    <Content Include="Views\MasterRoles\Edit.cshtml" />
+    <Content Include="Views\MasterRoles\Index.cshtml" />
+    <Content Include="Views\MasterRoleDetails\Create.cshtml" />
+    <Content Include="Views\MasterRoleDetails\Delete.cshtml" />
+    <Content Include="Views\MasterRoleDetails\Details.cshtml" />
+    <Content Include="Views\MasterRoleDetails\Edit.cshtml" />
+    <Content Include="Views\MasterRoleDetails\Index.cshtml" />
+    <Content Include="Views\UserRoles\Create.cshtml" />
+    <Content Include="Views\UserRoles\Delete.cshtml" />
+    <Content Include="Views\UserRoles\Details.cshtml" />
+    <Content Include="Views\UserRoles\Edit.cshtml" />
+    <Content Include="Views\UserRoles\Index.cshtml" />
+    <Content Include="Views\AppRoleForms\Create.cshtml" />
+    <Content Include="Views\AppRoleForms\Delete.cshtml" />
+    <Content Include="Views\AppRoleForms\Details.cshtml" />
+    <Content Include="Views\AppRoleForms\Edit.cshtml" />
+    <Content Include="Views\AppRoleForms\Index.cshtml" />
+    <Content Include="Views\GLAccountTypes\Create.cshtml" />
+    <Content Include="Views\GLAccountTypes\Delete.cshtml" />
+    <Content Include="Views\GLAccountTypes\Details.cshtml" />
+    <Content Include="Views\GLAccountTypes\Edit.cshtml" />
+    <Content Include="Views\GLAccountTypes\IndexOld.cshtml" />
+    <Content Include="Views\MasterForms\_MasterFormsCreate.cshtml" />
+    <Content Include="Views\MasterForms\_ModalEdit.cshtml" />
+    <Content Include="Views\MasterForms\_ModalDelete.cshtml" />
+    <Content Include="Views\GLAccountTypes\_Create.cshtml" />
+    <Content Include="Views\GLAccountTypes\_Edit.cshtml" />
+    <Content Include="Views\GLAccountTypes\_Delete.cshtml" />
+    <Content Include="Views\Manage\ChangePassword.cshtml" />
+    <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\tblGLAccounts\Create.cshtml" />
+    <Content Include="Views\tblGLAccounts\Delete.cshtml" />
+    <Content Include="Views\tblGLAccounts\Details.cshtml" />
+    <Content Include="Views\tblGLAccounts\Edit.cshtml" />
+    <Content Include="Views\tblGLAccounts\Index.cshtml" />
+    <Content Include="Scripts\jquery.min.map" />
+    <Content Include="Views\GLAccountTypes\Index.cshtml" />
+    <Content Include="Views\Shared\_LayoutTable.cshtml" />
+    <Content Include="Views\tblGLAccounts\_Create.cshtml" />
+    <Content Include="Views\tblGLAccounts\_Edit.cshtml" />
+    <Content Include="Views\tblGLAccounts\_Delete.cshtml" />
+    <Content Include="Views\BahanBakus\Create.cshtml" />
+    <Content Include="Views\BahanBakus\Delete.cshtml" />
+    <Content Include="Views\BahanBakus\Details.cshtml" />
+    <Content Include="Views\BahanBakus\Edit.cshtml" />
+    <Content Include="Views\BahanBakus\Index.cshtml" />
+    <Content Include="Views\JenisKemasans\Create.cshtml" />
+    <Content Include="Views\JenisKemasans\Delete.cshtml" />
+    <Content Include="Views\JenisKemasans\Details.cshtml" />
+    <Content Include="Views\JenisKemasans\Edit.cshtml" />
+    <Content Include="Views\JenisKemasans\Index.cshtml" />
+    <Content Include="Views\Bahans\Create.cshtml" />
+    <Content Include="Views\Bahans\Delete.cshtml" />
+    <Content Include="Views\Bahans\Details.cshtml" />
+    <Content Include="Views\Bahans\Edit.cshtml" />
+    <Content Include="Views\Bahans\Index.cshtml" />
+    <Content Include="Views\Jenis\Create.cshtml" />
+    <Content Include="Views\Jenis\Delete.cshtml" />
+    <Content Include="Views\Jenis\Details.cshtml" />
+    <Content Include="Views\Jenis\Edit.cshtml" />
+    <Content Include="Views\Jenis\Index.cshtml" />
+    <Content Include="Views\JenisDetails\Create.cshtml" />
+    <Content Include="Views\JenisDetails\Delete.cshtml" />
+    <Content Include="Views\JenisDetails\Details.cshtml" />
+    <Content Include="Views\JenisDetails\Edit.cshtml" />
+    <Content Include="Views\JenisDetails\Index.cshtml" />
+    <Content Include="Views\JenisDetails\ViewSample.cshtml" />
+    <Content Include="Views\Satuans\Create.cshtml" />
+    <Content Include="Views\Satuans\Delete.cshtml" />
+    <Content Include="Views\Satuans\Details.cshtml" />
+    <Content Include="Views\Satuans\Edit.cshtml" />
+    <Content Include="Views\Satuans\Index.cshtml" />
+    <Content Include="Views\Contacts\Create.cshtml" />
+    <Content Include="Views\Contacts\Delete.cshtml" />
+    <Content Include="Views\Contacts\Details.cshtml" />
+    <Content Include="Views\Contacts\Edit.cshtml" />
+    <Content Include="Views\Contacts\Index.cshtml" />
+    <Content Include="Views\KasBanks\Create.cshtml" />
+    <Content Include="Views\KasBanks\Delete.cshtml" />
+    <Content Include="Views\KasBanks\Details.cshtml" />
+    <Content Include="Views\KasBanks\Edit.cshtml" />
+    <Content Include="Views\KasBanks\Index.cshtml" />
+    <Content Include="Views\PemesananBarangs\Create.cshtml" />
+    <Content Include="Views\PemesananBarangs\Delete.cshtml" />
+    <Content Include="Views\PemesananBarangs\Details.cshtml" />
+    <Content Include="Views\PemesananBarangs\Edit.cshtml" />
+    <Content Include="Views\PemesananBarangs\Index.cshtml" />
+    <Content Include="Views\PemesananBarangRincians\Create.cshtml" />
+    <Content Include="Views\PemesananBarangRincians\Delete.cshtml" />
+    <Content Include="Views\PemesananBarangRincians\Details.cshtml" />
+    <Content Include="Views\PemesananBarangRincians\Edit.cshtml" />
+    <Content Include="Views\PemesananBarangRincians\Index.cshtml" />
+    <Content Include="Views\tblGLOpeningBalances\Create.cshtml" />
+    <Content Include="Views\tblGLOpeningBalances\Delete.cshtml" />
+    <Content Include="Views\tblGLOpeningBalances\Details.cshtml" />
+    <Content Include="Views\tblGLOpeningBalances\Edit.cshtml" />
+    <Content Include="Views\tblGLOpeningBalances\Index.cshtml" />
+    <Content Include="Views\tblGLOpeningBalanceDetails\Create.cshtml" />
+    <Content Include="Views\tblGLOpeningBalanceDetails\Delete.cshtml" />
+    <Content Include="Views\tblGLOpeningBalanceDetails\Details.cshtml" />
+    <Content Include="Views\tblGLOpeningBalanceDetails\Edit.cshtml" />
+    <Content Include="Views\tblGLOpeningBalanceDetails\Index.cshtml" />
+    <Content Include="Views\tblGLOpeningBalances\PostingBerhasil.cshtml" />
+    <Content Include="Views\tblGLOpeningBalances\InfoOpeningBalance.cshtml" />
+    <Content Include="Views\tblGLAccPeriods\Create.cshtml" />
+    <Content Include="Views\tblGLAccPeriods\Delete.cshtml" />
+    <Content Include="Views\tblGLAccPeriods\Details.cshtml" />
+    <Content Include="Views\tblGLAccPeriods\Edit.cshtml" />
+    <Content Include="Views\tblGLAccPeriods\Index.cshtml" />
+    <Content Include="Views\tblGLAccPeriods\ProfitAndLoss.cshtml" />
+    <Content Include="Views\tblGLBatches\Create.cshtml" />
+    <Content Include="Views\tblGLBatches\Delete.cshtml" />
+    <Content Include="Views\tblGLBatches\Details.cshtml" />
+    <Content Include="Views\tblGLBatches\Edit.cshtml" />
+    <Content Include="Views\tblGLBatches\Index.cshtml" />
+    <Content Include="Views\tblGLBatchDetails\Create.cshtml" />
+    <Content Include="Views\tblGLBatchDetails\Delete.cshtml" />
+    <Content Include="Views\tblGLBatchDetails\Details.cshtml" />
+    <Content Include="Views\tblGLBatchDetails\Edit.cshtml" />
+    <Content Include="Views\tblGLBatchDetails\Index.cshtml" />
+    <Content Include="Views\JenisPersediaans\Create.cshtml" />
+    <Content Include="Views\JenisPersediaans\Delete.cshtml" />
+    <Content Include="Views\JenisPersediaans\Details.cshtml" />
+    <Content Include="Views\JenisPersediaans\Edit.cshtml" />
+    <Content Include="Views\JenisPersediaans\Index.cshtml" />
+    <Content Include="Views\tblGLBatches\Informasi.cshtml" />
+    <Content Include="Views\tblGLBatchesReadOnly\Create.cshtml" />
+    <Content Include="Views\tblGLBatchesReadOnly\Delete.cshtml" />
+    <Content Include="Views\tblGLBatchesReadOnly\Details.cshtml" />
+    <Content Include="Views\tblGLBatchesReadOnly\Edit.cshtml" />
+    <Content Include="Views\tblGLBatchesReadOnly\Index.cshtml" />
+    <Content Include="Views\tblGLBatchDetailsReadOnly\Create.cshtml" />
+    <Content Include="Views\tblGLBatchDetailsReadOnly\Delete.cshtml" />
+    <Content Include="Views\tblGLBatchDetailsReadOnly\Details.cshtml" />
+    <Content Include="Views\tblGLBatchDetailsReadOnly\Edit.cshtml" />
+    <Content Include="Views\tblGLBatchDetailsReadOnly\Index.cshtml" />
+    <Content Include="Views\BukuBesar\Index.cshtml" />
+    <Content Include="Views\Divisis\Create.cshtml" />
+    <Content Include="Views\Divisis\Delete.cshtml" />
+    <Content Include="Views\Divisis\Details.cshtml" />
+    <Content Include="Views\Divisis\Edit.cshtml" />
+    <Content Include="Views\Divisis\Index.cshtml" />
+    <Content Include="Views\tblGLBatchDetails\CreateOtomatis.cshtml" />
+    <Content Include="Views\BukuBesar\LihatBatch.cshtml" />
+    <Content Include="Views\Departemen\Create.cshtml" />
+    <Content Include="Views\Departemen\Delete.cshtml" />
+    <Content Include="Views\Departemen\Edit.cshtml" />
+    <Content Include="Views\Departemen\Index.cshtml" />
+    <Content Include="Views\PemesananBarangs\Informasi.cshtml" />
+    <Content Include="Views\PemesananBarangs\Cetak.cshtml" />
+    <Content Include="Views\PenerimaanBarangs\Create.cshtml" />
+    <Content Include="Views\PenerimaanBarangs\Delete.cshtml" />
+    <Content Include="Views\PenerimaanBarangs\Details.cshtml" />
+    <Content Include="Views\PenerimaanBarangs\Edit.cshtml" />
+    <Content Include="Views\PenerimaanBarangs\Index.cshtml" />
+    <Content Include="Views\PenerimaanBarangRincians\Create.cshtml" />
+    <Content Include="Views\PenerimaanBarangRincians\Delete.cshtml" />
+    <Content Include="Views\PenerimaanBarangRincians\Details.cshtml" />
+    <Content Include="Views\PenerimaanBarangRincians\Edit.cshtml" />
+    <Content Include="Views\PenerimaanBarangRincians\Index.cshtml" />
+    <Content Include="Views\tblDefaults\Create.cshtml" />
+    <Content Include="Views\tblDefaults\Delete.cshtml" />
+    <Content Include="Views\tblDefaults\Details.cshtml" />
+    <Content Include="Views\tblDefaults\Edit.cshtml" />
+    <Content Include="Views\tblDefaults\Index.cshtml" />
+    <Content Include="Views\KartuStoks\Create.cshtml" />
+    <Content Include="Views\KartuStoks\Delete.cshtml" />
+    <Content Include="Views\KartuStoks\Details.cshtml" />
+    <Content Include="Views\KartuStoks\Edit.cshtml" />
+    <Content Include="Views\KartuStoks\Index.cshtml" />
+    <Content Include="Views\PenerimaanBarangs\Informasi.cshtml" />
+    <Content Include="Views\PenerimaanBarangs\Cetak.cshtml" />
+    <Content Include="Views\StokOpnames\Create.cshtml" />
+    <Content Include="Views\StokOpnames\Delete.cshtml" />
+    <Content Include="Views\StokOpnames\Details.cshtml" />
+    <Content Include="Views\StokOpnames\Edit.cshtml" />
+    <Content Include="Views\StokOpnames\Index.cshtml" />
+    <Content Include="Views\StokOpnameRincians\Create.cshtml" />
+    <Content Include="Views\StokOpnameRincians\Delete.cshtml" />
+    <Content Include="Views\StokOpnameRincians\Details.cshtml" />
+    <Content Include="Views\StokOpnameRincians\Edit.cshtml" />
+    <Content Include="Views\StokOpnameRincians\Index.cshtml" />
+    <Content Include="Views\StokOpnames\Informasi.cshtml" />
+    <Content Include="Views\StokOpnames\Cetak.cshtml" />
+    <Content Include="Views\Emails\Web.config" />
+    <Content Include="Views\Emails\_ViewStart.cshtml" />
+    <Content Include="Views\Emails\EmailPemesananBarang.cshtml" />
+    <Content Include="Views\PemesananBarangs\Email.cshtml" />
+    <Content Include="Views\InformasiPemesananBarangs\Create.cshtml" />
+    <Content Include="Views\InformasiPemesananBarangs\Delete.cshtml" />
+    <Content Include="Views\InformasiPemesananBarangs\Details.cshtml" />
+    <Content Include="Views\InformasiPemesananBarangs\Edit.cshtml" />
+    <Content Include="Views\InformasiPemesananBarangs\Index.cshtml" />
+    <Content Include="Views\InformasiPemesananBarangs\Cetak.cshtml" />
+    <Content Include="Views\LaporanStok\Index.cshtml" />
+    <Content Include="Views\LaporanStok\LaporanStok.cshtml" />
+    <Content Include="Views\PersiapanPembayaran\Create.cshtml" />
+    <Content Include="Views\PersiapanPembayaran\Closing.cshtml" />
+    <Content Include="Views\PersiapanPembayaran\Details.cshtml" />
+    <Content Include="Views\PersiapanPembayaran\Edit.cshtml" />
+    <Content Include="Views\PersiapanPembayaran\Index.cshtml" />
+    <Content Include="Views\BahanBakus\BarangJadi.cshtml" />
+    <Content Include="Views\SalesOrders\Create.cshtml" />
+    <Content Include="Views\SalesOrders\Delete.cshtml" />
+    <Content Include="Views\SalesOrders\Details.cshtml" />
+    <Content Include="Views\SalesOrders\Edit.cshtml" />
+    <Content Include="Views\SalesOrders\Index.cshtml" />
+    <Content Include="Views\SalesOrderRincians\Create.cshtml" />
+    <Content Include="Views\SalesOrderRincians\Delete.cshtml" />
+    <Content Include="Views\SalesOrderRincians\Details.cshtml" />
+    <Content Include="Views\SalesOrderRincians\Edit.cshtml" />
+    <Content Include="Views\SalesOrderRincians\Index.cshtml" />
+    <Content Include="Views\SalesOrders\Informasi.cshtml" />
+    <Content Include="Views\SalesOrders\Cetak.cshtml" />
+    <Content Include="Views\Emails\EmailSalesOrder.cshtml" />
+    <Content Include="Views\SalesOrders\Email.cshtml" />
+    <Content Include="Views\SuratJalans\Create.cshtml" />
+    <Content Include="Views\SuratJalans\Delete.cshtml" />
+    <Content Include="Views\SuratJalans\Details.cshtml" />
+    <Content Include="Views\SuratJalans\Edit.cshtml" />
+    <Content Include="Views\SuratJalans\Index.cshtml" />
+    <Content Include="Views\SuratJalanRincians\Create.cshtml" />
+    <Content Include="Views\SuratJalanRincians\Delete.cshtml" />
+    <Content Include="Views\SuratJalanRincians\Details.cshtml" />
+    <Content Include="Views\SuratJalanRincians\Edit.cshtml" />
+    <Content Include="Views\SuratJalanRincians\Index.cshtml" />
+    <Content Include="Views\SuratJalanLogs\Create.cshtml" />
+    <Content Include="Views\SuratJalanLogs\Delete.cshtml" />
+    <Content Include="Views\SuratJalanLogs\Details.cshtml" />
+    <Content Include="Views\SuratJalanLogs\Edit.cshtml" />
+    <Content Include="Views\SuratJalanLogs\Index.cshtml" />
+    <Content Include="Views\SuratJalans\Informasi.cshtml" />
+    <Content Include="Views\PengeluaranGudangs\Create.cshtml" />
+    <Content Include="Views\PengeluaranGudangs\Delete.cshtml" />
+    <Content Include="Views\PengeluaranGudangs\Details.cshtml" />
+    <Content Include="Views\PengeluaranGudangs\Edit.cshtml" />
+    <Content Include="Views\PengeluaranGudangs\Index.cshtml" />
+    <Content Include="Views\PengeluaranGudangs\Informasi.cshtml" />
+    <Content Include="Views\PengeluaranGudangRincians\Details.cshtml" />
+    <Content Include="Views\PengeluaranGudangRincians\Edit.cshtml" />
+    <Content Include="Views\PengeluaranGudangRincians\Index.cshtml" />
+    <Content Include="Views\PengeluaranGudangRincians\Informasi.cshtml" />
+    <Content Include="Views\Gudangs\Create.cshtml" />
+    <Content Include="Views\Gudangs\Delete.cshtml" />
+    <Content Include="Views\Gudangs\Details.cshtml" />
+    <Content Include="Views\Gudangs\Edit.cshtml" />
+    <Content Include="Views\Gudangs\Index.cshtml" />
+    <Content Include="Views\GudangBahanBakus\Create.cshtml" />
+    <Content Include="Views\GudangBahanBakus\Delete.cshtml" />
+    <Content Include="Views\GudangBahanBakus\Details.cshtml" />
+    <Content Include="Views\GudangBahanBakus\Edit.cshtml" />
+    <Content Include="Views\GudangBahanBakus\Index.cshtml" />
+    <Content Include="Views\Reseps\Create.cshtml" />
+    <Content Include="Views\Reseps\Delete.cshtml" />
+    <Content Include="Views\Reseps\Details.cshtml" />
+    <Content Include="Views\Reseps\Edit.cshtml" />
+    <Content Include="Views\Reseps\Index.cshtml" />
+    <Content Include="Views\ResepRincians\Create.cshtml" />
+    <Content Include="Views\ResepRincians\Delete.cshtml" />
+    <Content Include="Views\ResepRincians\Details.cshtml" />
+    <Content Include="Views\ResepRincians\Edit.cshtml" />
+    <Content Include="Views\ResepRincians\Index.cshtml" />
+    <Content Include="Views\Reseps\Informasi.cshtml" />
+    <Content Include="Views\Reseps\Cetak.cshtml" />
+    <Content Include="Views\PindahGudangRincians\Create.cshtml" />
+    <Content Include="Views\PindahGudangRincians\Delete.cshtml" />
+    <Content Include="Views\PindahGudangRincians\Details.cshtml" />
+    <Content Include="Views\PindahGudangRincians\Edit.cshtml" />
+    <Content Include="Views\PindahGudangRincians\Index.cshtml" />
+    <Content Include="Views\PindahGudangs\Create.cshtml" />
+    <Content Include="Views\PindahGudangs\Delete.cshtml" />
+    <Content Include="Views\PindahGudangs\Details.cshtml" />
+    <Content Include="Views\PindahGudangs\Edit.cshtml" />
+    <Content Include="Views\PindahGudangs\Index.cshtml" />
+    <Content Include="Views\OrderProduksis\Index.cshtml" />
+    <Content Include="Views\OrderBahanBakus\Create.cshtml" />
+    <Content Include="Views\OrderBahanBakus\Delete.cshtml" />
+    <Content Include="Views\OrderBahanBakus\Details.cshtml" />
+    <Content Include="Views\OrderBahanBakus\Edit.cshtml" />
+    <Content Include="Views\OrderBahanBakus\Index.cshtml" />
+    <Content Include="Views\OrderBahanBakus\Informasi.cshtml" />
+    <Content Include="Views\JPDeptAs\Create.cshtml" />
+    <Content Include="Views\JPDeptAs\Delete.cshtml" />
+    <Content Include="Views\JPDeptAs\Details.cshtml" />
+    <Content Include="Views\JPDeptAs\Edit.cshtml" />
+    <Content Include="Views\JPDeptAs\Index.cshtml" />
+    <Content Include="Views\JPDeptARincians\Create.cshtml" />
+    <Content Include="Views\JPDeptARincians\Delete.cshtml" />
+    <Content Include="Views\JPDeptARincians\Details.cshtml" />
+    <Content Include="Views\JPDeptARincians\Edit.cshtml" />
+    <Content Include="Views\JPDeptARincians\Index.cshtml" />
+    <Content Include="Views\JPDeptASOes\Create.cshtml" />
+    <Content Include="Views\JPDeptASOes\Delete.cshtml" />
+    <Content Include="Views\JPDeptASOes\Details.cshtml" />
+    <Content Include="Views\JPDeptASOes\Edit.cshtml" />
+    <Content Include="Views\JPDeptASOes\Index.cshtml" />
+    <Content Include="Views\LPDeptAs\Create.cshtml" />
+    <Content Include="Views\LPDeptAs\Delete.cshtml" />
+    <Content Include="Views\LPDeptAs\Details.cshtml" />
+    <Content Include="Views\LPDeptAs\Edit.cshtml" />
+    <Content Include="Views\LPDeptAs\Index.cshtml" />
+    <Content Include="Views\LPDeptARincians\Create.cshtml" />
+    <Content Include="Views\LPDeptARincians\Delete.cshtml" />
+    <Content Include="Views\LPDeptARincians\Details.cshtml" />
+    <Content Include="Views\LPDeptARincians\Edit.cshtml" />
+    <Content Include="Views\LPDeptARincians\Index.cshtml" />
+    <Content Include="Views\JPDeptBs\Create.cshtml" />
+    <Content Include="Views\JPDeptBs\Delete.cshtml" />
+    <Content Include="Views\JPDeptBs\Details.cshtml" />
+    <Content Include="Views\JPDeptBs\Edit.cshtml" />
+    <Content Include="Views\JPDeptBs\Index.cshtml" />
+    <Content Include="Views\JPDeptBRincians\Create.cshtml" />
+    <Content Include="Views\JPDeptBRincians\Delete.cshtml" />
+    <Content Include="Views\JPDeptBRincians\Details.cshtml" />
+    <Content Include="Views\JPDeptBRincians\Edit.cshtml" />
+    <Content Include="Views\JPDeptBRincians\Index.cshtml" />
+    <Content Include="Views\LPDeptBs\Create.cshtml" />
+    <Content Include="Views\LPDeptBs\Delete.cshtml" />
+    <Content Include="Views\LPDeptBs\Details.cshtml" />
+    <Content Include="Views\LPDeptBs\Edit.cshtml" />
+    <Content Include="Views\LPDeptBs\Index.cshtml" />
+    <Content Include="Views\LPDeptBRincians\Create.cshtml" />
+    <Content Include="Views\LPDeptBRincians\Delete.cshtml" />
+    <Content Include="Views\LPDeptBRincians\Details.cshtml" />
+    <Content Include="Views\LPDeptBRincians\Edit.cshtml" />
+    <Content Include="Views\LPDeptBRincians\Index.cshtml" />
+    <Content Include="Views\JPDeptARincians\Informasi.cshtml" />
+    <Content Include="Views\JPDeptAs\Informasi.cshtml" />
+    <Content Include="Views\JPDeptAs\Cetak.cshtml" />
+    <Content Include="Views\LPDeptAs\Informasi.cshtml" />
+    <Content Include="Views\LPDeptAs\Cetak.cshtml" />
+    <Content Include="Views\JPDeptBs\Informasi.cshtml" />
+    <Content Include="Views\JPDeptBs\Cetak.cshtml" />
+    <Content Include="Views\LPDeptBs\Informasi.cshtml" />
+    <Content Include="Views\LPDeptBs\Cetak.cshtml" />
+    <Content Include="Views\JPDeptACompounds\Create.cshtml" />
+    <Content Include="Views\JPDeptACompounds\Delete.cshtml" />
+    <Content Include="Views\JPDeptACompounds\Details.cshtml" />
+    <Content Include="Views\JPDeptACompounds\Edit.cshtml" />
+    <Content Include="Views\JPDeptACompounds\Index.cshtml" />
+    <Content Include="Views\BPPBs\Create.cshtml" />
+    <Content Include="Views\BPPBs\Delete.cshtml" />
+    <Content Include="Views\BPPBs\Details.cshtml" />
+    <Content Include="Views\BPPBs\Edit.cshtml" />
+    <Content Include="Views\BPPBs\Index.cshtml" />
+    <Content Include="Views\BPPBRincians\Create.cshtml" />
+    <Content Include="Views\BPPBRincians\Delete.cshtml" />
+    <Content Include="Views\BPPBRincians\Details.cshtml" />
+    <Content Include="Views\BPPBRincians\Edit.cshtml" />
+    <Content Include="Views\BPPBRincians\Index.cshtml" />
+    <Content Include="Views\BPPBs\Informasi.cshtml" />
+    <Content Include="Views\BPPBs\Cetak.cshtml" />
+    <Content Include="Views\PengeluaranBahanBaku\Cetak.cshtml" />
+    <Content Include="Views\PengeluaranBahanBaku\Create.cshtml" />
+    <Content Include="Views\PengeluaranBahanBaku\Delete.cshtml" />
+    <Content Include="Views\PengeluaranBahanBaku\Details.cshtml" />
+    <Content Include="Views\PengeluaranBahanBaku\Edit.cshtml" />
+    <Content Include="Views\PengeluaranBahanBaku\Index.cshtml" />
+    <Content Include="Views\PengeluaranBahanBaku\Informasi.cshtml" />
+    <Content Include="Views\PengeluaranBahanBakuRincian\Create.cshtml" />
+    <Content Include="Views\PengeluaranBahanBakuRincian\Delete.cshtml" />
+    <Content Include="Views\PengeluaranBahanBakuRincian\Details.cshtml" />
+    <Content Include="Views\PengeluaranBahanBakuRincian\Edit.cshtml" />
+    <Content Include="Views\PengeluaranBahanBakuRincian\Index.cshtml" />
+    <Content Include="Views\Shared\Informasi.cshtml" />
+    <Content Include="Views\PengeluaranBahanBakuRincian\Informasi.cshtml" />
+    <Content Include="Views\PenerimaanBahanBaku\Cetak.cshtml" />
+    <Content Include="Views\PenerimaanBahanBaku\Create.cshtml" />
+    <Content Include="Views\PenerimaanBahanBaku\Delete.cshtml" />
+    <Content Include="Views\PenerimaanBahanBaku\Details.cshtml" />
+    <Content Include="Views\PenerimaanBahanBaku\Edit.cshtml" />
+    <Content Include="Views\PenerimaanBahanBaku\Index.cshtml" />
+    <Content Include="Views\PenerimaanBahanBaku\Informasi.cshtml" />
+    <Content Include="Views\PenerimaanBahanBakuRincian\Create.cshtml" />
+    <Content Include="Views\PenerimaanBahanBakuRincian\Delete.cshtml" />
+    <Content Include="Views\PenerimaanBahanBakuRincian\Details.cshtml" />
+    <Content Include="Views\PenerimaanBahanBakuRincian\Edit.cshtml" />
+    <Content Include="Views\PenerimaanBahanBakuRincian\Index.cshtml" />
+    <Content Include="Views\PenerimaanBahanBakuRincian\Informasi.cshtml" />
+    <Content Include="Views\Reseps\DetailBukaPosting.cshtml" />
+    <Content Include="Views\LPDeptARajangans\Create.cshtml" />
+    <Content Include="Views\LPDeptARajangans\Delete.cshtml" />
+    <Content Include="Views\LPDeptARajangans\Details.cshtml" />
+    <Content Include="Views\LPDeptARajangans\Edit.cshtml" />
+    <Content Include="Views\LPDeptARajangans\Index.cshtml" />
+    <Content Include="Views\BahanBakuPerGudang\Create.cshtml" />
+    <Content Include="Views\BahanBakuPerGudang\Delete.cshtml" />
+    <Content Include="Views\BahanBakuPerGudang\Details.cshtml" />
+    <Content Include="Views\BahanBakuPerGudang\Edit.cshtml" />
+    <Content Include="Views\BahanBakuPerGudang\Index.cshtml" />
+    <Content Include="Views\KartuStoksGudang\Create.cshtml" />
+    <Content Include="Views\KartuStoksGudang\Delete.cshtml" />
+    <Content Include="Views\KartuStoksGudang\Details.cshtml" />
+    <Content Include="Views\KartuStoksGudang\Edit.cshtml" />
+    <Content Include="Views\KartuStoksGudang\Index.cshtml" />
+    <Content Include="Views\GudangBahanBakus\Informasi.cshtml" />
+    <Content Include="Views\KartuStoksGudang\Informasi.cshtml" />
+    <Content Include="Views\BahanBakus\InfoKalkulasi.cshtml" />
+    <Content Include="Views\BahanBakus\Informasi.cshtml" />
+    <Content Include="Views\PenimbanganProduksi\Create.cshtml" />
+    <Content Include="Views\PenimbanganProduksi\Delete.cshtml" />
+    <Content Include="Views\PenimbanganProduksi\Details.cshtml" />
+    <Content Include="Views\PenimbanganProduksi\Edit.cshtml" />
+    <Content Include="Views\PenimbanganProduksi\Index.cshtml" />
+    <Content Include="Views\PenimbanganProduksiRincians\Create.cshtml" />
+    <Content Include="Views\PenimbanganProduksiRincians\Delete.cshtml" />
+    <Content Include="Views\PenimbanganProduksiRincians\Details.cshtml" />
+    <Content Include="Views\PenimbanganProduksiRincians\Edit.cshtml" />
+    <Content Include="Views\PenimbanganProduksiRincians\Index.cshtml" />
+    <Content Include="Views\PenimbanganProduksiRincians\Cetak.cshtml" />
+    <Content Include="Views\PasswordSerahTerimas\Create.cshtml" />
+    <Content Include="Views\PasswordSerahTerimas\Delete.cshtml" />
+    <Content Include="Views\PasswordSerahTerimas\Details.cshtml" />
+    <Content Include="Views\PasswordSerahTerimas\Edit.cshtml" />
+    <Content Include="Views\PasswordSerahTerimas\Index.cshtml" />
+    <Content Include="Views\PengeluaranBahanBakuRincian\PasswordPenerimaan.cshtml" />
+    <Content Include="Views\BPPBRincians\Informasi.cshtml" />
+    <Content Include="Views\SuratJalanRincians\Cetak.cshtml" />
+    <Content Include="Views\Packings\Create.cshtml" />
+    <Content Include="Views\Packings\Delete.cshtml" />
+    <Content Include="Views\Packings\Details.cshtml" />
+    <Content Include="Views\Packings\Edit.cshtml" />
+    <Content Include="Views\Packings\Index.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangs\Create.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangs\Delete.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangs\Details.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangs\Edit.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangs\Index.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangRincians\Create.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangRincians\Delete.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangRincians\Details.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangRincians\Edit.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangRincians\Index.cshtml" />
+    <Content Include="Views\PemakaianPengembalianBarangRincians\Cetak.cshtml" />
+    <Content Include="Views\TutupSalesOrders\Details.cshtml" />
+    <Content Include="Views\TutupSalesOrders\Index.cshtml" />
+    <Content Include="Views\TutupSalesOrderRincians\Create.cshtml" />
+    <Content Include="Views\TutupSalesOrderRincians\Delete.cshtml" />
+    <Content Include="Views\TutupSalesOrderRincians\Details.cshtml" />
+    <Content Include="Views\TutupSalesOrderRincians\Edit.cshtml" />
+    <Content Include="Views\TutupSalesOrderRincians\Index.cshtml" />
+    <Content Include="Views\TutupSalesOrders\Informasi.cshtml" />
+    <Content Include="Views\InfoPengiriman\Index.cshtml" />
+    <Content Include="Views\InfoBarangBelumKirim\Create.cshtml" />
+    <Content Include="Views\InfoBarangBelumKirim\Delete.cshtml" />
+    <Content Include="Views\InfoBarangBelumKirim\Details.cshtml" />
+    <Content Include="Views\InfoBarangBelumKirim\Edit.cshtml" />
+    <Content Include="Views\InfoBarangBelumKirim\Index.cshtml" />
+    <Content Include="Views\SuratJalanCetakRincians\Edit.cshtml" />
+    <Content Include="Views\SuratJalanCetakRincians\Index.cshtml" />
+    <Content Include="Views\SuratJalanCetaks\Create.cshtml" />
+    <Content Include="Views\SuratJalanCetaks\Delete.cshtml" />
+    <Content Include="Views\SuratJalanCetaks\Details.cshtml" />
+    <Content Include="Views\SuratJalanCetaks\Edit.cshtml" />
+    <Content Include="Views\SuratJalanCetaks\Index.cshtml" />
+    <Content Include="Views\SuratJalans\UndoPostingInfo.cshtml" />
+    <Content Include="Views\SalesOrders\UndoPostingInfo.cshtml" />
+    <Content Include="Views\SuratJalanCetakRincians\IndexNonPPN.cshtml" />
+    <Content Include="Views\MataUangs\Create.cshtml" />
+    <Content Include="Views\MataUangs\Delete.cshtml" />
+    <Content Include="Views\MataUangs\Details.cshtml" />
+    <Content Include="Views\MataUangs\Edit.cshtml" />
+    <Content Include="Views\MataUangs\Index.cshtml" />
+    <Content Include="Views\StokOpnames\BatalPosting.cshtml" />
+    <Content Include="Views\PenimbanganProduksi\Informasi.cshtml" />
+    <Content Include="Views\HargaJuals\Create.cshtml" />
+    <Content Include="Views\HargaJuals\Delete.cshtml" />
+    <Content Include="Views\HargaJuals\Details.cshtml" />
+    <Content Include="Views\HargaJuals\Edit.cshtml" />
+    <Content Include="Views\HargaJuals\Index.cshtml" />
+    <Content Include="Views\HargaJualPerCustomers\Create.cshtml" />
+    <Content Include="Views\HargaJualPerCustomers\Delete.cshtml" />
+    <Content Include="Views\HargaJualPerCustomers\Details.cshtml" />
+    <Content Include="Views\HargaJualPerCustomers\Edit.cshtml" />
+    <Content Include="Views\HargaJualPerCustomers\Index.cshtml" />
+    <Content Include="Views\SuratJalans\UndoPostingTutup.cshtml" />
+    <Content Include="Views\rptLaporanPemakaians\Index.cshtml" />
+    <Content Include="Views\rptLaporanPemakaians\SaldoAwal.cshtml" />
+    <Content Include="Views\rptLaporanPemakaians\PembelianDetail.cshtml" />
+    <Content Include="Views\rptLaporanPemakaians\PemakaianDetail.cshtml" />
+    <Content Include="Views\SuratJalanCetakRincians\IndexNF.cshtml" />
+    <Content Include="Views\SuratJalanCetakRincians\IndexNonPPNNF.cshtml" />
+    <Content Include="Views\PenimbanganProduksi\DetailUndo.cshtml" />
+    <Content Include="Views\CetakLaporan\Index.cshtml" />
+    <Content Include="Views\CetakLaporan\SuratJalan.cshtml" />
+    <Content Include="Views\CetakLaporan\SuratJalanNF.cshtml" />
+    <Content Include="Views\CetakLaporan\SuratJalanNF1.cshtml" />
+    <Content Include="Views\CetakLaporan\SuratJalanPPN.cshtml" />
+    <Content Include="Views\CetakLaporan\SuratJalanPPNNF.cshtml" />
+    <Content Include="Views\SuratJalans\NoSJ.cshtml" />
+    <Content Include="Views\PemesananBarangs\NoPO.cshtml" />
+    <Content Include="Views\SAPiutangs\Create.cshtml" />
+    <Content Include="Views\SAPiutangs\Delete.cshtml" />
+    <Content Include="Views\SAPiutangs\Details.cshtml" />
+    <Content Include="Views\SAPiutangs\Edit.cshtml" />
+    <Content Include="Views\SAPiutangs\Index.cshtml" />
+    <Content Include="Views\SAPiutangs\Informasi.cshtml" />
+    <Content Include="Views\FakturJuals\Create.cshtml" />
+    <Content Include="Views\FakturJuals\Delete.cshtml" />
+    <Content Include="Views\FakturJuals\Details.cshtml" />
+    <Content Include="Views\FakturJuals\Edit.cshtml" />
+    <Content Include="Views\FakturJuals\Index.cshtml" />
+    <Content Include="Views\FakturJualRincians\Create.cshtml" />
+    <Content Include="Views\FakturJualRincians\Delete.cshtml" />
+    <Content Include="Views\FakturJualRincians\Details.cshtml" />
+    <Content Include="Views\FakturJualRincians\Edit.cshtml" />
+    <Content Include="Views\FakturJualRincians\Index.cshtml" />
+    <Content Include="Views\FakturJuals\UndoDetails.cshtml" />
+    <Content Include="Views\FakturJuals\Informasi.cshtml" />
+    <Content Include="Views\SAHutangs\Create.cshtml" />
+    <Content Include="Views\SAHutangs\Delete.cshtml" />
+    <Content Include="Views\SAHutangs\Details.cshtml" />
+    <Content Include="Views\SAHutangs\Edit.cshtml" />
+    <Content Include="Views\SAHutangs\Index.cshtml" />
+    <Content Include="Views\CetakLaporan\FakturJualPPN.cshtml" />
+    <Content Include="Views\CetakLaporan\FakturJualNonPPN.cshtml" />
+    <Content Include="Views\PembayaranSOes\Create.cshtml" />
+    <Content Include="Views\PembayaranSOes\Delete.cshtml" />
+    <Content Include="Views\PembayaranSOes\Details.cshtml" />
+    <Content Include="Views\PembayaranSOes\Edit.cshtml" />
+    <Content Include="Views\PembayaranSOes\Index.cshtml" />
+    <Content Include="Views\PembayaranSODetails\Create.cshtml" />
+    <Content Include="Views\PembayaranSODetails\Delete.cshtml" />
+    <Content Include="Views\PembayaranSODetails\Details.cshtml" />
+    <Content Include="Views\PembayaranSODetails\Edit.cshtml" />
+    <Content Include="Views\PembayaranSODetails\Index.cshtml" />
+    <Content Include="Views\FakturJuals\EditDiskon.cshtml" />
+    <Content Include="Views\PembayaranSOes\Informasi.cshtml" />
+    <Content Include="Views\PembayaranSODetails\Informasi.cshtml" />
+    <Content Include="Views\StatusKredit\Edit.cshtml" />
+    <Content Include="Views\StatusKredit\Index.cshtml" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="PDF\" />
+    <Folder Include="Views\DDL\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201601141024317_SuratJalan1.resx">
+      <DependentUpon>201601141024317_SuratJalan1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601141055279_tes.resx">
+      <DependentUpon>201601141055279_tes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601141408323_tes1.resx">
+      <DependentUpon>201601141408323_tes1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601150033260_TambahanSuratJalan.resx">
+      <DependentUpon>201601150033260_TambahanSuratJalan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601151143173_Stok.resx">
+      <DependentUpon>201601151143173_Stok.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601160201545_Contact.resx">
+      <DependentUpon>201601160201545_Contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601160238161_Contact1.resx">
+      <DependentUpon>201601160238161_Contact1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601161301089_Gudang.resx">
+      <DependentUpon>201601161301089_Gudang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601161333397_Gudang1.resx">
+      <DependentUpon>201601161333397_Gudang1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601161346558_Gudang2.resx">
+      <DependentUpon>201601161346558_Gudang2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601180642046_default.resx">
+      <DependentUpon>201601180642046_default.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602010425011_resep.resx">
+      <DependentUpon>201602010425011_resep.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602011355367_PindahGudang.resx">
+      <DependentUpon>201602011355367_PindahGudang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602020301208_PindahGudang1.resx">
+      <DependentUpon>201602020301208_PindahGudang1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602021500383_OrderProduksi.resx">
+      <DependentUpon>201602021500383_OrderProduksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602030651084_OrderBahanBaku.resx">
+      <DependentUpon>201602030651084_OrderBahanBaku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602031413501_SalesOrder.resx">
+      <DependentUpon>201602031413501_SalesOrder.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602150452023_JadualProduksi.resx">
+      <DependentUpon>201602150452023_JadualProduksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602150525217_JadualProduksi1.resx">
+      <DependentUpon>201602150525217_JadualProduksi1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602150856367_JadualProduksi2.resx">
+      <DependentUpon>201602150856367_JadualProduksi2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602151315422_JadualProduksi3.resx">
+      <DependentUpon>201602151315422_JadualProduksi3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602170256237_LaporanProduksi.resx">
+      <DependentUpon>201602170256237_LaporanProduksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602170505250_JadualDeptB.resx">
+      <DependentUpon>201602170505250_JadualDeptB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190407453_NoLot.resx">
+      <DependentUpon>201602190407453_NoLot.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190419433_NoLot1.resx">
+      <DependentUpon>201602190419433_NoLot1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602190454421_NoLot2.resx">
+      <DependentUpon>201602190454421_NoLot2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602200848474_tes2.resx">
+      <DependentUpon>201602200848474_tes2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602240910271_Precision.resx">
+      <DependentUpon>201602240910271_Precision.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602241317136_LaporanDeptA.resx">
+      <DependentUpon>201602241317136_LaporanDeptA.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603010358184_JenisKemasan.resx">
+      <DependentUpon>201603010358184_JenisKemasan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603010846231_RajanganCompound.resx">
+      <DependentUpon>201603010846231_RajanganCompound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603011034180_Compound.resx">
+      <DependentUpon>201603011034180_Compound.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603011317531_CompoundGudangBahanBaku.resx">
+      <DependentUpon>201603011317531_CompoundGudangBahanBaku.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603011411520_tabelDefault.resx">
+      <DependentUpon>201603011411520_tabelDefault.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603020240334_bppb.resx">
+      <DependentUpon>201603020240334_bppb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603020332435_tableBPPB.resx">
+      <DependentUpon>201603020332435_tableBPPB.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603020710274_tableBPPB2.resx">
+      <DependentUpon>201603020710274_tableBPPB2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603070936513_JPDeptBUkuran.resx">
+      <DependentUpon>201603070936513_JPDeptBUkuran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603100415105_LPDeptARajangan.resx">
+      <DependentUpon>201603100415105_LPDeptARajangan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603311011347_PenimbanganProduksi.resx">
+      <DependentUpon>201603311011347_PenimbanganProduksi.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604021421123_Penimbangan.resx">
+      <DependentUpon>201604021421123_Penimbangan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604021427521_Penimbang.resx">
+      <DependentUpon>201604021427521_Penimbang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604050327413_PasswordSerahTerima.resx">
+      <DependentUpon>201604050327413_PasswordSerahTerima.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604111037044_Packing.resx">
+      <DependentUpon>201604111037044_Packing.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604111044436_Packing1.resx">
+      <DependentUpon>201604111044436_Packing1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604160831319_Pemakaian.resx">
+      <DependentUpon>201604160831319_Pemakaian.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604200708407_Log.resx">
+      <DependentUpon>201604200708407_Log.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604220415426_SuratJalanUpdate.resx">
+      <DependentUpon>201604220415426_SuratJalanUpdate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604260238213_suratJalanCetak.resx">
+      <DependentUpon>201604260238213_suratJalanCetak.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201604260241145_suratJalanCetak1.resx">
+      <DependentUpon>201604260241145_suratJalanCetak1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605180302100_matauang.resx">
+      <DependentUpon>201605180302100_matauang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605230738512_Default01.resx">
+      <DependentUpon>201605230738512_Default01.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605270420047_HargaSatuan.resx">
+      <DependentUpon>201605270420047_HargaSatuan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605270520027_HargaRata2.resx">
+      <DependentUpon>201605270520027_HargaRata2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605291400433_HargaJual.resx">
+      <DependentUpon>201605291400433_HargaJual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201605300936524_mm.resx">
+      <DependentUpon>201605300936524_mm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606020953028_hargajualpercustomer.resx">
+      <DependentUpon>201606020953028_hargajualpercustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606021011286_hargajualpercustomer1.resx">
+      <DependentUpon>201606021011286_hargajualpercustomer1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607300712080_SAPiutang.resx">
+      <DependentUpon>201607300712080_SAPiutang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201607311248033_FakturJual.resx">
+      <DependentUpon>201607311248033_FakturJual.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608030400493_FakturJual1.resx">
+      <DependentUpon>201608030400493_FakturJual1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608040507048_FakturJual2.resx">
+      <DependentUpon>201608040507048_FakturJual2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608040832360_SAHutang.resx">
+      <DependentUpon>201608040832360_SAHutang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608110506010_Pembayaran.resx">
+      <DependentUpon>201608110506010_Pembayaran.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608111021568_Pembayaran2.resx">
+      <DependentUpon>201608111021568_Pembayaran2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608130324221_Contact2.resx">
+      <DependentUpon>201608130324221_Contact2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="RPTReports\rptdaftarBarangIsian.rdlc" />
+    <EmbeddedResource Include="RPTReports\rptdaftarBarang.rdlc" />
+    <EmbeddedResource Include="RPTReports\rptFakturJualNonPPN.rdlc" />
+    <EmbeddedResource Include="RPTReports\rptFakturJualPPN.rdlc" />
+    <EmbeddedResource Include="RPTReports\rptSuratJalanPPNNF.rdlc" />
+    <EmbeddedResource Include="RPTReports\rptSuratJalanPPN.rdlc" />
+    <EmbeddedResource Include="RPTReports\rptSuratJalanNF.rdlc" />
+    <EmbeddedResource Include="RPTReports\rptSuratJalan.rdlc" />
+    <EmbeddedResource Include="RPTReports\rptTesCetak.rdlc" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>53435</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:60000/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

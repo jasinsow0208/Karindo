@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Kramatdjati.Models.ResepRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Perincian BOM</h2>
+
+<h4><b>Kode Resep:@ViewBag.KodeResep</b></h4>
+<h4>Keterangan:@ViewBag.Keterangan </h4>
+<h4>Tgl Buat:@ViewBag.TglBuat</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bahanBaku.Keterangan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.bahanBaku.satuan.Keterangan)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.bahanBaku.KodeBahanBaku)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bahanBaku.Keterangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jumlah)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.bahanBaku.satuan.Keterangan)
+            </td>
+          </tr>
+    }
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "Reseps")
+</div>

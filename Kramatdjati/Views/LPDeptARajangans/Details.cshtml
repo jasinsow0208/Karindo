@@ -1,0 +1,42 @@
+﻿@model Kramatdjati.Models.LPDeptARajangan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LPDeptARajangan</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gudangBahanBaku.GudangBahanBakuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudangBahanBaku.GudangBahanBakuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lPDeptA.Dilaporkan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lPDeptA.Dilaporkan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LPDeptARajanganID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,37 @@
+﻿@model Kramatdjati.Models.JPDeptB
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Posting</h2>
+<h4>Jadual Produksi Departemen B</h4>
+<hr />
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TglProduksiDeptB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglProduksiDeptB)
+        </dd>
+
+         <dt>
+            @Html.DisplayNameFor(model => model.Catatan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catatan)
+        </dd>
+
+    </dl>
+    <p>
+        @Html.ActionLink("Posting", "Posting", new { id = Model.JPDeptBID }, new { @class = "btn btn-default" })
+    </p>
+</div>
+<p>
+     @Html.ActionLink("Back to List", "Index")
+</p>

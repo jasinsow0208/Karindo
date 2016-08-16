@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Kramatdjati.Models.PenimbanganProduksi>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Laporan Penimbangan</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "PenimbanganProduksiRincians", new { id = ViewBag.JPDeptARincianID }, new { @class = "btn btn-primary" })
+</p>
+<div class="col-md-6 ">
+    <h4><b>Jenis:@ViewBag.KodeBarangJadi</b></h4>
+    <h4>Jumlah:@ViewBag.Batch</h4>
+</div>
+<div class="col-md-6">
+    <h4>Lot No.:@ViewBag.NoLot</h4>
+    <h4>Tanggal:@ViewBag.TanggalProduksi </h4>
+</div>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahanBaku.bahanBaku.Keterangan )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahanBaku.bahanBaku.KodeBahanBaku   )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Jumlah)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Keterangan )
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gudangBahanBaku.bahanBaku.Keterangan )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gudangBahanBaku.bahanBaku.KodeBahanBaku )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jumlah)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keterangan )
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PenimbanganProduksiID }, new { @class = "btn btn-xs btn-primary" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.PenimbanganProduksiID }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "PenimbanganProduksi", new { TglProduksi = @ViewBag.TglProduksi },null)
+</div>

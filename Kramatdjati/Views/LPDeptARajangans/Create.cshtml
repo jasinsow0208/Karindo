@@ -1,0 +1,47 @@
+﻿@model Kramatdjati.Models.LPDeptARajangan
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Tambah</h2>
+<h4>Laporan Produksi Departemen A</h4>
+<h4>Perincian Rajangan</h4>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.LPDeptAID, new { Value = ViewBag.LPDeptAID })
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.GudangBahanBakuID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("GudangBahanBakuID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.GudangBahanBakuID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Jumlah, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{ Html.EnableClientValidation(false); }
+                @Html.EditorFor(model => model.Jumlah, new { htmlAttributes = new { @class = "form-control" } })
+                @{ Html.EnableClientValidation(true); }
+                @Html.ValidationMessageFor(model => model.Jumlah, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.LPDeptAID })
+</div>

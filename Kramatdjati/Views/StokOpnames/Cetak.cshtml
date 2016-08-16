@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Kramatdjati.Models.StokOpnameRincian>
+
+@{
+    ViewBag.Title = "Index";
+    //Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+<link href="~/Content/Cetak.css" rel="stylesheet" />
+<h2 class="hidden-print ">Cetak Stok Opname</h2>
+<a href="#" class="btn btn-primary hidden-print" onclick="window.print(); return false;">Print</a>
+
+<h2 class="visible-print">Stok Opname</h2>
+<h4><b>Tgl Dibuat:@ViewBag.TglBuat</b></h4>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.Divisi.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.Departemen.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.Keterangan)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.Jumlah)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.HargaSatuan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserInput)
+            </th>
+         </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.Divisi.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.Departemen.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.Keterangan)
+                </td>
+                <td class="text-right ">
+                    @string.Format("{0:N2}", item.Jumlah)
+                </td>
+                <td class="text-right ">
+                    @string.Format("{0:N2}", item.HargaSatuan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserInput)
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index", "StokOpnames")
+</div>

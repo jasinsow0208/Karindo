@@ -1,0 +1,76 @@
+﻿@model IEnumerable<Kramatdjati.Models.PenerimaanBarangRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="hidden-print ">Cetak Penerimaan Barang</h2>
+<a href="#" class="btn btn-primary hidden-print" onclick="window.print(); return false;">Print</a>
+
+<h2 class="visible-print">Penerimaan Barang</h2>
+
+<h4><b>Supplier:@ViewBag.Perusahaan</b></h4>
+<h4>No. PO:@ViewBag.NoPO </h4>
+<h4>Tgl Terima:@ViewBag.TglTransaksi</h4>
+<h4>No. Surat Jalan:@ViewBag.NoSuratJalan</h4>
+<h4>Tgl Surat Jalan:@ViewBag.TglSuratJalan</h4>
+
+<link href="~/Content/Cetak.css" rel="stylesheet" />
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.pemesananBarangRincian.bahanbaku.KodeBahanBaku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pemesananBarangRincian.bahanbaku.Keterangan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.pemesananBarangRincian.bahanbaku.satuan.Keterangan)
+        </th>
+        <th class="text-right ">
+            Jml Dipesan
+        </th>
+        <th class="text-right ">
+            Jml Sdh Diterima
+        </th>
+        <th class="text-right ">
+            @Html.DisplayNameFor(model => model.JumlahDiTerima)
+        </th>
+        <th class="text-right ">
+            Sisa
+        </th>
+     </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.pemesananBarangRincian.bahanbaku.KodeBahanBaku)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pemesananBarangRincian.bahanbaku.Keterangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.pemesananBarangRincian.bahanbaku.satuan.Keterangan)
+            </td>
+            <td class="text-right ">
+                @String.Format("{0:N2}", item.pemesananBarangRincian.Jumlah)
+            </td>
+            <td class="text-right ">
+                @String.Format("{0:N2}", item.pemesananBarangRincian.JmlYangSudahDiterima - item.JumlahDiTerima)
+            </td>
+            <td class="text-right ">
+                @String.Format("{0:N2}", item.JumlahDiTerima)
+            </td>
+            <td class="text-right ">
+                @String.Format("{0:N2}", item.pemesananBarangRincian.Jumlah - item.pemesananBarangRincian.JmlYangSudahDiterima )
+            </td>
+          </tr>
+    }
+
+</table>
+<h4>Pembuat:@ViewBag.User</h4>
+
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index", "PenerimaanBarangs")
+</div>

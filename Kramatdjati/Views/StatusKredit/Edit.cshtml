@@ -1,0 +1,84 @@
+﻿@model Kramatdjati.Models.Contact
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Contact</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.ContactID)
+        @Html.HiddenFor(model=>model.Perusahaan)
+        @Html.HiddenFor(model => model.Kontak)
+        @Html.HiddenFor(model => model.Email)
+        @Html.HiddenFor(model => model.Alamat)
+        @Html.HiddenFor(model => model.Kota)
+        @Html.HiddenFor(model => model.Propinsi)
+        @Html.HiddenFor(model => model.Negara)
+        @Html.HiddenFor(model => model.Telepon)
+        @Html.HiddenFor(model => model.Fax)
+        @Html.HiddenFor(model => model.NoRekHutangID)
+        @Html.HiddenFor(model => model.PPN)
+        @Html.HiddenFor(model => model.Customer)
+        @Html.HiddenFor(model => model.Supplier)
+        @Html.HiddenFor(model => model.NamaFaktur1)
+        @Html.HiddenFor(model => model.NamaFaktur2)
+        @Html.HiddenFor(model => model.AlamatFaktur1)
+        @Html.HiddenFor(model => model.AlamatFaktur2)
+        @Html.HiddenFor(model => model.KotaFaktur1)
+        @Html.HiddenFor(model => model.KotaFaktur2)
+        @Html.HiddenFor(model => model.NPWPFaktur1)
+        @Html.HiddenFor(model => model.NPWPFaktur2)
+        @Html.HiddenFor(model => model.Kredit)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Perusahaan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DisplayTextFor(model=>model.Perusahaan)
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoRekPiutangID,  htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("NoRekPiutangID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.NoRekPiutangID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.StatusKredit,  htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("StatusKredit", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.StatusKredit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+ 
+        <div class="form-group">
+            @Html.LabelFor(model => model.KreditLimit, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{Html.EnableClientValidation(false);}
+                @Html.EditorFor(model => model.KreditLimit, new { htmlAttributes = new { @class = "form-control" } })
+                @{Html.EnableClientValidation(true);}
+                @Html.ValidationMessageFor(model => model.KreditLimit, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+         <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

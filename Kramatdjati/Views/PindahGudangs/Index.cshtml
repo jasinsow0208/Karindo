@@ -1,0 +1,90 @@
+﻿@model IEnumerable<Kramatdjati.Models.PindahGudang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pindah Gudang</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "PindahGudangs", null, new { @class = "btn btn-primary" })
+</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal pull-right">
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.FirstOrDefault().Posting , htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-12">
+                Posting
+                @Html.EditorFor(model => model.FirstOrDefault().Posting, new { @class = "form-control" })
+                <input type="submit" value="Proses" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.BuktiPindahGudang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglTransaksi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gudangAsal)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.gudangTujuan)
+            </th>
+ 
+             <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BuktiPindahGudang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglTransaksi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gudangAsal.Lokasi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.gudangTujuan.Lokasi)
+                </td>
+
+    
+                  <td>
+                    @if (item.Posting != true)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PindahGudangID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Details", "Index", "PindahGudangRincians", new { id = item.PindahGudangID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PindahGudangID }, new { @class = "btn btn-xs btn-danger" })
+                        @Html.ActionLink("Posting", "Details", new { id = item.PindahGudangID }, new { @class = "btn btn-xs btn-success" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Details", "Cetak", new { id = item.PindahGudangID }, new { @class = "btn btn-xs btn-success" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

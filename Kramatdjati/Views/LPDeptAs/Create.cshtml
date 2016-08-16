@@ -1,0 +1,125 @@
+﻿@model Kramatdjati.Models.LPDeptA
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Tambah</h2>
+<h4>Laporan Produksi Departemen A</h4>
+<hr />
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+    
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.TglProduksi, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.TglProduksi, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.TglProduksi, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.Dilaporkan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 ">
+                @Html.EditorFor(model => model.Dilaporkan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Dilaporkan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Diketahui, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Diketahui, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Diketahui, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Catatan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 ">
+                @Html.TextAreaFor(model => model.Catatan,  new { @class = "form-control", @rows="5" } )
+                @Html.ValidationMessageFor(model => model.Catatan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PenimbanganAwal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 form-inline">
+                @Html.EditorFor(model => model.PenimbanganAwal, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                s/d
+                @Html.EditorFor(model => model.PenimbanganAkhir, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                @Html.ValidationMessageFor(model => model.PenimbanganAwal, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.PenimbanganAkhir, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.KneaderAwal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 form-inline">
+                @Html.EditorFor(model => model.KneaderAwal, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                s/d
+                @Html.EditorFor(model => model.KneaderAkhir, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                @Html.ValidationMessageFor(model => model.KneaderAkhir, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.KneaderAwal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BoilerAwal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 form-inline">
+                @Html.EditorFor(model => model.BoilerAwal, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                s/d
+                @Html.EditorFor(model => model.BoilerAkhir, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                @Html.ValidationMessageFor(model => model.BoilerAkhir, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.BoilerAwal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.RollAwal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 form-inline">
+                @Html.EditorFor(model => model.RollAwal, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                s/d
+                @Html.EditorFor(model => model.RollAkhir, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                @Html.ValidationMessageFor(model => model.RollAkhir, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.RollAwal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HotPressBAwal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 form-inline">
+                @Html.EditorFor(model => model.HotPressBAwal, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                s/d
+                @Html.EditorFor(model => model.HotPressBAkhir, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                @Html.ValidationMessageFor(model => model.HotPressBAkhir, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.HotPressBAwal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HotPressKAwal, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10 form-inline">
+                @Html.EditorFor(model => model.HotPressKAwal, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                s/d
+                @Html.EditorFor(model => model.HotPressKAkhir, new { htmlAttributes = new { @class = "form-control form_datetime" } })
+                @Html.ValidationMessageFor(model => model.HotPressKAkhir, "", new { @class = "text-danger" })
+                @Html.ValidationMessageFor(model => model.HotPressKAwal, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

@@ -1,0 +1,51 @@
+﻿@model Kramatdjati.Models.FakturJual
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit Diskon</h2>
+<h4>Faktur Jual</h4>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.FakturJualID)
+        @Html.HiddenFor(Model => Model.PPN)
+        @Html.HiddenFor(model=>model.ContactID)
+        @Html.HiddenFor(model => model.Nama)
+        @Html.HiddenFor(model => model.Alamat)
+        @Html.HiddenFor(model => model.Kota)
+        @Html.HiddenFor(model => model.NPWP)
+        @Html.HiddenFor(model => model.TglFaktur)
+        @Html.HiddenFor(model => model.NoFaktur)
+        @Html.HiddenFor(model => model.NomorSeri)
+        @Html.HiddenFor(model => model.TglPesan)
+        @Html.HiddenFor(model => model.TglJatuhTempo)
+        @Html.HiddenFor(model => model.SuratJalanCetakID)
+        @Html.HiddenFor(model => model.Posting)
+          <div class="form-group">
+            @Html.LabelFor(model => model.Diskon, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{ Html.EnableClientValidation(false); }
+                @Html.EditorFor(model => model.Diskon, new { htmlAttributes = new { @class = "form-control" } })
+                @{ Html.EnableClientValidation(true); }
+                @Html.ValidationMessageFor(model => model.Diskon, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "FakturJualRincians", new { id = @ViewBag.FakturJualID },null)
+</div>

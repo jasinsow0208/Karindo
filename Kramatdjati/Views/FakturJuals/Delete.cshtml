@@ -1,0 +1,80 @@
+﻿@model Kramatdjati.Models.FakturJual
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Faktur Jual</h4>
+<hr />
+
+<h3>Apakah data faktur akan dihapus?</h3>
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.Perusahaan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer.Perusahaan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.suratJalanCetak.suratJalan.NoSuratJalan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.suratJalanCetak.suratJalan.NoSuratJalan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglFaktur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglFaktur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoFaktur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoFaktur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomorSeri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomorSeri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglJatuhTempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglJatuhTempo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PPN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPN)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,40 @@
+﻿@model Kramatdjati.Models.JPDeptACompound
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>JPDeptACompound</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gudangBahanBaku.bahanBaku.KodeBahanBaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudangBahanBaku.bahanBaku.KodeBahanBaku)
+        </dd>
+          
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+           @Html.ActionLink("Back to List", "Index", new { id = ViewBag.JPDeptID })
+        </div>
+    }
+</div>

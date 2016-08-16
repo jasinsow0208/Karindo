@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Kramatdjati.Models.ViewKartuStok>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Kartu Stok</h2>
+
+<h4>Kode Barang:@ViewBag.KodeBarang</h4>
+<h4>Nama Barang:@ViewBag.NamaBarang</h4>
+<h4>Jumlah:@ViewBag.Stok</h4>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    @Html.HiddenFor(model => model.FirstOrDefault().BahanBakuID,  new { Value = ViewBag.BahanBakuID })
+    <div class="form-horizontal ">
+        <div class="form-group">
+             <div class="col-md-10">
+                Gudang:
+                @Html.DropDownList("GudangID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.FirstOrDefault().GudangID, "", new { @class = "text-danger" })
+                <input type="submit" value="Proses" class="btn btn-default btn-sm" />
+            </div>
+        </div>
+        
+     </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TglKomputer)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Masuk)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keluar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Saldo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Source)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TglKomputer)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keterangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Masuk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keluar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Saldo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Source)
+            </td>
+        </tr>
+    }
+
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Index", "BahanBakus")
+</p>

@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Kramatdjati.Models.HargaJual>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Harga Jual</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create","HargaJuals", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TglBerlaku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JenisSpon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Harga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mm)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglBerlaku)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JenisSpon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Harga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mm)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.HargaJualID }, new { @class = "btn btn-xs btn-primary" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.HargaJualID }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

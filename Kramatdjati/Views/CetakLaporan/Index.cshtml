@@ -1,0 +1,15 @@
+﻿@model IEnumerable<Kramatdjati.Models.ContohCetak>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Laporan</h2>
+
+<input class="hidenID" id="Counter" value=@Model.FirstOrDefault().Counter />
+
+<div id="autoUpdate" >
+          <iframe id="FrameID" width="100%" height="400px"></iframe>
+ </div>  
+    
+    
+    

@@ -1,0 +1,80 @@
+﻿<h2 class="visible-print">Purchase Order</h2>
+<br />
+<h4><b>Supplier:@ViewBag.Supplier</b></h4>
+<h4>No. PO:@ViewBag.NoPO </h4>
+<h4>Tgl Pesan:@ViewBag.TglTransaksi</h4>
+<h4>Tgl Kirim:@ViewBag.TglKirim</h4>
+<link href="~/Content/Cetak.css" rel="stylesheet" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Kode 
+            </th>
+            <th>
+                Nama Barang
+            </th>
+            <th class="text-right ">
+                Jumlah
+            </th>
+            <th>Satuan</th>
+            <th class="text-right ">
+                Harga Satuan
+            </th>
+            <th class="text-right ">
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in ViewBag.pemesananBarangRincians)
+        {
+            <tr>
+                <td>
+                    @item.bahanbaku.KodeBahanBaku
+                </td>
+                <td>
+                    @item.bahanbaku.Keterangan
+                </td>
+                <td class="text-right ">
+                    @item.Jumlah
+                </td>
+                <td>@item.bahanbaku.satuan.Keterangan</td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.HargaSatuan)
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.Jumlah * item.HargaSatuan)
+                </td>
+            </tr>
+
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th class="text-right ">
+
+            </th>
+            <th></th>
+            <th class="text-right ">
+
+            </th>
+            <th class="text-right ">
+                @String.Format("{0:N2}", ViewBag.Total)
+            </th>
+        </tr>
+    </tfoot>
+</table>
+
+<h4><b>Catatan:</b></h4>
+<h4>@ViewBag.Catatan</h4>
+
+

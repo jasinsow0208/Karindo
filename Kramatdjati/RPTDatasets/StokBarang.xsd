@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="StokBarang" targetNamespace="http://tempuri.org/StokBarang.xsd" xmlns:mstns="http://tempuri.org/StokBarang.xsd" xmlns="http://tempuri.org/StokBarang.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections>
+          <Connection AppSettingsObjectName="Web.config" AppSettingsPropertyName="IdentityDb" ConnectionStringObject="" IsAppSettingsProperty="true" Modifier="Assembly" Name="IdentityDb (Web.config)" ParameterPrefix="@" PropertyReference="AppConfig.System.Configuration.ConfigurationManager.0.ConnectionStrings.IdentityDb.ConnectionString" Provider="System.Data.SqlClient" />
+        </Connections>
+        <Tables>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="BahanBakusTableAdapter" GeneratorDataComponentClassName="BahanBakusTableAdapter" Name="BahanBakus" UserDataComponentName="BahanBakusTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IdentityDb (Web.config)" DbObjectType="Unknown" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="true" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="false">
+                    <CommandText>SELECT        Divisis.Keterangan AS Divisi, Departemen.Keterangan AS Departemen, BahanBakus.KodeBahanBaku, BahanBakus.Keterangan AS NamaBarang, Satuans.Keterangan AS Satuan, BahanBakus.Stok, 
+                         BahanBakus.HargaRata2, BahanBakus.HargaTerakhir, BahanBakus.HargaJual
+FROM            BahanBakus INNER JOIN
+                         Departemen ON BahanBakus.DepartemenId = Departemen.DepartemenID INNER JOIN
+                         Divisis ON BahanBakus.DivisiId = Divisis.DivisiId AND Departemen.DivisiId = Divisis.DivisiId INNER JOIN
+                         Satuans ON BahanBakus.SatuanID = Satuans.SatuanID
+ORDER BY Divisi, Departemen, BahanBakus.KodeBahanBaku, NamaBarang</CommandText>
+                    <Parameters />
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="KodeBahanBaku" DataSetColumn="KodeBahanBaku" />
+              <Mapping SourceColumn="Stok" DataSetColumn="Stok" />
+              <Mapping SourceColumn="HargaRata2" DataSetColumn="HargaRata2" />
+              <Mapping SourceColumn="HargaTerakhir" DataSetColumn="HargaTerakhir" />
+              <Mapping SourceColumn="HargaJual" DataSetColumn="HargaJual" />
+              <Mapping SourceColumn="Divisi" DataSetColumn="Divisi" />
+              <Mapping SourceColumn="Departemen" DataSetColumn="Departemen" />
+              <Mapping SourceColumn="NamaBarang" DataSetColumn="NamaBarang" />
+              <Mapping SourceColumn="Satuan" DataSetColumn="Satuan" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+          <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SuratJalansTableAdapter" GeneratorDataComponentClassName="SuratJalansTableAdapter" Name="SuratJalans" UserDataComponentName="SuratJalansTableAdapter">
+            <MainSource>
+              <DbSource ConnectionRef="IdentityDb (Web.config)" DbObjectName="Karindo.dbo.SuratJalans" DbObjectType="Table" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
+                <SelectCommand>
+                  <DbCommand CommandType="Text" ModifiedByUser="true">
+                    <CommandText>SELECT        NoSuratJalan, tglSuratJalan, TglTransaksi
+FROM            SuratJalans
+WHERE        (SuratJalanID = @SuratJalanID)</CommandText>
+                    <Parameters>
+                      <Parameter AllowDbNull="false" AutogeneratedName="SuratJalanID" ColumnName="SuratJalanID" DataSourceName="Karindo.dbo.SuratJalans" DataTypeServer="int" DbType="Int32" Direction="Input" ParameterName="@SuratJalanID" Precision="0" ProviderType="Int" Scale="0" Size="4" SourceColumn="SuratJalanID" SourceColumnNullMapping="false" SourceVersion="Current" />
+                    </Parameters>
+                  </DbCommand>
+                </SelectCommand>
+              </DbSource>
+            </MainSource>
+            <Mappings>
+              <Mapping SourceColumn="NoSuratJalan" DataSetColumn="NoSuratJalan" />
+              <Mapping SourceColumn="tglSuratJalan" DataSetColumn="tglSuratJalan" />
+              <Mapping SourceColumn="TglTransaksi" DataSetColumn="TglTransaksi" />
+            </Mappings>
+            <Sources />
+          </TableAdapter>
+        </Tables>
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="StokBarang" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="StokBarang" msprop:Generator_UserDSName="StokBarang">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="BahanBakus" msprop:Generator_TableClassName="BahanBakusDataTable" msprop:Generator_TableVarName="tableBahanBakus" msprop:Generator_RowChangedName="BahanBakusRowChanged" msprop:Generator_TablePropName="BahanBakus" msprop:Generator_RowDeletingName="BahanBakusRowDeleting" msprop:Generator_RowChangingName="BahanBakusRowChanging" msprop:Generator_RowEvHandlerName="BahanBakusRowChangeEventHandler" msprop:Generator_RowDeletedName="BahanBakusRowDeleted" msprop:Generator_RowClassName="BahanBakusRow" msprop:Generator_UserTableName="BahanBakus" msprop:Generator_RowEvArgName="BahanBakusRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="KodeBahanBaku" msprop:Generator_ColumnVarNameInTable="columnKodeBahanBaku" msprop:Generator_ColumnPropNameInRow="KodeBahanBaku" msprop:Generator_ColumnPropNameInTable="KodeBahanBakuColumn" msprop:Generator_UserColumnName="KodeBahanBaku" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Stok" msprop:Generator_ColumnVarNameInTable="columnStok" msprop:Generator_ColumnPropNameInRow="Stok" msprop:Generator_ColumnPropNameInTable="StokColumn" msprop:Generator_UserColumnName="Stok" type="xs:decimal" />
+              <xs:element name="HargaRata2" msprop:Generator_ColumnVarNameInTable="columnHargaRata2" msprop:Generator_ColumnPropNameInRow="HargaRata2" msprop:Generator_ColumnPropNameInTable="HargaRata2Column" msprop:Generator_UserColumnName="HargaRata2" type="xs:decimal" />
+              <xs:element name="HargaTerakhir" msprop:Generator_ColumnVarNameInTable="columnHargaTerakhir" msprop:Generator_ColumnPropNameInRow="HargaTerakhir" msprop:Generator_ColumnPropNameInTable="HargaTerakhirColumn" msprop:Generator_UserColumnName="HargaTerakhir" type="xs:decimal" />
+              <xs:element name="HargaJual" msprop:Generator_ColumnVarNameInTable="columnHargaJual" msprop:Generator_ColumnPropNameInRow="HargaJual" msprop:Generator_ColumnPropNameInTable="HargaJualColumn" msprop:Generator_UserColumnName="HargaJual" type="xs:decimal" />
+              <xs:element name="Divisi" msprop:Generator_ColumnVarNameInTable="columnDivisi" msprop:Generator_ColumnPropNameInRow="Divisi" msprop:Generator_ColumnPropNameInTable="DivisiColumn" msprop:Generator_UserColumnName="Divisi" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Departemen" msprop:Generator_ColumnVarNameInTable="columnDepartemen" msprop:Generator_ColumnPropNameInRow="Departemen" msprop:Generator_ColumnPropNameInTable="DepartemenColumn" msprop:Generator_UserColumnName="Departemen" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="NamaBarang" msprop:Generator_ColumnVarNameInTable="columnNamaBarang" msprop:Generator_ColumnPropNameInRow="NamaBarang" msprop:Generator_ColumnPropNameInTable="NamaBarangColumn" msprop:Generator_UserColumnName="NamaBarang" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="Satuan" msprop:Generator_ColumnVarNameInTable="columnSatuan" msprop:Generator_ColumnPropNameInRow="Satuan" msprop:Generator_ColumnPropNameInTable="SatuanColumn" msprop:Generator_UserColumnName="Satuan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="SuratJalans" msprop:Generator_TableClassName="SuratJalansDataTable" msprop:Generator_TableVarName="tableSuratJalans" msprop:Generator_TablePropName="SuratJalans" msprop:Generator_RowDeletingName="SuratJalansRowDeleting" msprop:Generator_RowChangingName="SuratJalansRowChanging" msprop:Generator_RowEvHandlerName="SuratJalansRowChangeEventHandler" msprop:Generator_RowDeletedName="SuratJalansRowDeleted" msprop:Generator_UserTableName="SuratJalans" msprop:Generator_RowChangedName="SuratJalansRowChanged" msprop:Generator_RowEvArgName="SuratJalansRowChangeEvent" msprop:Generator_RowClassName="SuratJalansRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NoSuratJalan" msprop:Generator_ColumnVarNameInTable="columnNoSuratJalan" msprop:Generator_ColumnPropNameInRow="NoSuratJalan" msprop:Generator_ColumnPropNameInTable="NoSuratJalanColumn" msprop:Generator_UserColumnName="NoSuratJalan" minOccurs="0">
+                <xs:simpleType>
+                  <xs:restriction base="xs:string">
+                    <xs:maxLength value="2147483647" />
+                  </xs:restriction>
+                </xs:simpleType>
+              </xs:element>
+              <xs:element name="tglSuratJalan" msprop:Generator_ColumnVarNameInTable="columntglSuratJalan" msprop:Generator_ColumnPropNameInRow="tglSuratJalan" msprop:Generator_ColumnPropNameInTable="tglSuratJalanColumn" msprop:Generator_UserColumnName="tglSuratJalan" type="xs:dateTime" />
+              <xs:element name="TglTransaksi" msprop:Generator_ColumnVarNameInTable="columnTglTransaksi" msprop:Generator_ColumnPropNameInRow="TglTransaksi" msprop:Generator_ColumnPropNameInTable="TglTransaksiColumn" msprop:Generator_UserColumnName="TglTransaksi" type="xs:dateTime" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

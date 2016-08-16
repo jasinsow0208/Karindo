@@ -1,0 +1,44 @@
+﻿@model Kramatdjati.Models.LPDeptB
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Laporan Produksi Departemen B</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TglProduksi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglProduksi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Catatan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Catatan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JamKerjaAwal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JamKerjaAwal) s/d @Html.DisplayFor(model => model.JamKerjaAkhir)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

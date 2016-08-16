@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Kramatdjati.Models.SuratJalanRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Perincian Pengeluaran Gudang</h2>
+
+<h4><b>Customer:@ViewBag.Customer</b></h4>
+@*<h4>No. SO:@ViewBag.NoSO </h4>*@
+<h4>No. Surat Jalan:@ViewBag.NoSuratJalan </h4>
+<h4>Tgl Transaksi:@ViewBag.TglTransaksi</h4>
+<h4>Tgl Surat Jalan:@ViewBag.TglSuratJalan</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.salesOrderRincian.bahanBaku.KodeBahanBaku)
+        </th>
+        <th>
+            Jml Dipesan
+        </th>
+        <th>
+            Sdh Dikirim
+        </th>
+        <th>
+            Jml dikirim
+        </th>
+        <th>
+            Sisa
+        </th>
+        <th></th>
+    </tr>
+
+    @{
+        decimal intSisa = 0;
+        foreach (var item in Model)
+        {
+            intSisa = item.salesOrderRincian.Jumlah - item.salesOrderRincian.JmlYangSudahDiKirim - item.JumlahDikirim;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salesOrderRincian.bahanBaku.KodeBahanBaku)
+                </td>
+                <td>
+                    @string.Format("{0:N0}", item.salesOrderRincian.Jumlah)
+                </td>
+                <td>
+                    @string.Format("{0:N0}", item.salesOrderRincian.JmlYangSudahDiKirim)
+                </td>
+                <td>
+                    @string.Format("{0:N0}", item.JumlahDikirim)
+                </td>
+                <td>
+                    @String.Format("{0:N0}", @intSisa)
+                </td>
+                <td>
+                    @if (User.IsInRole("Gudang"))
+                    {
+                        if (item.Kirim == false)
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.SuratJalanRincianID }, new { @class = "btn btn-primary" })
+                            @Html.ActionLink("Kirim", "Details", new { id = item.SuratJalanRincianID }, new { @class = "btn btn-primary" })
+                        }
+
+                    }
+                    else
+                    {
+                        if (item.Kirim == false)
+                        {
+                            @Html.ActionLink("Edit", "Edit", new { id = item.SuratJalanRincianID }, new { @class = "btn btn-xs btn-primary" })
+                            @Html.ActionLink("Kirim", "Details", new { id = item.SuratJalanRincianID }, new { @class = "btn btn-xs btn-primary" })
+                        }
+
+                    }
+
+                </td>
+            </tr>
+        }
+    }
+
+
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Index", "PengeluaranGudangs")
+</p>

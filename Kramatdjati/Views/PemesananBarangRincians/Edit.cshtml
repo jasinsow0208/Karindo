@@ -1,0 +1,85 @@
+﻿@model Kramatdjati.Models.PemesananBarangRincian
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Perincian Pemesanan Barang</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PemesananBarangRincianID)
+        @Html.HiddenFor(model=> model.PemesananBarangID )
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.PemesananBarangID, "PemesananBarangID", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("PemesananBarangID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.PemesananBarangID, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BahanBakuID,  htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("BahanBakuID", null, htmlAttributes: new { @class = "form-control" })
+                <label id="NamaBarang" class="control-label "></label>
+                @Html.ValidationMessageFor(model => model.BahanBakuID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Jumlah, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{ Html.EnableClientValidation(false); }
+                @Html.EditorFor(model => model.Jumlah, new { htmlAttributes = new { @class = "form-control" } })
+                @{ Html.EnableClientValidation(true); }
+                <label id="Satuan" class="control-label "></label>
+                @Html.ValidationMessageFor(model => model.Jumlah, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.HargaSatuan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @{ Html.EnableClientValidation(false); }
+                @Html.EditorFor(model => model.HargaSatuan, new { htmlAttributes = new { @class = "form-control" } })
+                @{ Html.EnableClientValidation(true); }
+                @Html.ValidationMessageFor(model => model.HargaSatuan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.JmlYangSudahDiterima, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.JmlYangSudahDiterima, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.JmlYangSudahDiterima, "", new { @class = "text-danger" })
+            </div>
+        </div>*@
+
+        @*<div class="form-group">
+            @Html.LabelFor(model => model.statusLengkap, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.statusLengkap)
+                    @Html.ValidationMessageFor(model => model.statusLengkap, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.PemesananBarangID })
+</div>

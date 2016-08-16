@@ -1,0 +1,58 @@
+﻿@model Kramatdjati.Models.tblGLBatchDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblGLBatchDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLAccount.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGLAccount.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLBatch.User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGLBatch.User)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Debet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Debet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kredit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kredit)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.tblGLBatchDetailId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

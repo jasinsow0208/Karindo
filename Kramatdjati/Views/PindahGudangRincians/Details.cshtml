@@ -1,0 +1,42 @@
+﻿@model Kramatdjati.Models.PindahGudangRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PindahGudangRincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PindahGudangID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PindahGudangID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GudangBahanBakuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GudangBahanBakuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PindahGudangRincianID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

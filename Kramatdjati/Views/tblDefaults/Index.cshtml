@@ -1,0 +1,93 @@
+﻿@model IEnumerable<Kramatdjati.Models.tblDefault>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Default</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.AccHutangBelumFaktur.AccCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccPiutangBelumFaktur.AccCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccPPNKeluaran.AccCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccPPNMasukan.AccCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccSelisihKurs.AccCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccUangMukaPembelian.AccCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AccUangMukaPenjualan.AccCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentPeriod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentYear)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpeningPeriod)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.OpeningYear)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccHutangBelumFaktur.AccCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccPiutangBelumFaktur.AccCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccPPNKeluaran.AccCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccPPNMasukan.AccCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccSelisihKurs.AccCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccUangMukaPembelian.AccCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AccUangMukaPenjualan.AccCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentPeriod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentYear)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpeningPeriod)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.OpeningYear)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.tblDefaultId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.tblDefaultId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.tblDefaultId })
+        </td>
+    </tr>
+}
+
+</table>

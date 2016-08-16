@@ -1,0 +1,104 @@
+﻿@model Kramatdjati.Models.BPPBRincian
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BPPBRincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bPPB.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bPPB.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gudangBahanBaku.GudangBahanBakuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudangBahanBaku.GudangBahanBakuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kebutuhan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kebutuhan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pembulatan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pembulatan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SatuanZak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SatuanZak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JmlZak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JmlZak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostingDiserahkan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostingDiserahkan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diserahkan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diserahkan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostingDiterima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostingDiterima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diterima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diterima)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

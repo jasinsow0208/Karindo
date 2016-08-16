@@ -1,0 +1,50 @@
+﻿@model IEnumerable<Kramatdjati.Models.PemakaianPengembalianBarangRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<a href="#" class="btn btn-primary hidden-print" onclick="window.print(); return false;">Print</a>
+<h2>Laporan Produksi Departemen A</h2>
+
+<h2>Penerimaan/Pengembalian Barang Rincian</h2>
+
+<h4><b>No. Surat Pemakaian:@ViewBag.NoSuratPemakaian</b></h4>
+<h4>Gudang:@ViewBag.Gudang </h4>
+<h4>Tgl Keluar Gudang:@ViewBag.Tanggal</h4>
+<h4>Pengguna:@ViewBag.User</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahaBaku.bahanBaku.KodeBahanBaku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahaBaku.bahanBaku.Keterangan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </th>
+
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.gudangBahaBaku.bahanBaku.KodeBahanBaku)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gudangBahaBaku.bahanBaku.Keterangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jumlah) @Html.DisplayFor(modelItem => item.gudangBahaBaku.bahanBaku.satuan.Keterangan)
+            </td>
+        </tr>
+    }
+
+</table>
+
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index", "PemakaianPengembalianBarangs")
+</div>
+

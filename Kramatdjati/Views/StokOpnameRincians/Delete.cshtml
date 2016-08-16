@@ -1,0 +1,55 @@
+﻿@model Kramatdjati.Models.StokOpnameRincian
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Perincian Stok Opname</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bahanBaku.KodeBahanBaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.bahanBaku.Keterangan )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bahanBaku.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HargaSatuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HargaSatuan)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { Id = ViewBag.StokOpnameID })
+        </div>
+    }
+</div>

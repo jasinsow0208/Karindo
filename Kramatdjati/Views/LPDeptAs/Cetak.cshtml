@@ -1,0 +1,133 @@
+﻿@model IEnumerable<Kramatdjati.Models.LPDeptARincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<a href="#" class="btn btn-primary hidden-print" onclick="window.print(); return false;">Print</a>
+<h2>Laporan Produksi Departemen A</h2>
+
+<h4><b>Tgl Produksi:@ViewBag.TglProduksi</b></h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().jpDeptARincian.KodeBarangJadi)
+        </th>
+        <th>
+            Rencana
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hasil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cacat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SisaCompound)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.jpDeptARincian.KodeBarangJadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jpDeptARincian.Lembar)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hasil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cacat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SisaCompound)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keterangan)
+            </td>
+        </tr>
+    }
+
+</table>
+<h4>Dilaporkan:@ViewBag.DibuatOleh</h4>
+<h4>Diketahui:@ViewBag.Diketahui</h4>
+<div class="col-md-6">
+    <div class="form-group">
+        <label for="comment">Catatan:</label>
+        <textarea class="form-control" rows="5" id="comment">@ViewBag.Catatan</textarea>
+    </div>
+</div>
+<div class="col-md-6" style="height:150px">
+    <dl class="dl-horizontal">
+        @if (Model.FirstOrDefault().lpDeptA.PenimbanganAwal != null)
+    {
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().lpDeptA.PenimbanganAwal)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.PenimbanganAwal) s/d @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.PenimbanganAkhir)
+            </dd>
+    }
+
+        @if (Model.FirstOrDefault().lpDeptA.KneaderAwal != null)
+    {
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().lpDeptA.KneaderAwal)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.KneaderAwal) s/d @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.KneaderAkhir)
+            </dd>
+    }
+
+        @if (Model.FirstOrDefault().lpDeptA.BoilerAwal != null)
+    {
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().lpDeptA.BoilerAwal)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.BoilerAwal) s/d @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.BoilerAkhir)
+            </dd>
+    }
+
+        @if (Model.FirstOrDefault().lpDeptA.RollAwal != null)
+    {
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().lpDeptA.RollAwal)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.RollAwal) s/d @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.RollAkhir)
+            </dd>
+    }
+
+        @if (Model.FirstOrDefault().lpDeptA.HotPressBAwal != null)
+    {
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().lpDeptA.HotPressBAwal)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.HotPressBAwal) s/d @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.HotPressBAkhir)
+            </dd>
+    }
+
+        @if (Model.FirstOrDefault().lpDeptA.HotPressKAwal != null)
+    {
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().lpDeptA.HotPressKAwal)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.HotPressKAwal) s/d @Html.DisplayFor(model => model.FirstOrDefault().lpDeptA.HotPressKAkhir)
+            </dd>
+    }
+
+    </dl>
+</div>
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index", "LPDeptAs")
+</div>

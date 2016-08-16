@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Kramatdjati.Models.SalesOrderRincian>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Order Produksi</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesOrder.NoSO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesOrder.TglPesan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesOrder.TglPengiriman)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jumlah)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JmlDiproduksi)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesOrder.NoSO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesOrder.TglPesan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SalesOrder.TglPengiriman)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jumlah)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JmlDiproduksi)
+                </td>
+                <td>
+                    @*@Html.ActionLink("Bahan Baku", "Index", "OrderBahanBakus", new { id = item.SalesOrderRincianID }, new { @class = "btn btn-xs btn-primary" })
+                    @Html.ActionLink("Ubah Status", "Details", new { id = item.SalesOrderRincianID }, new { @class = "btn btn-xs btn-primary" })*@ 
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "JPDeptAs")
+</div>

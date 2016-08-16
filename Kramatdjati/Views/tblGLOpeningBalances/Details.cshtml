@@ -1,0 +1,44 @@
+﻿@model Kramatdjati.Models.tblGLOpeningBalance
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Apakah akan diposting?</h2>
+<h4>Opening Balance</h4>
+<hr />
+
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Posting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posting)
+        </dd>
+
+    </dl>
+    @Html.ActionLink("Posting", "PostingConfirm", "tblGLOpeningBalances", new { id = Model.tblGLOpeningBalanceId }, new { @class = "btn btn-default col-md-offset-2" })
+</div>
+<br />
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

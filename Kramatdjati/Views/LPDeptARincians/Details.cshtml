@@ -1,0 +1,74 @@
+﻿@model Kramatdjati.Models.LPDeptARincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LPDeptARincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LPDeptAID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LPDeptAID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JPDeptARincianID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JPDeptARincianID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hasil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hasil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cacat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cacat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SisaCompound)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SisaCompound)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JmlTransfer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JmlTransfer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LPDeptARincianID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

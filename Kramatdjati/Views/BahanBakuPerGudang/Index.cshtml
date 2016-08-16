@@ -1,0 +1,81 @@
+﻿@model IEnumerable<Kramatdjati.Models.BahanBaku>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Persediaan</h2>
+<h3>Berdasaran @ViewBag.Gudang</h3>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "BahanBakuPerGudang", new { id = @ViewBag.GudangID  }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SatuanID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HargaRata2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HargaTerakhir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HargaJual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discontinue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stok)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.satuan.Keterangan)
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.HargaRata2)
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.HargaTerakhir)
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.HargaJual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discontinue)
+                </td>
+
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.BahanBakuID }, new { @class = "btn btn-xs btn-primary" }) 
+                    @Html.ActionLink("Details", "Details", new { id = item.BahanBakuID }, new { @class = "btn btn-xs btn-primary" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.BahanBakuID }, new { @class = "btn btn-xs btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

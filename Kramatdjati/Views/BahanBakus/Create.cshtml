@@ -1,0 +1,159 @@
+﻿@model Kramatdjati.Models.BahanBaku
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .checkbox-form {
+        padding-top: 5px;
+    }
+</style>
+<h2>Tambah</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Persediaan</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.KodeBahanBaku, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.KodeBahanBaku, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.KodeBahanBaku, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Keterangan, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Keterangan, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Keterangan, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SatuanID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SatuanID", null,  htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.SatuanID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DivisiId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("DivisiId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DivisiId , "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.DepartemenId , htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @*<select id="DepartemenId" name="Departemen" class="form-control"></select>*@
+                @Html.DropDownList("DepartemenId", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.DepartemenId , "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JenisPersediaanID , htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("JenisPersediaanID", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.JenisPersediaanID , "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+         <div class="form-group">
+            @Html.LabelFor(model => model.StokItem, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-2 checkbox-form">
+                <label data-toggle="collapse" data-target="#stok">
+                    @Html.CheckBoxFor(model => model.StokItem)
+                    @Html.ValidationMessageFor(model => model.StokItem, "", new { @class = "text-danger" })
+                </label>
+
+            </div>
+        </div>
+
+        <div class="collapse" id="stok">
+            <div class="form-group ">
+                @Html.LabelFor(model => model.NoRekInventoryID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("NoRekInventoryID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NoRekInventoryID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SaleItem, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <label data-toggle="collapse" data-target="#jual">
+                    @Html.CheckBoxFor(model => model.SaleItem)
+                    @Html.ValidationMessageFor(model => model.SaleItem, "", new { @class = "text-danger" })
+                </label>
+            </div>
+        </div>
+
+        <div class="collapse" id="jual">
+            <div class="form-group">
+                @Html.LabelFor(model => model.HargaJual, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.HargaJual, new { htmlAttributes = new { @class = "form-control" , @Value="0"} })
+                    @Html.ValidationMessageFor(model => model.HargaJual, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group ">
+                @Html.LabelFor(model => model.NoRekSaleID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("NoRekSaleID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NoRekSaleID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.PurchaseItem, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                <label data-toggle="collapse" data-target="#beli">
+                    @Html.CheckBoxFor(model => model.PurchaseItem)
+                    @Html.ValidationMessageFor(model => model.PurchaseItem, "", new { @class = "text-danger" })
+                </label>
+            </div>
+        </div>
+
+        <div class="collapse" id="beli">
+            <div class="form-group ">
+                @Html.LabelFor(model => model.NoRekCOGSID, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("NoRekCOGSID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.NoRekCOGSID, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.Stok, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.Stok, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.Stok, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

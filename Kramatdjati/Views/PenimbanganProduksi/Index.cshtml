@@ -1,0 +1,109 @@
+﻿@model IEnumerable<Kramatdjati.Models.JPDeptARincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pemakaian Produksi</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal pull-right">
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.FirstOrDefault().Posting , htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-12">
+               Tgl Produksi:
+                <input type="date" name="TglProduksi" value="@ViewBag.TglProduksi"  />  
+                @*@Html.EditorFor(model => model.FirstOrDefault().jpDeptA.TglProduksi , new { @class = "form-control" })*@
+                <input type="submit" value="Proses" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table">
+    <tr>
+ 
+        <th>
+            @Html.DisplayNameFor(model => model.resep.KodeResep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.KodeBarangJadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Batch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lembar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoLot)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.jpDeptA.DibuatOleh)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Penimbang )
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.resep.KodeResep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KodeBarangJadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Batch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lembar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keterangan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoLot)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jpDeptA.DibuatOleh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Penimbang )
+        </td>
+         <td>
+            @*@Html.ActionLink("Cetak", "Cetak", "PenimbanganProduksiRincians", new { id = item.JPDeptARincianID }, new { @class = "btn btn-xs btn-primary" })*@ 
+            @if (item.Posting == false)
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.JPDeptARincianID , TglProduksi= @ViewBag.TglProduksi}, new { @class = "btn btn-xs btn-primary" })
+                @Html.ActionLink("Details", "Index", "PenimbanganProduksiRincians", new { id = item.JPDeptARincianID }, new { @class = "btn btn-xs btn-primary" })
+                @Html.ActionLink("Posting", "Details", new { id = item.JPDeptARincianID, TglProduksi = @ViewBag.TglProduksi }, new { @class = "btn btn-xs btn-primary" })
+            }
+            else
+            {
+                @Html.ActionLink("Undo Posting", "DetailUndo", new { id = item.JPDeptARincianID, TglProduksi = @ViewBag.TglProduksi }, new { @class = "btn btn-xs btn-primary" })
+
+            }
+             <span>
+                 <a href="@Url.Action("Cetak", "PenimbanganProduksiRincians", new { id = item.JPDeptARincianID })" class="btn btn-xs btn-primary">
+                     <i class="glyphicon glyphicon-print"></i>
+                     <span class="sr-only">Cetak</span>
+                 </a>
+             </span>
+        </td>
+    </tr>
+}
+
+</table>

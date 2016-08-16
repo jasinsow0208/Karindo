@@ -1,0 +1,184 @@
+﻿@model Kramatdjati.Models.BahanBaku
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>BahanBaku</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Departemen.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Departemen.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Divisi.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Divisi.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JenisPersediaan.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JenisPersediaan.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoRekCOGS.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoRekCOGS.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoRekInventory.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoRekInventory.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoRekSale.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoRekSale.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.satuan.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satuan.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KodeBahanBaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodeBahanBaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HargaRata2)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HargaRata2)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HargaTerakhir)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HargaTerakhir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HargaJual)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HargaJual)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discontinue)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discontinue)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StokItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StokItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleItem)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SaleItem)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BarangJadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BarangJadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Size)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Size)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KodeBarangJadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodeBarangJadi)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

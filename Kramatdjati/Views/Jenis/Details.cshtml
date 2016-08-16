@@ -1,0 +1,43 @@
+﻿@model Kramatdjati.Models.Jenis
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Jenis</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KodeJenis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodeJenis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglKomputer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglKomputer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pembuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pembuat)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JenisID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

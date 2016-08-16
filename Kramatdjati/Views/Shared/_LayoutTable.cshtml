@@ -1,0 +1,238 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>@ViewBag.Title - Karindo Integrated System</title>
+    <link href="~/Content/Site.css" rel="stylesheet" type="text/css" />
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <link href="~/Scripts/Bootstrap3.2.0/bootstrap.min.css" rel="stylesheet" />
+    <script src="~/Scripts/Bootstrap3.2.0/jquery-1.7.1.min.js"></script>
+   
+    @*<link href=" //cdn.datatables.net/1.10.9/css/jquery.dataTables.min.css" rel="stylesheet" />*@
+    <link href="~/Scripts/DataTables/css/jquery.dataTables.min.css" rel="stylesheet" />
+    <script src="~/Scripts/DataTables/js/jquery.dataTables.min.js"></script>
+    <script src="~/Scripts/Bootstrap3.2.0/bootstrap.min.js"></script>
+
+     @*-------------------Modal Windows------------------------------*@
+    <style>
+        /*  .modal-content {
+            width: 700px !important;
+            margin: 30px auto !important;
+        }*/
+
+        .centered {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /*.centered {
+            position: fixed;
+            top: 50% ;
+            left: 50%;
+        }*/
+
+        .input-block-level {
+            display: block;
+            width: 100%;
+            min-height: 28px;
+        }
+    </style>
+    @*--------------------------------------------------------------*@
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("CV. Karindo", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @if (Request.IsAuthenticated && !User.IsInRole("Gudang"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Data Master
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Account Type", "Index", "GlAccountTypes")</li>
+                                <li>@Html.ActionLink("GL Account", "Index", "tblGlAccounts")</li>
+                                <li>@Html.ActionLink("Opening Balance", "Index", "tblGlOpeningBalances")</li>
+                                <li>@Html.ActionLink("Mata Uang", "Index", "MataUangs")</li>
+                                <li>@Html.ActionLink("Gudang", "Index", "Gudangs")</li>
+                                <li>@Html.ActionLink("Bahan", "Index", "Bahans")</li>
+                                <li>@Html.ActionLink("Satuan", "Index", "Satuans")</li>
+                                <li>@Html.ActionLink("Divisi", "Index", "Divisis")</li>
+                                <li>@Html.ActionLink("Jenis Persediaan", "Index", "JenisPersediaans")</li>
+                                <li>@Html.ActionLink("Packing", "Index", "Packings")</li>
+                                <li>@Html.ActionLink("Persediaan", "Index", "BahanBakus")</li>
+                                <li>@Html.ActionLink("Harga Jual", "Index", "HargaJuals")</li>
+                                <li>@Html.ActionLink("Supplier/Customer", "Index", "Contacts")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Pembelian
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Pemesanan Barang", "Index", "PemesananBarangs")</li>
+                                <li>@Html.ActionLink("Penerimaan Barang", "Index", "PenerimaanBarangs")</li>
+                                <li>@Html.ActionLink("Kontra Bon", "Index", "PersiapanPembayaran")</li>
+                                <li>@Html.ActionLink("Pembayaran (AP)", "Index", "Bahans")</li>
+                                <li>@Html.ActionLink("Laporan Umur Hutang", "Index", "Bahans")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Proses Produksi
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("BOM", "Index", "Reseps")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Jadual Produksi Dept A", "Index", "JPDeptAs")</li>
+                                <li>@Html.ActionLink("Permintaan & Pengeluaran Barang", "Index", "BPPBs") </li>
+                                <li>@Html.ActionLink("Pengeluaran Bahan Baku", "Index", "PengeluaranBahanBaku") </li>
+                                <li>@Html.ActionLink("Penerimaan Bahan Baku", "Index", "PenerimaanBahanBaku") </li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Pemakaian Produksi", "Index", "PenimbanganProduksi") </li>
+                                <li>@Html.ActionLink("Laporan Produksi Dept A", "Index", "LPDeptAs")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Jadual Produksi Dept B", "Index", "JPDeptBs")</li>
+                                <li>@Html.ActionLink("Laporan Produksi Dept B", "Index", "LPDeptBs")</li>
+                                <li class="divider"></li>
+                                 <li>@Html.ActionLink("Pindah Gudang", "Index", "PindahGudangs") </li>
+                                <li>@Html.ActionLink("Pemakaian/Pengembalian Barang", "Index", "PemakaianPengembalianBarangs") </li>
+                                <li>@Html.ActionLink("Laporan Pemakaian Bahan", "Index", "rptLaporanPemakaians")</li>
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Penjualan
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Sales Order", "Index", "SalesOrders")</li>
+                                <li>@Html.ActionLink("Surat Jalan", "Index", "SuratJalans")</li>
+                                <li>@Html.ActionLink("Pengeluaran Gudang", "Index", "PengeluaranGudangs")</li>
+                                <li>@Html.ActionLink("Tutup Sales Order", "Index", "TutupSalesOrders")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Info Barang Belum Dikirim", "Index", "InfoBarangBelumKirim")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Pembuatan Faktur", "Index", "FakturJuals")</li>
+                                <li>@Html.ActionLink("Pembayaran (AR)", "Index", "PembayaranSOes")</li>
+                                <li>@Html.ActionLink("Laporan Umur Piutang", "Index", "Bahans")</li>
+                            </ul>
+                        </li>
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Accounting
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Default", "Index", "tblDefaults")</li>
+                                <li>@Html.ActionLink("Jurnal Umum", "Index", "tblGLBatches")</li>
+                                <li>@Html.ActionLink("Jurnal Umum Posting", "Index", "tblGLBatchesReadOnly")</li>
+                                <li>@Html.ActionLink("Buku Besar", "Index", "BukuBesar")</li>
+                                <li>@Html.ActionLink("Buku Kas/Bank", "Index", "Bahans")</li>
+                                <li>@Html.ActionLink("Laporan Keuangan", "Index", "tblGLAccPeriods")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Stok Opname", "Index", "StokOpnames")</li>
+                                <li>@Html.ActionLink("Laporan Stok", "Index", "LaporanStok")</li>
+                                <li class="divider"></li>
+                                <li>@Html.ActionLink("Saldo Awal Piutang", "Index", "SAPiutangs")</li>
+                                <li>@Html.ActionLink("Saldo Awal Hutang", "Index", "SAHutangs")</li>
+                                <li>@Html.ActionLink("Batas Kredit Piutang", "Index", "StatusKredit")</li>
+                                
+                            </ul>
+                        </li>
+
+                        <li class="dropdown">
+                            <a class="dropdown-toggle" data-toggle="dropdown" href="#">
+                                Administrator
+                                <b class="caret"></b>
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li>@Html.ActionLink("Form", "Index", "MasterForms")</li>
+                                <li>@Html.ActionLink("User", "Index", "Admin")</li>
+                                <li>@Html.ActionLink("Role", "Index", "RoleAdmin")</li>
+                                <li>@Html.ActionLink("Password serah terima", "Index", "PasswordSerahTerimas")</li>
+                            </ul>
+                        </li>
+                    </ul>
+                }
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Karindo Integrated System</p>
+        </footer>
+    </div>
+
+    @*-------------------Modal Windows--------------*@
+    <div id="modal-container" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-content col-lg-8 col-md-8 col-sm-8 col-xs-8 centered">
+        </div>
+    </div>
+
+    @*----------------------------------------------*@
+
+      <script>
+          $(function () {
+              $('.table').dataTable();
+
+            // Initialize numeric spinner input boxes
+            //$(".numeric-spinner").spinedit();
+
+            // Initalize modal dialog
+            // attach modal-container bootstrap attributes to links with .modal-link class.
+            // when a link is clicked with these attributes, bootstrap will display the href content in a modal dialog.
+            $('body').on('click', '.modal-link', function (e) {
+                $(this).removeData('modal');
+                e.preventDefault();
+                $(this).attr('data-target', '#modal-container');
+                $(this).attr('data-toggle', 'modal');
+            });
+
+            // Attach listener to .modal-close-btn's so that when the button is pressed the modal dialog disappears
+            $('body').on('click', '.modal-close-btn', function () {
+                $('#modal-container').modal('hide');
+            });
+
+            //clear modal cache, so that new content can be loaded
+            $('#modal-container').on('hidden.bs.modal', function () {
+                $(this).removeData('bs.modal');
+            });
+
+            //clear modal cache, so that new content can be loaded
+            $('#modal-container').on('hide', function () {
+                $(this).removeData();
+            });
+
+            $('#CancelModal').on('click', function () {
+                return false;
+            });
+        
+ 
+        });
+    </script>
+
+</body>
+</html>

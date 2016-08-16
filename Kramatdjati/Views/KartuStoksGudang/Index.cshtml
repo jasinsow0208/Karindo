@@ -1,0 +1,167 @@
+﻿@model IEnumerable<Kramatdjati.Models.ViewKartuStok>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Kartu Stok</h2>
+<div class="col-md-4">
+    <h4>Kode Barang:@ViewBag.KodeBarang</h4>
+    <h4>Nama Barang:@ViewBag.NamaBarang</h4>
+    <h4>Jumlah:@ViewBag.Stok @ViewBag.Zak</h4>
+</div>
+
+
+@using (Html.BeginForm())
+{
+    <input type="text" id="GudangBahanBakuID" , name="GudangBahanBakuID" value=@ViewBag.GudangBahanBakuID hidden="hidden" />
+    <input type="text" id="GudangID" , name="GudangID" value=@ViewBag.GudangID hidden="hidden" />
+    <div class="col-md-8 row">
+        <div class="col-md-5">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Bulan</label>
+                    <div class="col-md-8">
+                        @Html.DropDownList("Period", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Tahun</label>
+                    <div class="col-md-8">
+                        @Html.DropDownList("Tahun", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-4">
+                        <input type="submit" value="Proses" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TglKomputer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th class="text-right " style="background-color:#F2F5A9">
+                @Html.DisplayNameFor(model => model.Masuk)
+            </th>
+            <th class="text-right " style="background-color:#F2F5A9">
+                Masuk (Rp)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.Keluar)
+            </th>
+            <th class="text-right ">
+                Keluar (Rp)
+            </th>
+            <th class="text-right " style="background-color:#F2F5A9">
+                @Html.DisplayNameFor(model => model.Saldo)
+            </th>
+            <th class="text-right " style="background-color:#F2F5A9">
+                Saldo (Rp)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.FirstOrDefault().HargaSatuan)
+            </th>
+            @*<th class="text-right ">
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().HargaRata2 )
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Source)
+                </th>*@
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            decimal QtyMasukTotal = Model.Sum(a => a.Masuk);
+            decimal RpMasukTotal = Model.Sum(a => a.Masuk * a.HargaSatuan);
+            decimal QtyKeluarTotal = Model.Sum(a => a.Keluar);
+            decimal RpKeluarTotal = Model.Sum(a => a.Keluar * a.HargaRata2 );
+        }
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglKomputer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td class="text-right " style="background-color:#F2F5A9">
+                    @Html.DisplayFor(modelItem => item.Masuk)
+                </td>
+                <td class="text-right " style="background-color:#F2F5A9">
+                    @string.Format("{0:N2}", item.Masuk * item.HargaSatuan)
+                </td>
+                <td class="text-right ">
+                    @Html.DisplayFor(modelItem => item.Keluar)
+                </td>
+                <td class="text-right ">
+                    @string.Format("{0:N2}", item.Keluar * item.HargaRata2)
+                </td>
+                <td class="text-right " style="background-color:#F2F5A9">
+                    @Html.DisplayFor(modelItem => item.Saldo)
+                </td>
+                <td class="text-right " style="background-color:#F2F5A9">
+                    @string.Format("{0:N2}", item.Saldo * item.HargaRata2)
+                </td>
+                <td class="text-right ">
+                    @Html.DisplayFor(modelItem => item.HargaSatuan)
+                </td>
+                @*<td class="text-right ">
+                        @Html.DisplayFor(modelItem => item.HargaRata2)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Source)
+                    </td>*@
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="text-right ">
+                @string.Format("{0:N2}", QtyMasukTotal)
+            </td>
+            <td class="text-right ">
+                @string.Format("{0:N2}", RpMasukTotal )
+            </td>
+            <td class="text-right ">
+                @string.Format("{0:N2}", QtyKeluarTotal)
+            </td>
+            <td class="text-right ">
+                @string.Format("{0:N2}", RpKeluarTotal )
+            </td>
+            <td class="text-right ">
+                
+            </td>
+            <td class="text-right ">
+                
+            </td>
+            <td class="text-right ">
+                
+            </td>
+            @*<td class="text-right ">
+                    @Html.DisplayFor(modelItem => item.HargaRata2)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Source)
+                </td>*@
+        </tr>
+
+    </tfoot>
+</table>
+<p>
+    @Html.ActionLink("Kalkulasi", "Details", new { id = ViewBag.GudangBahanBakuID, Period = ViewBag.PeriodSelect, Tahun = ViewBag.TahunSelect }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Back to List", "Index", "GudangBahanBakus", new { id = ViewBag.GudangID }, null)
+</p>

@@ -1,0 +1,118 @@
+﻿@model IEnumerable<Kramatdjati.Models.SuratJalan>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Surat Jalan</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "SuratJalans", null, new { @class = "btn btn-primary" })
+</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal pull-right">
+        <div class="form-group">
+            <div class="col-md-12">
+                Kirim Gudang
+                @Html.EditorFor(model => model.FirstOrDefault().Posting, new { @class = "form-control" })
+                <input type="submit" value="Proses" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            @*<th>
+                    @Html.DisplayNameFor(model => model.salesOrder.NoSO)
+                </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().contact.Perusahaan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoSuratJalan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tglSuratJalan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglTransaksi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                @*<td>
+                        @Html.DisplayFor(modelItem => item.salesOrder.NoSO)
+                    </td>*@
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact.Perusahaan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoSuratJalan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tglSuratJalan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglTransaksi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User)
+                </td>
+                <td>
+                    @if (item.Posting != true)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Details", "Index", "SuratJalanRincians", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-primary" })
+                        if (item.StatusKirimGudang)
+                        {
+                            @Html.ActionLink("Kirim Gudang", "Details", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-success" })
+                        }
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-danger" })
+                    }
+                    else
+                    {
+                        if (item.Closed == true)
+                        {
+                            if (item.contact.PPN)
+                            {
+                                @Html.ActionLink("Cetak", "Index", "SuratJalanCetakRincians", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-success" })
+                                @*@Html.ActionLink("Cetak NF", "IndexNF", "SuratJalanCetakRincians", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-success" })*@
+
+                            }
+                            else
+                            {
+                                @Html.ActionLink("Cetak", "IndexNonPPN", "SuratJalanCetakRincians", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-success" })
+                                @*@Html.ActionLink("Cetak NF", "IndexNonPPNNF", "SuratJalanCetakRincians", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-success" })*@
+
+                            }
+                            @Html.ActionLink("No. SJ", "NoSJ", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-success" })
+                            @Html.ActionLink("E-Mail", "Email", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-success" })
+                            @Html.ActionLink("Undo Posting", "UndoPostingTutup", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-danger" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("Undo Posting", "UndoPostingInfo", new { id = item.SuratJalanID }, new { @class = "btn btn-xs btn-primary" })
+                        }
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

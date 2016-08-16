@@ -1,0 +1,34 @@
+﻿@model Kramatdjati.Models.JPDeptASO
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JPDeptASO</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.jpDeptARincian.KodeBarangJadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jpDeptARincian.KodeBarangJadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.salesOrderRincian.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salesOrderRincian.Keterangan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JPDeptASOID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

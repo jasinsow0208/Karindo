@@ -1,0 +1,41 @@
+﻿@model IEnumerable<Kramatdjati.Models.tblGLAccountType>
+
+@{
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Account Type</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "GLAccountTypes", null, new { @class = "btn btn-primary" })
+</p>
+
+<div class="table-responsive">
+    <table id="AccountType" class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit ", "Edit", "GLAccountTypes", new { id = item.tblGLAccountTypeId }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Hapus ", "Delete", "GLAccountTypes", new { id = item.tblGLAccountTypeId }, new { @class = "btn btn-xs btn-danger" })
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+

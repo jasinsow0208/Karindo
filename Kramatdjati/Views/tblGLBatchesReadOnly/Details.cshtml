@@ -1,0 +1,74 @@
+﻿@model Kramatdjati.Models.tblGLBatch
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblGLBatch</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TglKerja)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglKerja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Posting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglKomputer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglKomputer)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.tblGLBatchId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

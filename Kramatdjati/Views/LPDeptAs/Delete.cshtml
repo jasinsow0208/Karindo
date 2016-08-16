@@ -1,0 +1,82 @@
+﻿@model Kramatdjati.Models.LPDeptA
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Laporan Produksi Departemen A</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TglProduksi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglProduksi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PenimbanganAwal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PenimbanganAwal) s/d @Html.DisplayFor(model => model.PenimbanganAkhir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.KneaderAwal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.KneaderAwal) s/d @Html.DisplayFor(model => model.KneaderAkhir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BoilerAwal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BoilerAwal) s/d @Html.DisplayFor(model => model.BoilerAkhir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RollAwal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.RollAwal) s/d @Html.DisplayFor(model => model.RollAkhir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotPressBAwal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HotPressBAwal) s/d @Html.DisplayFor(model => model.HotPressBAkhir)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HotPressKAwal)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.HotPressKAwal) s/d @Html.DisplayFor(model => model.HotPressKAkhir)
+        </dd>
+
+         <dt>
+            @Html.DisplayNameFor(model => model.Catatan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catatan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

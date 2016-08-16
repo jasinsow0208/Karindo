@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Kramatdjati.Models.SalesOrderRincian>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Informasi Barang Yang Harus Dikirim</h2>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().SalesOrder.contact.Perusahaan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SalesOrder.NoSO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+            </th>
+            <th>
+                Rencana Kirim
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jumlah)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.JmlYangSudahDiKirim)
+            </th>
+            <th>
+                Sisa
+            </th>
+            <th>
+                Stok Barang
+            </th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @{
+            decimal decSisa = 0;
+
+            foreach (var item in Model)
+            {
+                decSisa = item.Jumlah - item.JmlYangSudahDiKirim;
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SalesOrder.contact.Perusahaan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SalesOrder.NoSO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bahanBaku.KodeBahanBaku)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.SalesOrder.TglPengiriman)
+                    </td>
+                    <td>
+                        @string.Format("{0:N0}", item.Jumlah)
+                    </td>
+                    <td>
+                        @string.Format("{0:N0}", item.JmlYangSudahDiKirim)
+                    </td>
+                    <td>
+                        @string.Format("{0:N0}", @decSisa)
+                    </td>
+                    <td>
+                        @string.Format("{0:N0}", item.bahanBaku.Stok)
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+
+</table>

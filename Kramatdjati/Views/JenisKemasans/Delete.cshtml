@@ -1,0 +1,57 @@
+﻿@model Kramatdjati.Models.JenisKemasan
+
+@{
+    ViewBag.Title = "Delete";
+    ViewBag.BahanBakuID = Model.BahanBakuID;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Delete</h2>
+<h4>JenisKemasan</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+    
+    <dl class="dl-horizontal">
+        <dt>
+            Bahan Baku
+        </dt>
+
+        <dd>
+            @ViewBag.BahanBaku
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Berat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Berat)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.BahanBaku.satuan.Keterangan  )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BahanBaku.satuan.Keterangan )
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { id = ViewBag.BahanBakuID })
+        </div>
+    }
+</div>

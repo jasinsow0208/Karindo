@@ -1,0 +1,47 @@
+﻿@model Kramatdjati.Models.PemesananBarang
+
+@{
+    ViewBag.Title = "NoPO";
+}
+
+<h2>NoPO</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>PemesananBarang</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.PemesananBarangID)
+        @Html.HiddenFor(model => model.TglPesan)
+        @Html.HiddenFor(model => model.ContactID)
+        @Html.HiddenFor(model => model.TglPengiriman)
+        @Html.HiddenFor(model => model.MataUangID)
+        @Html.HiddenFor(model => model.TglKurs)
+        @Html.HiddenFor(model => model.Kurs)
+        @Html.HiddenFor(model => model.User)
+        @Html.HiddenFor(model => model.Catatan)
+        @Html.HiddenFor(model => model.Posting)
+        @Html.HiddenFor(model => model.Closed)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.NoPemesananBarang, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.NoPemesananBarang, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.NoPemesananBarang, "", new { @class = "text-danger" })
+            </div>
+        </div>
+ 
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

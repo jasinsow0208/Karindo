@@ -1,0 +1,107 @@
+﻿@model Kramatdjati.Models.tblGLOpeningBalance
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Informasi Opening Balance</h2>
+<h4>Posting telah dilakukan</h4>
+<hr />
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.AccPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccPeriod)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Posting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posting)
+        </dd>
+
+    </dl>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tblGLOpeningBalanceDetails.SingleOrDefault().tblGLAccount.AccCode )
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tblGLOpeningBalanceDetails.SingleOrDefault().tblGLAccount.AccDescription)
+            </th>
+            <th class="visible-lg visible-md">
+                @Html.DisplayNameFor(model => model.tblGLOpeningBalanceDetails.SingleOrDefault().Keterangan)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.tblGLOpeningBalanceDetails.SingleOrDefault().Debet)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.tblGLOpeningBalanceDetails.SingleOrDefault().Kredit)
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            decimal debet = 0;
+            decimal kredit = 0;
+
+            foreach (var item in Model.tblGLOpeningBalanceDetails )
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription)
+                    </td>
+                    <td class="visible-lg visible-md">
+                        @Html.DisplayFor(modelItem => item.Keterangan)
+                    </td>
+                    <td class="text-right">
+                        @String.Format("{0:N2}", item.Debet)
+                    </td>
+                    <td class="text-right">
+                        @String.Format("{0:N2}", @Html.DisplayFor(modelItem => item.Kredit))
+                    </td>
+                </tr>
+                debet = debet + item.Debet;
+                kredit = kredit + item.Kredit;
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td class="visible-lg visible-md"></td>
+            <td class="text-right">
+                @String.Format("{0:N2}", @debet)
+            </td>
+            <td class="text-right">
+                @String.Format("{0:N2}", @kredit)
+            </td>
+            
+        </tr>
+    </tfoot>
+</table>
+<br />
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

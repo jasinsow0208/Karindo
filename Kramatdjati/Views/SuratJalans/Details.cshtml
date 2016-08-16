@@ -1,0 +1,36 @@
+﻿@model Kramatdjati.Models.SuratJalan
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Kirim Gudang</h2>
+<h4>Surat Jalan</h4>
+<hr />
+<h3>Apakah data akan diposting?</h3>
+<div>
+   
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contact.Perusahaan )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact .Perusahaan )
+        </dd>
+ 
+        <dt>
+            @Html.DisplayNameFor(model => model.tglSuratJalan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tglSuratJalan)
+        </dd>
+    </dl>
+    <p>
+        @Html.ActionLink("Posting", "Posting", new { id = Model.SuratJalanID }, new { @class = "btn btn-default" })
+    </p>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

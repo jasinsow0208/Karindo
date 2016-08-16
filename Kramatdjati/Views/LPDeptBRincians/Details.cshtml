@@ -1,0 +1,58 @@
+﻿@model Kramatdjati.Models.LPDeptBRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>LPDeptBRincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.LPDeptBID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.LPDeptBID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JPDeptBRincianID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JPDeptBRincianID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hasil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hasil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cacat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cacat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.LPDeptBRincianID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

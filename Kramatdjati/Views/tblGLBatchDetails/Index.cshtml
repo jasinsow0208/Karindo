@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Kramatdjati.Models.tblGLBatchDetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Detail Jurnal Umum</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", new { id = ViewBag.tblGLBatchId }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Tambah Otomatis", "CreateOtomatis", new { id = ViewBag.tblGLBatchId }, new { @class = "btn btn-default" })
+</p>
+@{decimal DebetTotal = Model.Where(a => a.tblGLBatchId == ViewBag.tblGLBatchId).Sum(a => a.Debet);
+  decimal KreditTotal = Model.Where(a => a.tblGLBatchId == ViewBag.tblGLBatchId).Sum(a => a.Kredit);
+ }
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TglTransaksi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblGLAccount.AccCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblGLAccount.AccName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoRef)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th class="text-right ">
+            @Html.DisplayNameFor(model => model.Debet)
+        </th>
+        <th class="text-right ">
+            @Html.DisplayNameFor(model => model.Kredit)
+        </th>
+        <th></th>
+    </tr>
+    <tbody>
+        
+        @foreach (var item in Model)
+        {
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglTransaksi)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblGLAccount.AccName) @Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoRef)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.Debet)
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.Kredit)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.tblGLBatchDetailId }, new { @class = "btn btn-xs btn-default" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.tblGLBatchDetailId }, new { @class = "btn btn-xs btn-default" })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot >
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td>
+
+            </td>
+            <td>
+               
+            </td>
+            <td></td>
+            <td class="text-right ">
+                @String.Format("{0:N2}", @DebetTotal)
+            </td>
+
+            <td class="text-right ">
+                @String.Format("{0:N2}", @KreditTotal)
+            </td>
+
+            <td>
+            </td>
+        </tr>
+    </tfoot>
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "tblGLBatches")
+</div>

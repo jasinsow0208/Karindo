@@ -1,0 +1,23 @@
+﻿@model Kramatdjati.Models.ContohCetak
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    function loadView () {
+        var counter = $('#Counter').val();
+        document.getElementById("frameSuratJalanID").src = "http://localhost:60000/RPTReports/rptFakturJualNonPPN.aspx?FakturJualID=" + counter;
+    };
+    window.onload = loadView;
+</script>
+
+<h2>Laporan</h2>
+
+<input class="hidenID" id="Counter" value=@Model.Counter style="display:none" />
+
+<div id="autoUpdate">
+    <iframe id="frameSuratJalanID" width="100%" height="400px"></iframe>
+</div>
+
+@Html.ActionLink("Back to List", "Index", "FakturJuals", null, null)
+

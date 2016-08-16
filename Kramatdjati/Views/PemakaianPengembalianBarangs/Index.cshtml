@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Kramatdjati.Models.PemakaianPengembalianBarang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pemakaian/Pengembalian Barang</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "PemakaianPengembalianBarangs", null, new { @class = "btn btn-primary" })
+</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal pull-right">
+        <div class="form-group">
+             <div class="col-md-12">
+                Posting
+                @Html.EditorFor(model => model.FirstOrDefault().Posting, new { @class = "form-control" })
+                <input type="submit" value="Proses" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.gudang.Lokasi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoSuratPemakaian)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tglKeluarBarang)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Penerima)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gudang.Lokasi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoSuratPemakaian)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tglKeluarBarang)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Penerima)
+        </td>
+        <td>
+            @if (item.Posting == true)
+            {
+                @Html.ActionLink("Cetak", "Cetak","PemakaianPengembalianBarangRincians", new { id = item.PemakaianPengembalianBarangID }, new { @class = "btn btn-xs btn-success" })
+            }
+            else
+            {
+                @Html.ActionLink("Edit", "Edit", new { id = item.PemakaianPengembalianBarangID }, new { @class = "btn btn-xs btn-primary" })
+                @Html.ActionLink("Details", "Index", "PemakaianPengembalianBarangRincians", new { id = item.PemakaianPengembalianBarangID }, new { @class = "btn btn-xs btn-primary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.PemakaianPengembalianBarangID }, new { @class = "btn btn-xs btn-danger" })
+                @Html.ActionLink("Posting", "Details", new { id = item.PemakaianPengembalianBarangID }, new { @class = "btn btn-xs btn-success" })
+            }
+         </td>
+    </tr>
+}
+
+</table>

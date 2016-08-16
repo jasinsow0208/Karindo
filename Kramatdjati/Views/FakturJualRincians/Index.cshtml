@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Kramatdjati.Models.FakturJualRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Faktur Jual</h2>
+<h3>Perincian</h3>
+
+<h4><b>Kepada Yth:@ViewBag.Perusahaan</b></h4>
+<h4>Tgl Faktur:@ViewBag.TglFaktur</h4>
+<h4>No Faktur:@ViewBag.NoFaktur </h4>
+<h4>No Surat Jalan:@ViewBag.NoSuratJalan</h4>
+@{decimal TotalFaktur = Model.Sum(a => a.Jumlah * a.HargaSatuan);
+
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jumlah)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.HargaSatuan)
+            </th>
+            <th class="text-right">Total</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jumlah)
+                </td>
+                <td class="text-right">
+                    @string.Format("{0:N2}", item.HargaSatuan)
+                </td>
+                <td class="text-right">@string.Format("{0:N2}", item.HargaSatuan * item.Jumlah)</td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.FakturJualRincianID }, new { @class = "btn btn-xs btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+
+        <tr>
+            <th></th>
+            <th></th>
+            <th class ="text-right">Jml Harga Jual:</th>
+            <th class="text-right">@String.Format("{0:N2}", TotalFaktur)</th>
+            <th></th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th class="text-right">Diskon:</th>
+            <th class="text-right">@String.Format("{0:N2}", @ViewBag.Diskon)</th>
+            <th>@Html.ActionLink("Edit", "EditDiskon", "FakturJuals", new { id = @ViewBag.FakturJualID }, new { @class = "btn btn-xs btn-primary" })</th>
+        </tr>
+        <tr>
+            <th></th>
+            <th></th>
+            <th class="text-right">Total:</th>
+            <th class="text-right">@String.Format("{0:N2}", TotalFaktur - @ViewBag.Diskon)</th>
+            <th></th>
+        </tr>
+        @if (Model.FirstOrDefault().fakturJual.PPN==true)
+        {
+            <tr>
+                <th></th>
+                <th></th>
+                <th class="text-right">PPN:</th>
+                <th class="text-right">@String.Format("{0:N2}", (TotalFaktur - @ViewBag.Diskon) * 10 / 100)</th>
+                <th></th>
+            </tr>
+            <tr>
+                <th></th>
+                <th></th>
+                <th class="text-right">Grand Total:</th>
+                <th class="text-right">@String.Format("{0:N2}", TotalFaktur - @ViewBag.Diskon + (TotalFaktur - @ViewBag.Diskon) * 10 / 100)</th>
+                <th></th>
+            </tr>
+        }
+    </tfoot>
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "FakturJuals", null, null)
+</div>

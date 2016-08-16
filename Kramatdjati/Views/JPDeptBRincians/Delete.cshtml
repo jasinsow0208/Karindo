@@ -1,0 +1,65 @@
+﻿@model Kramatdjati.Models.JPDeptBRincian
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Jadual Produksi Departemen B</h4>
+<h4>Perincian</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+ 
+    <dl class="dl-horizontal">
+         <dt>
+            @Html.DisplayNameFor(model => model.lpDeptARincian.jpDeptARincian.KodeBarangJadi )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lpDeptARincian.jpDeptARincian.KodeBarangJadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UkuranTebal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UkuranTebal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Banyaknya)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Banyaknya)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JmlBahan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JmlBahan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { id = ViewBag.JPDeptBID })
+        </div>
+    }
+</div>

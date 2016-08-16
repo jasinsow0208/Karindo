@@ -1,0 +1,16 @@
+Buat custom claim, 
+dibuat dari database.
+Issuer:RemoteClaims
+Type:Nama Screen
+Value:0/1
+
+Buat atribute untuk setiap screen,
+Nama Issuer:RemoteClaims, 
+     Type:Nama Screen, 
+     Value:1
+
+Contoh:
+[ClaimsAccess(Issuer="RemoteClaims", ClaimType="Karyawan",Value="1")]
+public string OtherAction() {
+return "This is the protected action";
+}

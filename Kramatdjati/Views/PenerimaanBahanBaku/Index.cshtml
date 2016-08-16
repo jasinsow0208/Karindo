@@ -1,0 +1,78 @@
+﻿@model IEnumerable<Kramatdjati.Models.BPPBView>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+
+<h2>Penerimaan Bahan Baku</h2>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TglPenimbangan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglProduksi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoBPPB)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diminta)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diserahkan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Diterima)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TglPenimbangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TglProduksi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NoBPPB)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keterangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diminta)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diserahkan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Diterima)
+            </td>
+            <td>
+                @if (item.Posting == true && item.Diserahkan != null && item.Diterima == null)
+                {
+                    @*@Html.ActionLink("Edit", "Edit", new { id = item.BPPBID }, new { @class = "btn btn-xs btn-primary" })*@
+                    @Html.ActionLink("Details", "Index", "PenerimaanBahanBakuRincian", new { id = item.BPPBID }, new { @class = "btn btn-xs btn-primary" })
+                    if (item.PostingOK == true)
+                    {
+                        @Html.ActionLink("Posting", "Details", new { id = item.BPPBID }, new { @class = "btn btn-xs btn-primary" })
+                    }
+                    @*@Html.ActionLink("Delete", "Delete", new { id = item.BPPBID }, new { @class = "btn btn-xs btn-danger" })*@
+                }
+
+            </td>
+        </tr>
+    }
+
+</table>

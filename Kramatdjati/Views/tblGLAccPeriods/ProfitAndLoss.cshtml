@@ -1,0 +1,381 @@
+﻿@model List<Kramatdjati.Models.ViewReportModel>
+
+@{
+    ViewBag.Title = "Laba/Rugi";
+}
+
+<h3>Profit & Loss</h3>
+<hr />
+<div>
+    <div class="col-md-offset-1">
+        <h4>Income</h4>
+        <div class="col-md-offset-1">
+            <div>
+                <div class="panel-group">
+                    <div>
+                        @{
+                            //decimal CAKreditTotal = Model.Where(m=>m.tblGLAccount.tblGLAccountType.Type =="Current Asset").Sum(m => m.Kredit);
+                            decimal RevKredit = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Revenue").Sum(m => m.Kredit );
+                        <table class="table">
+                            <tbody>
+                                <tr>
+                                    <td class="col-md-1">
+                                        <a data-toggle="collapse" href="#Rev">Revenue</a>
+                                    </td>
+                                    <td class="col-md-1"></td>
+                                    <td class="text-right col-md-1"></td>
+                                    <td class="text-right col-md-1">@String.Format("{0:N2}", RevKredit)</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                        }
+
+                    </div>
+                    <div id="Rev" class="collapse">
+                        @{
+                            <table class="table">
+                                <tbody>
+                                    @foreach (var item in Model)
+                                    {
+
+                                        if (item.tblGLAccount.tblGLAccountType.Type == "Revenue")
+                                        {
+                                    <tr>
+                                        <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)</td>
+                                        <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription)</td>
+                                        <td class="text-right col-md-1 "></td>
+                                        <td class="text-right col-md-1 ">@String.Format("{0:N2}", item.Kredit)</td>
+                                    </tr>
+                                        }
+                                    }
+                                </tbody>
+                            </table>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div class="panel-group">
+                    <div>
+                        <div>
+                            @{
+                                //decimal InvKredit = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Inventory").Sum(m => m.Kredit);*@
+                                decimal SaleKredit = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Sale").Sum(m => m.Kredit );
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-1">
+                                            <a data-toggle="collapse" href="#Sale">Sales</a>
+                                        </td>
+                                        <td class="col-md-1"></td>
+                                        <td class="text-right col-md-1"></td>
+                                        <td class="text-right col-md-1">@String.Format("{0:N2}", SaleKredit)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            }
+                        </div>
+                        <div id="Sale" class="collapse">
+                            @{
+                                <table class="table">
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            if (item.tblGLAccount.tblGLAccountType.Type == "Sale")
+                                            {
+                                        <tr>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)</td>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription)</td>
+                                            <td class="text-right col-md-1 "></td>
+                                            <td class="text-right col-md-1 ">@String.Format("{0:N2}", item.Kredit)</td>
+                                        </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <h4>Cost Of Sales</h4>
+        <div class="col-md-offset-1">
+            <div>
+                <div class="panel-group">
+                    <div>
+                        <div>
+                            @{
+                                //decimal BAKredit = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Bank Account").Sum(m => m.Kredit);
+                                decimal DCDebet = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Direct Costs").Sum(m => m.Debet);
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-1">
+                                            <a data-toggle="collapse" href="#DC">Direct Costs</a>
+                                        </td>
+                                        <td class="col-md-1"></td>
+                                        <td class="text-right col-md-1">@String.Format("{0:N2}", DCDebet)</td>
+                                        <td class="text-right col-md-1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            }
+
+                        </div>
+                        <div id="DC" class="collapse">
+                            @{
+                                <table class="table">
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            if (item.tblGLAccount.tblGLAccountType.Type == "Direct Costs")
+                                            {
+                                        <tr>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)</td>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription)</td>
+                                            <td class="text-right col-md-1 ">@String.Format("{0:N2}", item.Debet)</td>
+                                            <td class="text-right col-md-1 "></td>
+                                        </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-offset-1">
+            <table class="table">
+                <tbody>
+                    <tr class="success">
+                        <td class="col-md-1"><h4>Gross Profit</h4></td>
+                        <td class="col-md-1"></td>
+                        <td class="text-right col-md-1">@String.Format("{0:N2}", RevKredit + SaleKredit - DCDebet)</td>
+                        <td class="text-right col-md-1"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <h4>Other Income</h4>
+        <div class="col-md-offset-1">
+            <div>
+                <div class="panel-group">
+                    <div>
+                        <div>
+                            @{
+                                decimal OIKredit = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Other Income").Sum(m => m.Kredit);
+    //decimal CLDebet = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Current Liability").Sum(m => m.Debet);
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-1">
+                                            <a data-toggle="collapse" href="#OI">Other Income</a>
+                                        </td>
+                                        <td class="col-md-1"></td>
+                                        <td class="text-right col-md-1"></td>
+                                        <td class="text-right col-md-1">@String.Format("{0:N2}", OIKredit)</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            }
+
+                        </div>
+                        <div id="OI" class="collapse">
+                            @{
+                                <table class="table">
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            if (item.tblGLAccount.tblGLAccountType.Type == "Other Income")
+                                            {
+                                        <tr>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)</td>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription)</td>
+                                            <td class="text-right col-md-1 "></td>
+                                            <td class="text-right col-md-1 ">>@String.Format("{0:N2}", item.Kredit)</td>
+                                        </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <h4>Expenses</h4>
+        <div class="col-md-offset-1">
+            <div>
+                <div class="panel-group">
+                    <div>
+                        <div>
+                            @{
+                                //decimal BAKredit = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Bank Account").Sum(m => m.Kredit);
+                                decimal EDebet = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Expense").Sum(m => m.Debet);
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-1">
+                                            <a data-toggle="collapse" href="#E">Expenses</a>
+                                        </td>
+                                        <td class="col-md-1"></td>
+                                        <td class="text-right col-md-1">@String.Format("{0:N2}", EDebet)</td>
+                                        <td class="text-right col-md-1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            }
+
+                        </div>
+                        <div id="E" class="collapse">
+                            @{
+                                <table class="table">
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            if (item.tblGLAccount.tblGLAccountType.Type == "Expense")
+                                            {
+                                        <tr>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)</td>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription)</td>
+                                            <td class="text-right col-md-1 ">@String.Format("{0:N2}", item.Debet)</td>
+                                            <td class="text-right col-md-1 "></td>
+                                        </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-offset-1">
+            <div>
+                <div class="panel-group">
+                    <div>
+                        <div>
+                            @{
+                                //decimal BAKredit = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Bank Account").Sum(m => m.Kredit);
+                                decimal DDebet = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Depreciation").Sum(m => m.Debet);
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-1">
+                                            <a data-toggle="collapse" href="#D">Depreciation</a>
+                                        </td>
+                                        <td class="col-md-1"></td>
+                                        <td class="text-right col-md-1">@String.Format("{0:N2}", DDebet)</td>
+                                        <td class="text-right col-md-1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            }
+
+                        </div>
+                        <div id="D" class="collapse">
+                            @{
+                                <table class="table">
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            if (item.tblGLAccount.tblGLAccountType.Type == "Depreciation")
+                                            {
+                                        <tr>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)</td>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription)</td>
+                                            <td class="text-right col-md-1 ">@String.Format("{0:N2}", item.Debet)</td>
+                                            <td class="text-right col-md-1 "></td>
+                                        </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-offset-1">
+            <div>
+                <div class="panel-group">
+                    <div>
+                        <div>
+                            @{
+                                //decimal BAKredit = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Bank Account").Sum(m => m.Kredit);
+                                decimal ODebet = Model.Where(m => m.tblGLAccount.tblGLAccountType.Type == "Overhead").Sum(m => m.Debet);
+                            <table class="table">
+                                <tbody>
+                                    <tr>
+                                        <td class="col-md-1">
+                                            <a data-toggle="collapse" href="#OV">Overhead</a>
+                                        </td>
+                                        <td class="col-md-1"></td>
+                                        <td class="text-right col-md-1">@String.Format("{0:N2}", EDebet)</td>
+                                        <td class="text-right col-md-1"></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            }
+
+                        </div>
+                        <div id="OV" class="collapse">
+                            @{
+                                <table class="table">
+                                    <tbody>
+                                        @foreach (var item in Model)
+                                        {
+
+                                            if (item.tblGLAccount.tblGLAccountType.Type == "Overhead")
+                                            {
+                                        <tr>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)</td>
+                                            <td class="col-md-1">@Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription)</td>
+                                            <td class="text-right col-md-1 ">@String.Format("{0:N2}", item.Debet)</td>
+                                            <td class="text-right col-md-1 "></td>
+                                        </tr>
+                                            }
+                                        }
+                                    </tbody>
+                                </table>
+                            }
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-offset-1">
+            <table class="table">
+                <tbody>
+                    <tr class="success">
+                        <td class="col-md-1"><h4>Net Profit</h4></td>
+                        <td class="col-md-1"></td>
+                        <td class="text-right col-md-1"></td>
+                        <td class="text-right col-md-1">@String.Format("{0:N2}", RevKredit + SaleKredit - DDebet + OIKredit - EDebet - DDebet - ODebet)</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+</div>
+
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

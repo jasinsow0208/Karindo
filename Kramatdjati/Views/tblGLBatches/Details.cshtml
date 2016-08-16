@@ -1,0 +1,64 @@
+﻿@model Kramatdjati.Models.tblGLBatch
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Batch Jurnal Umum</h2>
+<h4>Apakah Jurnal akan di posting?</h4>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLBatchId )
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.tblGLBatchId )
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TglKerja)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TglKerja)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccYear)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccYear)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccPeriod)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccPeriod)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+        <dt>
+            Jml Debet/Kredit
+        </dt>
+
+        <dd>
+           @string.Format("{0:N2}", Model.tblGLBatchDetails.Sum(x=>x.Debet))
+        </dd>
+    </dl>
+    <p>
+        @Html.ActionLink("Posting", "Posting", new { id = Model.tblGLBatchId }, new { @class = "btn btn-default" })
+    </p>
+
+</div>
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

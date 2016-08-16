@@ -1,0 +1,32 @@
+﻿@model Kramatdjati.Models.StokOpname
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Stok Opname</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TglBuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglBuat)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Hapus" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,58 @@
+﻿@model Kramatdjati.Models.FakturJualRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>FakturJualRincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fakturJual.NoFaktur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fakturJual.NoFaktur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gudangBahanBaku.GudangBahanBakuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudangBahanBaku.GudangBahanBakuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HargaSatuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HargaSatuan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.FakturJualRincianID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

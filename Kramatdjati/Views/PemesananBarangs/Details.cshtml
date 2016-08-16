@@ -1,0 +1,61 @@
+﻿@model Kramatdjati.Models.PemesananBarang
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Posting</h2>
+
+<div>
+    <h4>Pemesanan Barang</h4>
+    <hr />
+    <h3>Apakah data akan diposting?</h3>
+         <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.contact.Perusahaan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.contact.Perusahaan)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NoPemesananBarang)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NoPemesananBarang)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TglPesan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TglPesan)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.TglPengiriman)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.TglPengiriman)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.User)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.User)
+            </dd>
+        </dl>
+    <p>
+        @Html.ActionLink("Posting", "Posting", new { id = Model.PemesananBarangID }, new { @class = "btn btn-default" })
+    </p>
+ 
+</div>
+<p>
+     @Html.ActionLink("Back to List", "Index")
+</p>

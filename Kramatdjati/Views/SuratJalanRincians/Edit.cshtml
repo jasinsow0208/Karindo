@@ -1,0 +1,48 @@
+﻿@model Kramatdjati.Models.SuratJalanRincian
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+<h4>Perincian Surat Jalan</h4>
+<hr />
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.SuratJalanRincianID)
+        @Html.HiddenFor(model => model.SuratJalanID)
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.SalesOrderRincianID, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("SalesOrderRincianID", null, htmlAttributes: new { @class = "form-control" })
+                <label id="NamaBarang" class="control-label "></label>
+                @Html.ValidationMessageFor(model => model.SalesOrderRincianID, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.JumlahDikirim, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.JumlahDikirim, new { htmlAttributes = new { @class = "form-control" } })
+                <label id="Satuan" class="control-label "></label>
+                @Html.ValidationMessageFor(model => model.JumlahDikirim, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index", new { id = ViewBag.SuratJalanID })
+</div>

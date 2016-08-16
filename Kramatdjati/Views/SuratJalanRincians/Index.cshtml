@@ -1,0 +1,62 @@
+﻿@model IEnumerable<Kramatdjati.Models.SuratJalanRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Perincian Surat Jalan</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "SuratJalanRincians", new { id = @ViewBag.SuratJalanID }, new { @class = "btn btn-primary" })
+</p>
+<h4><b>Customer:@ViewBag.Customer</b></h4>
+<h4>No Surat Jalan:@ViewBag.NoSO</h4>
+<h4>Tgl Transaksi:@ViewBag.TglTransaksi</h4>
+<h4>Tgl Surat Jalan:@ViewBag.TglSuratJalan</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().salesOrderRincian.SalesOrder.NoSO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.salesOrderRincian.bahanBaku.KodeBahanBaku)
+            </th>
+ 
+            <th>
+                @Html.DisplayNameFor(model => model.JumlahDikirim)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.salesOrderRincian.bahanBaku.satuan.Keterangan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salesOrderRincian.SalesOrder.NoSO )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salesOrderRincian.bahanBaku.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JumlahDikirim)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.salesOrderRincian.bahanBaku.satuan.Keterangan)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.SuratJalanRincianID }, new { @class = "btn btn-xs btn-primary" })
+                    @Html.ActionLink("Delete", "Delete", new { id = item.SuratJalanRincianID }, new { @class = "btn btn-xs btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+ </table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "SuratJalans")
+</div>

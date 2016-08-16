@@ -1,0 +1,13 @@
+﻿Setiap perubahan pada Model, untuk metoda first code, selalu akan drop table kemudian create table, data menjadi hilang.
+Supaya data tidak hilang harus melakukan migrasi. Hanya perubahan dari column(properties) atau table baru saja yang ditambahkan.
+Caranya:
+1. Aktifkan fungsi migrasi dengan menjalankan pada Package Manager Console
+Enable-Migrations –EnableAutomaticMigrations
+
+2. Buat file yang akan melakukan proses migrasi. File ini harus dilihat, file2 mana yang akan di update dapat ditentukan.
+Add-Migration <NamaFileMigrasi>
+
+3. Kemudian periksa file yang dibuat.
+
+4. Jalankan file migrasi tersebut
+Update-Database –TargetMigration <NamaFileMigrasi>

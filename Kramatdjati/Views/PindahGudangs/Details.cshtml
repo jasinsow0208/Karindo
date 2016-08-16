@@ -1,0 +1,82 @@
+﻿@model Kramatdjati.Models.PindahGudang
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PindahGudang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gudangAsal.Lokasi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudangAsal.Lokasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gudangTujuan.Lokasi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudangTujuan.Lokasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BuktiPindahGudang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BuktiPindahGudang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglTransaksi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglTransaksi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserGudangAsal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserGudangAsal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserGudangTujuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserGudangTujuan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Posting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglPosting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglPosting)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PindahGudangID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

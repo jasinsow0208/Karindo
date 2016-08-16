@@ -1,0 +1,82 @@
+﻿@model Kramatdjati.Models.KartuStok
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>KartuStok</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.BahanBakuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BahanBakuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Masuk)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Masuk)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keluar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keluar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Saldo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Saldo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Source)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Source)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SourceID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SourceID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglKomputer)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglKomputer)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.KartuStokID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,42 @@
+﻿@model Kramatdjati.Models.MasterForm
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Master Form</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KodeForm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodeForm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NamaForm)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NamaForm)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.MasterFormID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

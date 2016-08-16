@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Kramatdjati.Models.SalesOrderRincian >
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="hidden-print ">Cetak Sales Order</h2>
+
+<a href="#" class="btn btn-primary hidden-print" onclick="window.print(); return false;">Print</a>
+
+<h2 class="visible-print">SO Customer</h2>
+<br />
+<h4><b>Customer:@ViewBag.Customer</b></h4>
+<h4>No. SO:@ViewBag.NoSO </h4>
+<h4>Tgl Pesan:@ViewBag.TglTransaksi</h4>
+<h4>Tgl Kirim:@ViewBag.TglKirim</h4>
+<link href="~/Content/Cetak.css" rel="stylesheet" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.Keterangan)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.Jumlah)
+            </th>
+            <th>Satuan</th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.HargaJual)
+            </th>
+            <th class="text-right ">
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{Decimal Total = Model.Where(x => x.SalesOrderID  == ViewBag.SalesOrderID).Sum(x => x.Jumlah * x.HargaJual);}
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.Keterangan)
+                </td>
+                <td class="text-right ">
+                    @Html.DisplayFor(modelItem => item.Jumlah)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.bahanBaku.satuan.Keterangan)</td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.HargaJual)
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.Jumlah * item.HargaJual )
+                </td>
+            </tr>
+
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th class="text-right ">
+
+            </th>
+            <th></th>
+            <th class="text-right ">
+
+            </th>
+            <th class="text-right ">
+                @String.Format("{0:N2}", @Total)
+            </th>
+        </tr>
+    </tfoot>
+</table>
+
+<h4><b>Catatan:</b></h4>
+<h4>@ViewBag.Catatan</h4>
+
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index", "SalesOrders")
+    
+</div>

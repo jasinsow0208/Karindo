@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Kramatdjati.Models.Contact>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Kredit Limit</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Perusahaan)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.KreditLimit)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().StatusKredit)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Perusahaan)
+                </td>
+                <td class="text-right">
+                    @string.Format("{0:N2}", item.KreditLimit)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.StatusKredit)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", "StatusKredit", new { id = item.ContactID }, new { @class = "btn btn-xs btn-primary" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

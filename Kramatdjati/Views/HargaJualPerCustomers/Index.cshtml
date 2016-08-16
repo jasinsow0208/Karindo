@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Kramatdjati.Models.HargaJualPerCustomer>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Harga Jual</h2>
+<h3>Customer:@ViewBag.Nama</h3>
+<p>
+    @Html.ActionLink("Tambah", "Create", "HargaJualPerCustomers", new { id = @ViewBag.id }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+         <th>
+            @Html.DisplayNameFor(model => model.TglBerlaku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JenisSpon)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Harga)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.mm)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglBerlaku)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JenisSpon)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Harga)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.mm)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.HargaJualPerCustomerID }, new { @class = "btn btn-xs btn-primary" })
+             @Html.ActionLink("Delete", "Delete", new { id = item.HargaJualPerCustomerID }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Edit", "Contacts", new { id = ViewBag.id }, null)
+</div>
+

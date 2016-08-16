@@ -1,0 +1,64 @@
+﻿@model Kramatdjati.Models.tblGLOpeningBalanceDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+<h4>Opening Balance Detail</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLAccount.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGLAccount.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLAccount.AccDescription  )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGLAccount.AccName) (@Html.DisplayFor(model => model.tblGLAccount.AccDescription))
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Debet)
+        </dt>
+
+        <dd>
+            @String.Format("{0:N2}",Model.Debet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kredit)
+        </dt>
+
+        <dd>
+            @String.Format("{0:N2}",Model.Kredit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { id = Model.tblGLOpeningBalanceId })
+        </div>
+    }
+</div>

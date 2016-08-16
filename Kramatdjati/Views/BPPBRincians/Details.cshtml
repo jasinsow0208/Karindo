@@ -1,0 +1,98 @@
+﻿@model Kramatdjati.Models.BPPBRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>BPPBRincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bPPB.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bPPB.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gudangBahanBaku.GudangBahanBakuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudangBahanBaku.GudangBahanBakuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kebutuhan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kebutuhan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pembulatan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pembulatan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SatuanZak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SatuanZak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JmlZak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JmlZak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostingDiserahkan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostingDiserahkan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diserahkan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diserahkan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PostingDiterima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PostingDiterima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Diterima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Diterima)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.BPPBRincianID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

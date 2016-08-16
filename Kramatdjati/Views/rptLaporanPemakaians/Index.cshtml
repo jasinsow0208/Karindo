@@ -1,0 +1,159 @@
+﻿@model IEnumerable<Kramatdjati.Models.rptLaporanPemakaian>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Laporan Pemakaian Bahan Baku</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="col-md-8 row">
+  @*      <div class="col-md-5">*@
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Bulan</label>
+                    <div class="col-md-8">
+                        @Html.DropDownList("Period", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Tahun</label>
+                    <div class="col-md-8">
+                        @Html.DropDownList("Tahun", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Jenis Persediaan</label>
+                    <div class="col-md-8">
+                        @Html.DropDownList("JenisPersediaanID", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-4">
+                        <input type="submit" value="Proses" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        @*</div>*@
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KodeBarang)
+            </th>
+            <th class="text-right" style="background-color:#F2F5A9">
+                @Html.DisplayNameFor(model => model.JumlahAwal)
+            </th>
+            <th class="text-right" style="background-color:#F2F5A9">
+                @Html.DisplayNameFor(model => model.HargaAwal)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.JumlahBeli)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.HargaBeli)
+            </th>
+            <th class="text-right" style="background-color:#F2F5A9">
+                @Html.DisplayNameFor(model => model.JumlahPakai)
+            </th>
+            <th class="text-right" style="background-color:#F2F5A9">
+                @Html.DisplayNameFor(model => model.HargaPakai)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.JumlahAkhir)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.HargaAkhir)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{decimal RpAwal = Model.Sum(a => a.HargaAwal );
+        decimal RpBeli = Model.Sum(a => a.HargaBeli );
+        decimal RpPakai = Model.Sum(a => a.HargaPakai );
+        decimal RpAkhir = Model.Sum(a => a.HargaAkhir );
+        }
+        @foreach (var item in Model)
+        {
+
+            if (item.JumlahAwal == 0 && item.JumlahBeli == 0 && item.JumlahPakai == 0 && item.HargaAwal == 0 && item.HargaBeli == 0 && item.HargaPakai == 0)
+            {
+
+            }
+            else
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.KodeBarang)
+                    </td>
+                    <td class="text-right" style="background-color:#F2F5A9">
+                        @Html.DisplayFor(modelItem => item.JumlahAwal)
+                    </td>
+                    <td class="text-right" style="background-color:#F2F5A9">
+                        @Html.DisplayFor(modelItem => item.HargaAwal)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.JumlahBeli)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.HargaBeli)
+                    </td>
+                    <td class="text-right" style="background-color:#F2F5A9">
+                        @Html.DisplayFor(modelItem => item.JumlahPakai)
+                    </td>
+                    <td class="text-right" style="background-color:#F2F5A9">
+                        @Html.DisplayFor(modelItem => item.HargaPakai)
+                    </td>
+                    <td class="text-right">
+                        @Html.DisplayFor(modelItem => item.JumlahAkhir)
+                    </td>
+                    <td class="text-right ">
+                        @Html.DisplayFor(modelItem => item.HargaAkhir)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Saldo Awal", "SaldoAwal", new { id = item.BahanBakuID, Period=ViewBag.PeriodSelect, Tahun=ViewBag.TahunSelect  }, new { @class = "btn btn-xs btn-success" })
+                        @Html.ActionLink("Pembelian", "PembelianDetail", new { id = item.BahanBakuID, Period = ViewBag.PeriodSelect, Tahun = ViewBag.TahunSelect }, new { @class = "btn btn-xs btn-success" })
+                        @Html.ActionLink("Pemakaian", "PemakaianDetail", new { id = item.BahanBakuID, Period = ViewBag.PeriodSelect, Tahun = ViewBag.TahunSelect }, new { @class = "btn btn-xs btn-success" })
+                    </td>
+                </tr>
+            }
+        }
+    </tbody>
+    <tfoot >
+        <tr>
+            <td>
+                
+            </td>
+            <td class="text-right" style="background-color:#F2F5A9">
+                
+            </td>
+            <td class="text-right" style="background-color:#F2F5A9">
+                @String.Format("{0:N2}", @RpAwal )
+            </td>
+            <td class="text-right">
+                
+            </td>
+            <td class="text-right">
+                @String.Format("{0:N2}", @RpBeli)
+            </td>
+            <td class="text-right" style="background-color:#F2F5A9">
+                
+            </td>
+            <td class="text-right" style="background-color:#F2F5A9">
+                @String.Format("{0:N2}", @RpPakai)
+            </td>
+            <td class="text-right">
+               
+            </td>
+            <td class="text-right ">
+                @String.Format("{0:N2}", @RpAkhir)
+            </td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>

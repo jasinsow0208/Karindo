@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Kramatdjati.Models.PasswordSerahTerima>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Password Serah Terima</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create",null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Operator)
+        </th>
+    
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Operator)
+        </td>
+     
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PasswordSerahTerimaID }, new { @class = "btn btn-xs btn-primary" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.PasswordSerahTerimaID }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

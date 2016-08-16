@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Kramatdjati.Models.SalesOrder>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Sales Order</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "SalesOrders", null, new { @class = "btn btn-primary" })
+</p>
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal pull-right">
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.FirstOrDefault().Posting , htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-12">
+                Posting
+                @Html.EditorFor(model => model.FirstOrDefault().Posting, new { @class = "form-control" })
+                <input type="submit" value="Proses" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.contact.Perusahaan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoSO)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglPesan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglPengiriman)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Catatan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.User)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact.Perusahaan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoSO)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglPesan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglPengiriman)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Catatan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.User)
+                </td>
+                <td>
+                    @if (item.Posting != true)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.SalesOrderID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Details", "Index", "SalesOrderRincians", new { id = item.SalesOrderID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Posting", "Details", new { id = item.SalesOrderID }, new { @class = "btn btn-xs btn-success" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.SalesOrderID }, new { @class = "btn btn-xs btn-danger" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Cetak", "Cetak", new { id = item.SalesOrderID }, new { @class = "btn btn-xs btn-success" })
+                        @Html.ActionLink("E-Mail", "Email", new { id = item.SalesOrderID }, new { @class = "btn btn-xs btn-success" })
+                        @Html.ActionLink("Undo Posting", "UndoPostingInfo", new { id = item.SalesOrderID  }, new { @class = "btn btn-xs btn-primary" })
+                    }
+                </td>
+            </tr>
+        }
+   </tbody>
+</table>

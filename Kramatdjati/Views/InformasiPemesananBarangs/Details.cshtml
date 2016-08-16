@@ -1,0 +1,82 @@
+﻿@model Kramatdjati.Models.PemesananBarang
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PemesananBarang</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contact.Perusahaan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact.Perusahaan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoPemesananBarang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoPemesananBarang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglPesan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglPesan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglPengiriman)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglPengiriman)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.User)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Catatan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Catatan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Posting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Posting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Closed)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Closed)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PemesananBarangID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

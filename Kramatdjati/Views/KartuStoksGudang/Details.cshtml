@@ -1,0 +1,35 @@
+﻿@model Kramatdjati.Models.KartuStok
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Kalkulasi Kartu Stok</h2>
+<h4>Persediaan</h4>
+<hr />
+
+<div>
+     <dl class="dl-horizontal">
+        <dt>
+            Kode Barang:
+        </dt>
+
+        <dd>
+            @ViewBag.KodeBarang
+        </dd>
+
+        <dt>
+            Nama Barang:
+        </dt>
+
+        <dd>
+            @ViewBag.NamaBarang
+        </dd>
+    </dl>
+    <p>
+        @Html.ActionLink("Kalkulasi", "KalkulasiKartuStok", new { id = ViewBag.GudangBahanBakuID, Period=ViewBag.Period, Tahun=ViewBag.Tahun }, new { @class = "btn btn-default" })
+    </p>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

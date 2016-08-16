@@ -1,0 +1,61 @@
+﻿15/2/2016 (done)
+Buat di tabel default gudang produksi
+buat sp posting di JPDeptARincian
+Buat Cetak Jadual Produksi
+
+16/2/2016
+form untuk Laporan produksi, kalau Jadual Produksi belum di posting engga bisa keluar di laporan produksi.
+
+19/2/2016
+-Gudang ada 3 buat 3 menu
+-untuk kode barang ada yang untuk compound dan rajangan
+-Pemakaian di Dept A, bisa termasuk compound dan rajangan
+-Compound ada no. Lot
+-ada laporan pengiriman, dan sisa pengiriman
+-Ada Posting Barang Keluar, Barang Masuk
+
+5/4/2016
+-Buat Password Penerimaan
+-Periksa Hasil Posting
+
+14/4/2016
+-Pindah gudang
+-Posting Tutup di gudang
+-Posting LPDeptB
+-PO untuk barang lain2
+-Penerimaan Barang untuk barang lain2
+
+20/4/2016
+-Pengeluaran/Pemakaian barang lain2
+-Pada saat gudang ubah, ada lognya...
+-Sisa pengiriman
+
+23/4/2016
+-ada keterangan zak
+-Posting stok opname
+-Periksa surat jalan
+
+26/4/2016
+-Surat Jalan Gabung
+-Email 
+
+
+
+-Penagihan berdasarkan surat jalan
+-Tgl kirim bisa kosong untuk PO
+-Mata uang untuk pembelian barang
+-Penghitungan kembali
+
+3/6/2016
+-beresin nama barang jadi
+-jumlah baris barang 10
+-surat jalan non ppn langsung cetak
+-buat faktur penjualan
+-buat laporan pemakaian barang
+
+5/8/2016
+-Faktur Polos
+-Ada adjustment untuk jumlah pemakaian.
+-kalau customer cat error (fixed)
+-Pembelian engga bisa masukkan pesanan.
+-nomor surat jalan ada 3, Cat, ppn, non ppn

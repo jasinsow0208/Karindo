@@ -1,0 +1,66 @@
+﻿@model Kramatdjati.Models.StokOpnameRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>StokOpnameRincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bahanBaku.KodeBahanBaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.stokOpname.UserPosting)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.stokOpname.UserPosting)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HargaSatuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HargaSatuan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.MyProperty)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.MyProperty)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.UserInput)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserInput)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.StokOpnameRincianID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,49 @@
+﻿@model Kramatdjati.Models.PembayaranSODetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Pembayaran per Faktur</h4>
+<hr />
+<h3>Apakah data pembayaran akan dihapus?</h3>
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.fakturJual.Nama)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fakturJual.Nama)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fakturJual.NoFaktur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fakturJual.NoFaktur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+     
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", "PembayaranSODetails", new { id = @ViewBag.PembayaranSOID }, null)
+        </div>
+    }
+</div>

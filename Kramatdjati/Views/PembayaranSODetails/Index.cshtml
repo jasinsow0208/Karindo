@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Kramatdjati.Models.PembayaranSODetail>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pembayaran</h2>
+<h4>Perincian Faktur</h4>
+<p>
+    @Html.ActionLink("Tambah", "Create", "PembayaranSODetails", new { id = @ViewBag.PembayaranSOID }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.fakturJual.Nama)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().fakturJual.NoFaktur)
+            </th>
+            <th class="text-right">
+                Total Faktur
+            </th>
+            @*<th class="text-right">
+                Sudah Bayar
+            </th>*@
+            <th class="text-right">
+                Pembayaran
+            </th>
+            @*<th class="text-right">
+                Sisa
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fakturJual.Nama)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.fakturJual.NoFaktur)
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.fakturJual.Total)
+                </td>
+                @*<td class="text-right">
+                    @String.Format("{0:N2}", item.fakturJual.Pembayaran)
+                </td>*@
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.Jumlah)
+                </td>
+                @*<td class="text-right">
+                    @String.Format("{0:N2}", item.fakturJual.Total - item.fakturJual.Pembayaran - item.Jumlah)
+                </td>*@
+                @if (item.Posting == false)
+                {
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PembayaranSODetailID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PembayaranSODetailID }, new { @class = "btn btn-xs btn-danger" })
+                        @Html.ActionLink("Posting", "Details", new { id = item.PembayaranSODetailID }, new { @class = "btn btn-xs btn-primary" })
+                    </td>
+                } else
+                {
+                    <td></td>
+                }
+ 
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>
+                
+            </th>
+            <th>
+
+            </th>
+            <th>
+                
+            </th>
+            <th class="text-right">
+                @String.Format("{0:N2}", Model.Sum(x => x.Jumlah))
+            </th>
+            <th></th>
+        </tr>
+    </tfoot>
+</table>

@@ -1,0 +1,50 @@
+﻿@model Kramatdjati.Models.MasterForm
+<div class="modal-header">
+    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+        &times;
+    </button>
+    <h4>Apakah data akan dihapus?</h4>
+</div>
+<div class="modal-body">
+     <div>
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.KodeForm)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.KodeForm)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.NamaForm)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.NamaForm)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Keterangan)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm("ModalDelete", "MasterForms", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+
+          
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
+                    <button type="submit" id="approve-btn" class="btn btn-danger">Hapus</button>
+                </div>
+
+        }
+    </div>
+</div>
+

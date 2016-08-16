@@ -1,0 +1,64 @@
+﻿@model Kramatdjati.Models.SAHutang
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Saldo Awal Hutang</h4>
+<hr />
+<h3>Apakah data hutang akan dihapus?</h3>
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contact.Perusahaan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact.Perusahaan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglInvoice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglInvoice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoInvoice)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoInvoice)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglJatuhTempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglJatuhTempo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

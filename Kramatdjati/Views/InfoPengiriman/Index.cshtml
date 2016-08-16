@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Kramatdjati.Models.SuratJalanRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Informasi Pengiriman</h2>
+
+<h4>No. SO:@ViewBag.NoSO</h4>
+<h4>Kode Barang:@ViewBag.KodeBarang</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().suratJalan.tglSuratJalan )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.suratJalan.NoSuratJalan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JumlahDikirim)
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.suratJalan.tglSuratJalan )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.suratJalan.NoSuratJalan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JumlahDikirim)
+        </td>
+     </tr>
+}
+
+</table>
+<p>
+    @Html.ActionLink("Back to List", "Index", "TutupSalesOrderRincians", new { id = ViewBag.SalesOrderID }, null)
+</p>

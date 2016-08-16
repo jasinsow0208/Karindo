@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Kramatdjati.Models.SalesOrder>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tutup Sales Order</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.contact.Perusahaan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoSO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoPO)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglPesan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglPengiriman)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Catatan)
+        </th>
+    
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.contact.Perusahaan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoSO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoPO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglPesan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglPengiriman)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.Catatan)
+        </td>
+         <td>
+              @Html.ActionLink("Details", "Index", "TutupSalesOrderRincians", new { id = item.SalesOrderID }, new { @class = "btn btn-xs btn-primary" }) 
+            @Html.ActionLink("Tutup", "Details", new { id = item.SalesOrderID }, new { @class = "btn btn-xs btn-primary" })
+        </td>
+    </tr>
+}
+
+</table>

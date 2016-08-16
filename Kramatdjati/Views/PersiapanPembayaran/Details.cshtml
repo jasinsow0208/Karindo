@@ -1,0 +1,105 @@
+﻿@model IEnumerable<Kramatdjati.Models.PemesananBarangRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="hidden-print ">Persiapan Pembayaran</h2>
+<h2 class="visible-print">PO Supplier</h2>
+<br />
+<h4><b>Supplier:@ViewBag.Supplier</b></h4>
+<h4>No. PO:@ViewBag.NoPO </h4>
+<h4>Tgl Pesan:@ViewBag.TglTransaksi</h4>
+<h4>Tgl Kirim:@ViewBag.TglKirim</h4>
+<link href="~/Content/Cetak.css" rel="stylesheet" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanbaku.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanbaku.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HargaSatuan)
+            </th>
+
+            <th>Satuan</th>
+            <th class="text-right ">
+                Jml Dipesan/Nilai
+            </th>
+            <th class="text-right ">
+                Jml Sdh Diterima/Nilai
+            </th>
+            <th class="text-right ">
+                Sisa/Nilai
+            </th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+
+        @{Decimal TotalPesan = Model.Where(x => x.PemesananBarangID == ViewBag.PemesananBarangID).Sum(x => x.Jumlah * x.HargaSatuan);
+          Decimal TotalTerima = Model.Where(x => x.PemesananBarangID == ViewBag.PemesananBarangID).Sum(x => x.JmlYangSudahDiterima * x.HargaSatuan);
+          Decimal TotalSisa = Model.Where(x => x.PemesananBarangID == ViewBag.PemesananBarangID).Sum(x => (x.Jumlah-x.JmlYangSudahDiterima ) * x.HargaSatuan);
+          }
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanbaku.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanbaku.Keterangan)
+                </td>
+                <td>@String.Format("{0:N2}",item.HargaSatuan )</td>
+                <td>@Html.DisplayFor(modelItem => item.bahanbaku.satuan.Keterangan)</td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.Jumlah) <br />
+                    @String.Format("{0:N2}", item.Jumlah * item.HargaSatuan)
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.JmlYangSudahDiterima) <br />
+                    @String.Format("{0:N2}", item.JmlYangSudahDiterima * item.HargaSatuan)
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.Jumlah - item.JmlYangSudahDiterima) <br/>
+                    @String.Format("{0:N2}", (item.Jumlah- item.JmlYangSudahDiterima) * item.HargaSatuan)
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+                
+            </td>
+            <td></td>
+            <td></td>
+            <td class="text-right ">
+                 <b>@String.Format("{0:N2}", TotalPesan)</b> 
+            </td>
+            <td class="text-right ">
+                <b>@String.Format("{0:N2}", TotalTerima)</b>
+            </td>
+            <td class="text-right ">
+               <b>@String.Format("{0:N2}", TotalSisa)</b> 
+            </td>
+        </tr>
+
+    </tfoot>
+</table>
+
+<h4><b>Catatan:</b></h4>
+<h4>@ViewBag.Catatan</h4>
+
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index")
+</div>

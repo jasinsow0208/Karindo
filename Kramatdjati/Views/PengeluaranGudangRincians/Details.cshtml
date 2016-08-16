@@ -1,0 +1,42 @@
+﻿@model Kramatdjati.Models.SuratJalanRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Kirim</h2>
+<h4>Perincian Pengeluaran Gudang</h4>
+<hr />
+<h3>Apakah barang yang dikirim sudah sesuai?</h3>
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.salesOrderRincian.bahanBaku.KodeBahanBaku )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salesOrderRincian.bahanBaku.KodeBahanBaku)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.salesOrderRincian.bahanBaku.Keterangan  )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.salesOrderRincian.bahanBaku.Keterangan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JumlahDikirim)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.JumlahDikirim)
+        </dd>
+    </dl>
+    <p>
+        @Html.ActionLink("Kirim", "Kirim", new { id = Model.SuratJalanRincianID  }, new { @class = "btn btn-default" })
+    </p>
+</div>
+<p>
+   
+    @Html.ActionLink("Back to List", "Index")
+</p>

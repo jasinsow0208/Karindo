@@ -1,0 +1,47 @@
+﻿@model Kramatdjati.Models.SuratJalan
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Surat Jalan</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contact.Perusahaan  )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contact.Perusahaan )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tglSuratJalan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tglSuratJalan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglTransaksi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglTransaksi)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

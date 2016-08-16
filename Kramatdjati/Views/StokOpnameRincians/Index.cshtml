@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Kramatdjati.Models.StokOpnameRincian>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Rincian Stok Opname</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "StokOpnameRincians", new { id = @ViewBag.StokOpnameID }, new { @class = "btn btn-primary" })
+</p>
+<h4><b>Tgl Buat:@ViewBag.TglBuat</b></h4>
+<br />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.Divisi.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.Departemen.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanBaku.Keterangan)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.Jumlah)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.HargaSatuan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UserInput)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.Divisi.Keterangan )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.Departemen.Keterangan )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.Keterangan )
+                </td>
+                <td class="text-right ">
+                    @string.Format("{0:N3}", item.Jumlah)
+                </td>
+                <td class="text-right ">
+                    @string.Format("{0:N2}", item.HargaSatuan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.UserInput)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.StokOpnameRincianID }, new { @class = "btn btn-xs btn-primary" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.StokOpnameRincianID }, new { @class = "btn btn-xs btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "StokOpnames")
+</div>

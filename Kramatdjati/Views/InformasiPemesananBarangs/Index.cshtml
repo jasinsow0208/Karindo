@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Kramatdjati.Models.PemesananBarang>
+
+@{
+    ViewBag.Title = "Penerimaan Barang";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Informasi Pemesanan Barang</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.contact.Perusahaan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoPemesananBarang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglPesan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglPengiriman)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Catatan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact.Perusahaan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoPemesananBarang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglPesan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglPengiriman)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Catatan)
+                </td>
+                <td>
+                    @Html.ActionLink("Detail", "Cetak", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-success" })
+                 </td>
+            </tr>
+        }
+    </tbody>
+</table>
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index", "PenerimaanBarangs")
+
+</div>

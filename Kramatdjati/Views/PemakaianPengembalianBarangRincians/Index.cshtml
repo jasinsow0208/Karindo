@@ -1,0 +1,54 @@
+﻿@model IEnumerable<Kramatdjati.Models.PemakaianPengembalianBarangRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Penerimaan/Pengembalian Barang Rincian</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create","PemakaianPengembalianBarangRincians",  new { id = @ViewBag.PemakaianPengembalianBarangID }, new { @class = "btn btn-primary" })
+</p>
+
+<h4><b>No. Surat Pemakaian:@ViewBag.NoSuratPemakaian</b></h4>
+<h4>Gudang:@ViewBag.Gudang </h4>
+<h4>Tgl Keluar Gudang:@ViewBag.Tanggal</h4>
+<h4>Pengguna:@ViewBag.User</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahaBaku.bahanBaku.KodeBahanBaku  )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahaBaku.bahanBaku.Keterangan )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gudangBahaBaku.bahanBaku.KodeBahanBaku )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gudangBahaBaku.bahanBaku.Keterangan )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jumlah) @Html.DisplayFor(modelItem => item.gudangBahaBaku.bahanBaku.satuan.Keterangan )
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.PemakaianPengembalianBarangRincianID }, new { @class = "btn btn-xs btn-primary" }) 
+             @Html.ActionLink("Delete", "Delete", new { id = item.PemakaianPengembalianBarangRincianID }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "PemakaianPengembalianBarangs")
+</div>
+

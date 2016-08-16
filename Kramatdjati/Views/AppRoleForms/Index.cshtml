@@ -1,0 +1,44 @@
+﻿@model IEnumerable<Kramatdjati.Models.AppRoleForms>
+
+@{
+    ViewBag.Title = "Form Role";
+    var strRole = ViewBag.Role;
+}
+
+<h2>Role @strRole</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { AppRoleID = ViewBag.id })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MasterForm.KodeForm)
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.AppRole.Name)
+        </th>*@
+ 
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MasterForm.KodeForm)
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.AppRole.Name)
+        </td>*@
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.AppRoleFormsID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.AppRoleFormsID })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "RoleAdmin")
+</div>

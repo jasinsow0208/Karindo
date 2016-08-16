@@ -1,0 +1,67 @@
+﻿@model Kramatdjati.Models.FakturJual
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Posting</h2>
+<h4>Faktur Jual</h4>
+<hr />
+<div>
+ <h4>Apakah faktur jual akan diposting?</h4>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.customer.Perusahaan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.customer.Perusahaan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TglFaktur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglFaktur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoFaktur)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoFaktur)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NomorSeri)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NomorSeri)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglJatuhTempo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglJatuhTempo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PPN)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PPN)
+        </dd>
+
+    </dl>
+    <p>
+        @Html.ActionLink("Posting", "Posting","FakturJuals", new { id = Model.FakturJualID }, new { @class = "btn  btn-default" })
+    </p>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

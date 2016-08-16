@@ -1,0 +1,104 @@
+﻿@model IEnumerable<Kramatdjati.Models.PemesananBarangRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2 class="hidden-print ">Cetak Pemesanan Barang</h2>
+
+<a href="#" class="btn btn-primary hidden-print" onclick="window.print(); return false;">Print</a>
+
+<div class="visible-print col-xs-10 nopadmar" style="border :none; text-align:center"><h4>SURAT PEMESANAN</h4></div>
+<div class="visible-print col-xs-2  nopadmar" style="border :none; text-align:right"><h4>CV.KARINDO</h4></div>
+<div class="visible-print col-xs-8  nopadmar" style="border :none; text-align:left"><h4>Kepada Yth:</h4></div>
+<div class="visible-print col-xs-4  nopadmar" style="border :none; text-align:right"><h4>Nanjung 123 Cimahi</h4></div>
+<div class="visible-print col-xs-8  nopadmar" style="border :none; text-align:left"><h4><b>@ViewBag.Supplier</b></h4></div>
+<div class="visible-print col-xs-4  nopadmar" style="border :none; text-align:left"><h4>No.:@ViewBag.NoPO</h4></div>
+<div class="visible-print col-xs-8  nopadmar" style="border :none; text-align:left"><h4>@ViewBag.Kontak</h4></div>
+<div class="visible-print col-xs-4  nopadmar" style="border :none; text-align:left"><h4>Tgl Pesan:@ViewBag.TglTransaksi</h4></div>
+
+<br />
+<h4 class="hidden-print "><b>Supplier:@ViewBag.Supplier</b></h4>
+<h4 class="hidden-print ">No. PO:@ViewBag.NoPO </h4>
+<h4 class="hidden-print ">Tgl Pesan:@ViewBag.TglTransaksi</h4>
+<h4 class="hidden-print ">Tgl Kirim:@ViewBag.TglKirim</h4>
+<h4 class="hidden-print ">Mata Uang:@ViewBag.MataUang</h4>
+<link href="~/Content/Cetak.css" rel="stylesheet" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanbaku.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.bahanbaku.Keterangan)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.Jumlah)
+            </th>
+            <th>Satuan</th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.HargaSatuan)
+            </th>
+            <th class="text-right ">
+                Total
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+
+        @{Decimal Total = Model.Where(x => x.PemesananBarangID == ViewBag.PemesananBarangID).Sum(x => x.Jumlah * x.HargaSatuan);}
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanbaku.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanbaku.Keterangan)
+                </td>
+                <td class="text-right ">
+                    @Html.DisplayFor(modelItem => item.Jumlah)
+                </td>
+                <td>@Html.DisplayFor(modelItem => item.bahanbaku.satuan.Keterangan)</td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.HargaSatuan)
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.Jumlah * item.HargaSatuan)
+                </td>
+            </tr>
+
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>
+
+            </th>
+            <th>
+
+            </th>
+            <th class="text-right ">
+
+            </th>
+            <th></th>
+            <th class="text-right ">
+
+            </th>
+            <th class="text-right ">
+                @String.Format("{0:N2}", @Total)
+            </th>
+        </tr>
+    </tfoot>
+</table>
+
+<h4><b>Catatan:</b></h4>
+<h4>@ViewBag.Catatan</h4>
+
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index", "PemesananBarangs")
+    
+</div>

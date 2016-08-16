@@ -1,0 +1,65 @@
+﻿@model Kramatdjati.Models.LPDeptARincian
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Laporan Produksi Departemen A</h4>
+<h4>Perincian</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+
+    <dl class="dl-horizontal">
+         <dt>
+            @Html.DisplayNameFor(model => model.jpDeptARincian.KodeBarangJadi )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jpDeptARincian.KodeBarangJadi )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Hasil)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Hasil)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cacat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cacat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SisaCompound)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SisaCompound)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+        
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { ViewBag.LPDeptAID })
+        </div>
+    }
+</div>

@@ -1,0 +1,89 @@
+﻿@model IEnumerable<Kramatdjati.Models.PembayaranSO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Pembayaran Faktur Jual</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal pull-right">
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.FirstOrDefault().Posting , htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-12">
+                Posting
+                @Html.EditorFor(model => model.FirstOrDefault().Posting, new { @class = "form-control" })
+                <input type="submit" value="Proses" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+            </div>
+        </div>
+    </div>
+}
+
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "PembayaranSOes", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Kas/Bank
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglBayar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().customer.Perusahaan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoKwitansi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Jumlah)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.glAccount.AccDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglBayar)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.customer.Perusahaan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoKwitansi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jumlah)
+                </td>
+                <td>
+                    @if (item.Posting == false)
+            {
+            @Html.ActionLink("Edit", "Edit", new { id = item.PembayaranSOID }, new { @class = "btn btn-xs btn-primary" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.PembayaranSOID }, new { @class = "btn btn-xs btn-danger" })
+            @Html.ActionLink("Posting", "Details", new { id = item.PembayaranSOID }, new { @class = "btn btn-xs btn-primary" })
+            }
+            else
+            {
+            @Html.ActionLink("Faktur Jual", "Index", "PembayaranSODetails", new { id = item.PembayaranSOID }, new { @class = "btn btn-xs btn-primary" })
+            }
+                </td>
+            </tr>
+        }
+    </tbody>
+
+</table>

@@ -1,0 +1,15 @@
+﻿Digunakan pada saat ingin membuat seluruh table 
+
+You need to delete the state:
+
+1. Delete the migrations folder in your project
+2. Delete the __MigrationHistory table in your database (may be under system tables)
+
+Then run the following command in the Package Manager Console:
+1. Enable-Migrations -EnableAutomaticMigrations -Force
+   Note:
+   Use with or without -EnableAutomaticMigrations
+
+2. Add-Migration Initial -force
+
+3. Update-Database –TargetMigration Initial

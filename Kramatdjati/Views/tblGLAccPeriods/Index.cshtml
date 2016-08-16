@@ -1,0 +1,41 @@
+﻿@model Kramatdjati.Models.ViewReportParam 
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Laporan Keuangan</h2>
+
+@using (Html.BeginForm())
+{
+    <div class="row">
+        <div class="col-md-5">
+            <div class="form-horizontal">
+                <div class="form-group">
+                    <label class="control-label col-md-4">Perioda</label>
+                    <div class="col-md-8">
+                        @Html.DropDownList("Period", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Tahun</label>
+                    <div class="col-md-8">
+                        @Html.DropDownList("Tahun", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-4">Laporan</label>
+                    <div class="col-md-8">
+                        @Html.DropDownList("JenisLaporan", null, htmlAttributes: new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-4 col-md-4">
+                        <input type="submit" value="Laporan" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+

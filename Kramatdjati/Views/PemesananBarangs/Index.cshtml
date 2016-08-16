@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Kramatdjati.Models.PemesananBarang>
+
+@{
+    ViewBag.Title = "Pemesanan";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Pemesanan Barang</h2>
+<p>
+    @Html.ActionLink("Tambah", "Create", "PemesananBarangs", null, new { @class = "btn btn-primary" })
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal pull-right">
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.FirstOrDefault().Posting , htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-12">
+                Posting
+                @Html.EditorFor(model => model.FirstOrDefault().Posting, new { @class = "form-control" })
+                <input type="submit" value="Proses" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+            </div>
+        </div>
+    </div>
+}
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.contact.Perusahaan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoPemesananBarang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglPesan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglPengiriman)
+            </th>
+            <th>
+                Mata Uang
+            </th>
+            <th class="text-right ">Total</th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+
+            decimal @Total = item.PemesananBarangRincians.Sum(x => x.Jumlah * x.HargaSatuan);
+
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact.Perusahaan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoPemesananBarang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglPesan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglPengiriman)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.mataUang.Kode )
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", @Total)
+                </td>
+                <td>
+                    @if (item.Posting != true)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-primary" }) 
+                        @Html.ActionLink("Details", "Index", "PemesananBarangRincians", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-primary" }) 
+                        @Html.ActionLink("Posting", "Details", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-success" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-danger" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Cetak", "Cetak", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-success" })
+                        @Html.ActionLink("E-Mail", "Email", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-success" })
+                        @Html.ActionLink("No.PO", "NoPO", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-success" })
+                    }
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

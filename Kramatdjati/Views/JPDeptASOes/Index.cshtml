@@ -1,0 +1,52 @@
+﻿@model IEnumerable<Kramatdjati.Models.JPDeptASO>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Sales Order</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "JPDeptASOes", new { id = @ViewBag.JPDeptARincianID }, new { @class = "btn btn-primary" })
+</p>
+<h4><b>Kode Barang:@ViewBag.KodeBarangJadi</b></h4>
+<h4>Catatan:@ViewBag.Catatan </h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().salesOrderRincian.SalesOrder.contact.Perusahaan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().salesOrderRincian.SalesOrder.NoSO )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().salesOrderRincian.SalesOrder.TglPengiriman )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().salesOrderRincian.Jumlah )
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderRincian.SalesOrder.contact.Perusahaan )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderRincian.SalesOrder.NoSO)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderRincian.SalesOrder.TglPengiriman )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.salesOrderRincian.Jumlah)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.JPDeptASOID }, new { @class = "btn btn-xs btn-primary" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.JPDeptASOID }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>

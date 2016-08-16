@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Kramatdjati.Models.BPPBRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Penerimaan Bahan Baku</h2>
+<h3>Perincian</h3>
+
+<h4><b>No. BPPB:@ViewBag.NoBPPB</b></h4>
+<h4>Tgl Penimbangan:@ViewBag.TglPenimbangan</h4>
+<h4>Tgl Produksi:@ViewBag.TglProduksi</h4>
+<h4>Keterangan:@ViewBag.Keterangan </h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahanBaku.bahanBaku.KodeBahanBaku )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Kebutuhan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pembulatan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SatuanZak)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JmlZak)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gudangBahanBaku.bahanBaku.KodeBahanBaku)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Kebutuhan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Pembulatan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SatuanZak)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JmlZak)
+        </td>
+        <td>
+            @if (item.PostingDiserahkan == true && item.PostingDiterima ==false)
+            {
+                @Html.ActionLink("Posting", "Details", new { id = item.BPPBRincianID }, new { @class = "btn btn-xs btn-primary" })
+            }
+      @*     @Html.ActionLink("Delete", "Delete", new { id = item.BPPBRincianID }, new { @class = "btn btn-xs btn-danger" })*@
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "PenerimaanBahanBaku")
+</div>

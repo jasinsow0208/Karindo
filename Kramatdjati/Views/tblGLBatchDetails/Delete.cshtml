@@ -1,0 +1,64 @@
+﻿@model Kramatdjati.Models.tblGLBatchDetail
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Detail Jurnal Umum</h4>
+<hr />
+<h4>Apakah data akan dihapus?</h4>
+<div>
+ 
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLAccount.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGLAccount.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglTransaksi )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglTransaksi )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Debet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Debet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kredit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kredit)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index", new { id = Model.tblGLBatchId })
+        </div>
+    }
+</div>

@@ -1,0 +1,59 @@
+﻿@model Kramatdjati.Models.JenisDetail
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JenisDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Bahan.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bahan.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jenis.KodeJenis)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jenis.KodeJenis)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BahanBakuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BahanBakuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Berat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Berat)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JenisDetailID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

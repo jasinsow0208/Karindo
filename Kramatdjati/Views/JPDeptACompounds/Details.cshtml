@@ -1,0 +1,42 @@
+﻿@model Kramatdjati.Models.JPDeptACompound
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>JPDeptACompound</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bahanBaku.KodeBahanBaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jPDeptA.DibuatOleh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jPDeptA.DibuatOleh)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.JPDeptACompoundID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

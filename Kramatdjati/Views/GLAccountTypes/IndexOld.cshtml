@@ -1,0 +1,53 @@
+﻿@model IEnumerable<Kramatdjati.Models.tblGLAccountType>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h2>Account Type</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+    @Html.ActionLink("Tambah", "ModalCreate", "GLAccountTypes", null, new { @class = "modal-link btn btn-primary" })
+</p>
+<div class="table-responsive">
+    <table id="AccountType" class="table table-striped">
+        <thead>
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.Type)
+                </th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Type)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit ", "ModalEdit", "GLAccountTypes", new { id = item.tblGLAccountTypeId }, new { @class = "modal-link" })|
+                        @Html.ActionLink("Hapus ", "ModalDelete", "GLAccountTypes", new { id = item.tblGLAccountTypeId }, new { @class = "modal-link" })
+                        @*@Html.ActionLink("Edit", "Edit", new { id=item.tblGLAccountTypeId }) |*@
+                        @*@Html.ActionLink("Delete", "Delete", new { id=item.tblGLAccountTypeId })*@
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
+<link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+<link rel="stylesheet" href="http://cdn.datatables.net/1.10.2/css/jquery.dataTables.min.css"></style>
+<script type="text/javascript" src="http://cdn.datatables.net/1.10.2/js/jquery.dataTables.min.js"></script>
+<script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('#AccountType').dataTable();
+    });
+</script>

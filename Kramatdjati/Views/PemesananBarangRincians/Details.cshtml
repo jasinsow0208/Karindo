@@ -1,0 +1,66 @@
+﻿@model Kramatdjati.Models.PemesananBarangRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PemesananBarangRincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bahanbaku.KodeBahanBaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bahanbaku.KodeBahanBaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pemesananBarang.NoPemesananBarang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pemesananBarang.NoPemesananBarang)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HargaSatuan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HargaSatuan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JmlYangSudahDiterima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JmlYangSudahDiterima)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.statusLengkap)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.statusLengkap)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PemesananBarangRincianID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

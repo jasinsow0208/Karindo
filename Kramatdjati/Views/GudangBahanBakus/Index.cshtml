@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Kramatdjati.Models.GudangBahanBaku>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Persediaan</h2>
+<h3>@ViewBag.Gudang</h3>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "GudangBahanBakus", new { id = @ViewBag.GudangID }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().bahanBaku.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().bahanBaku.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().bahanBaku.Stok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().bahanBaku.SatuanID)
+            </th>
+            @if (!User.IsInRole("Gudang"))
+            {
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().bahanBaku.HargaRata2)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().bahanBaku.HargaTerakhir)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().bahanBaku.HargaJual)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.FirstOrDefault().bahanBaku.Discontinue)
+                </th>
+            }
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jumlah)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.satuan.Keterangan)
+                </td>
+                @if (!User.IsInRole("Gudang"))
+                {
+                    <td class="text-right">
+                        @String.Format("{0:N2}", item.bahanBaku.HargaRata2)
+                    </td>
+                    <td class="text-right">
+                        @String.Format("{0:N2}", item.bahanBaku.HargaTerakhir)
+                    </td>
+                    <td class="text-right">
+                        @String.Format("{0:N2}", item.bahanBaku.HargaJual)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.bahanBaku.Discontinue)
+                    </td>
+                }
+                <td>
+                    @if (!User.IsInRole("Gudang"))
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.GudangBahanBakuID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.GudangBahanBakuID }, new { @class = "btn btn-xs btn-danger" })
+                    }
+                    @*@Html.ActionLink("Details", "Details", new { id = item.GudangBahanBakuID }, new { @class = "btn btn-xs btn-primary" })*@
+                    @Html.ActionLink("Kartu Stok", "Index", "KartuStoksGudang", new { id = item.GudangBahanBakuID, GudangID = item.GudangID }, new { @class = "btn btn-xs btn-success" })
+                    @*@Html.ActionLink("Kalkulasi Stok", "Details", new { id = item.GudangBahanBakuID, GudangID = item.GudangID }, new { @class = "btn btn-xs btn-success" })*@
+
+
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Gudangs")
+</div>
+

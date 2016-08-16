@@ -1,0 +1,68 @@
+﻿@model Kramatdjati.Models.BPPBRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Posting</h2>
+<h4>Penerimaan Bahan Baku</h4>
+<hr />
+
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bPPB.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bPPB.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gudangBahanBaku.bahanBaku.KodeBahanBaku  )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudangBahanBaku.bahanBaku.KodeBahanBaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kebutuhan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kebutuhan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Pembulatan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Pembulatan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SatuanZak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SatuanZak)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JmlZak)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JmlZak)
+        </dd>
+        <p>
+            @Html.ActionLink("Posting", "Posting", new { id = Model.BPPBRincianID }, new { @class = "btn btn-default" })
+        </p>
+    </dl>
+</div>
+<p>
+     @Html.ActionLink("Back to List", "Index", new { id = ViewBag.BPPBID })
+</p>

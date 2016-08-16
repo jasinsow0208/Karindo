@@ -1,0 +1,11 @@
+﻿@using ReportViewerForMvc;
+@{
+    ViewBag.Title = "LaporanStok";
+}
+
+<h2>Laporan Stok</h2>
+@Html.ReportViewer(ViewBag.ReportViewer as Microsoft.Reporting.WebForms.ReportViewer, new { style = "width: 100%; height: 404px" })
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

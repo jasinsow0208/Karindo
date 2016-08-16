@@ -1,0 +1,54 @@
+﻿@model Kramatdjati.Models.PenerimaanBarang
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>Penerimaan Barang</h4>
+<hr />
+
+<h3>Apakah data penerimaan barang akan dihapus?</h3>
+<div>
+     <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pemesananBarang.NoPemesananBarang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pemesananBarang.NoPemesananBarang)
+        </dd>
+         <dt>
+             @Html.DisplayNameFor(model => model.TglTransaksi )
+         </dt>
+
+         <dd>
+             @Html.DisplayFor(model => model.TglTransaksi )
+         </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.NoSuratJalan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoSuratJalan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tglSuratJalan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tglSuratJalan)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Kramatdjati.Models.tblGLOpeningBalanceDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Opening Balance Detail</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", new { id = ViewBag.tblGLOpeningBalanceId }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tblGLAccount.AccCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tblGLAccount.AccDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Debet)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Kredit)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            decimal debet = 0;
+            decimal kredit = 0;
+
+            foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblGLAccount.AccCode)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tblGLAccount.AccName) (@Html.DisplayFor(modelItem => item.tblGLAccount.AccDescription))
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keterangan)
+                    </td>
+                    <td class="text-right">
+                        @String.Format("{0:N2}", item.Debet)
+                    </td>
+                    <td class="text-right">
+                        @String.Format("{0:N2}",item.Kredit)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.tblGLOpeningBalanceDetailId }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.tblGLOpeningBalanceDetailId }, new { @class = "btn btn-xs btn-danger" })
+                    </td>
+                </tr>
+                debet = debet + item.Debet;
+                kredit = kredit + item.Kredit;
+            }
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td class="text-right">
+                 @String.Format("{0:N2}",@debet)
+            </td>
+            <td class="text-right">
+                @String.Format("{0:N2}", @kredit)
+            </td>
+            <td></td>
+        </tr>
+    </tfoot>
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "tblGLOpeningBalances")
+</div>

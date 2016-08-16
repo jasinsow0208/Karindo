@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Kramatdjati.Models.UserRoleView>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>User Role @ViewBag.UserName</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create", new { id = @ViewBag.id, UserName=@ViewBag.UserName })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MasterRole.NamaRole)
+        </th>
+         <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.MasterRole.NamaRole)
+        </td>
+         <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.UserRoleID, UserName=@ViewBag.UserName }) |
+            @Html.ActionLink("Delete", "Delete", new { id = item.UserRoleID, UserName = @ViewBag.UserName })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "Admin")
+</div>

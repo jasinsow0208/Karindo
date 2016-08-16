@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Kramatdjati.Models.PemesananBarang>
+
+@{
+    ViewBag.Title = "Penerimaan Barang";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Persiapan Pembayaran</h2>
+
+@{Decimal TotalPesan = Model.Sum(x => x.PemesananBarangRincians.Sum (y=>y.Jumlah * y.HargaSatuan ) );
+  Decimal TotalTerima = Model.Sum(x => x.PemesananBarangRincians.Sum(y=>y.JmlYangSudahDiterima * y.HargaSatuan));
+  Decimal TotalSisa = Model.Sum(x => x.PemesananBarangRincians.Sum(y =>(y.Jumlah - y.JmlYangSudahDiterima) * y.HargaSatuan));
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.contact.Perusahaan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoPemesananBarang)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglPesan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglPengiriman)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Catatan)
+            </th>
+            <th class="text-right ">Total Pesanan</th>
+            <th class="text-right ">Total Terima</th>
+            <th class="text-right ">Selisih</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.contact.Perusahaan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoPemesananBarang)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglPesan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglPengiriman)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Catatan)
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.PemesananBarangRincians.Sum(x=>x.Jumlah  * x.HargaSatuan ) )
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.PemesananBarangRincians.Sum(x => x.JmlYangSudahDiterima * x.HargaSatuan))
+                </td>
+                <td class="text-right ">
+                    @String.Format("{0:N2}", item.PemesananBarangRincians.Sum(x => (x.Jumlah - x.JmlYangSudahDiterima) * x.HargaSatuan))
+                </td>
+                <td>
+                    @Html.ActionLink("Detail", "Details", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-success" })
+                    @Html.ActionLink("Closing", "Closing", new { id = item.PemesananBarangID }, new { @class = "btn btn-xs btn-success" })
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <td>
+                
+            </td>
+            <td>
+               
+            </td>
+            <td>
+                
+            </td>
+            <td>
+               
+            </td>
+            <td>
+                
+            </td>
+            <td class="text-right ">
+               <b>@String.Format("{0:N2}", TotalPesan)</b> 
+            </td>
+            <td class="text-right ">
+                <b>@String.Format("{0:N2}", TotalTerima)</b>
+            </td>
+            <td class="text-right ">
+                <b>@String.Format("{0:N2}", TotalSisa)</b>
+            </td>
+            <td>
+                
+            </td>
+        </tr>
+
+    </tfoot>
+</table>

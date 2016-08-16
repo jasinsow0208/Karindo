@@ -1,0 +1,45 @@
+﻿@model Kramatdjati.Models.Resep
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Posting</h2>
+<h4>BOM</h4>
+<hr />
+<div>
+ <h3>Apakah data akan diposting?</h3>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KodeResep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodeResep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TglBuat)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglBuat)
+        </dd>
+
+    </dl>
+    <p>
+        @Html.ActionLink("Posting", "Posting", new { id = Model.ResepID  }, new { @class = "btn btn-default" })
+    </p>
+</div>
+<p>
+
+    @Html.ActionLink("Back to List", "Index")
+</p>

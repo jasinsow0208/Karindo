@@ -1,0 +1,44 @@
+﻿@model Kramatdjati.Models.GudangBahanBaku
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Kalkulasi Kartu Stok</h2>
+<h4>Persediaan</h4>
+<hr />
+
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.bahanBaku.KodeBahanBaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.gudang.Lokasi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudang.Lokasi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+    </dl>
+    <p>
+        @Html.ActionLink("Kalkulasi", "KalkulasiKartuStok", new { id = Model.GudangBahanBakuID }, new { @class = "btn btn-default" })
+    </p>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Kramatdjati.Models.SalesOrderRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Tutup Rincian Sales Order</h2>
+
+<h4><b>Customer:@ViewBag.Customer</b></h4>
+<h4>No. SO:@ViewBag.NoSO</h4>
+<h4>No. PO:@ViewBag.NoPO</h4>
+<h4>Tgl Pesan:@ViewBag.TglPesan</h4>
+<h4>Tgl Kirim:@ViewBag.TglKirim</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.bahanBaku.KodeBahanBaku)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.HargaJual)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.JmlYangSudahDiKirim)
+        </th>
+        <th>
+            Sisa
+        </th>
+        <th></th>
+     </tr>
+
+    @{
+        decimal Sisa=0;
+        foreach (var item in Model)
+        {
+            Sisa = item.Jumlah - item.JmlYangSudahDiKirim;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.bahanBaku.KodeBahanBaku)
+                </td>
+
+                <td>
+                    @Html.DisplayFor(modelItem => item.HargaJual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Jumlah)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.JmlYangSudahDiKirim)
+                </td>
+                <td>
+                    @Sisa
+                </td>
+                <td>
+                    @Html.ActionLink("Surat Jalan", "Index","InfoPengiriman", new { id = item.SalesOrderRincianID  }, new { @class = "btn btn-xs btn-primary" })
+                </td>
+             </tr>
+        }
+}
+
+</table>
+<h4><b>Catatan:</b></h4>
+<h4>@ViewBag.Catatan</h4>
+<div>
+    @Html.ActionLink("Back to List", "Index", "TutupSalesOrders")
+</div>

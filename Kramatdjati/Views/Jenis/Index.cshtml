@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Kramatdjati.Models.Jenis>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Jenis Resep</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KodeJenis)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Pembuat)
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.TglKomputer)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KodeJenis)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Pembuat)
+                </td>
+                @*<td>
+                    @Html.DisplayFor(modelItem => item.TglKomputer)
+                </td>*@
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.JenisID }, new { @class = "btn btn-xs btn-primary" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.JenisID }, new { @class = "btn btn-xs btn-danger" })
+                    @Html.ActionLink("Resep", "Index", "JenisDetails", new { id = item.JenisID }, new { @class = "btn btn-xs btn-success" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

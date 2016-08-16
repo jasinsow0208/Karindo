@@ -1,0 +1,25 @@
+﻿@model Kramatdjati.Models.ContohCetak
+@{
+    ViewBag.Title = "Index";
+}
+
+<script type="text/javascript">
+    function loadView () {
+        var counter = $('#Counter').val();
+        document.getElementById("frameSuratJalanNF").src = "http://jsmis168.com/RPTReports/rptSuratJalanNF.aspx?SuratJalanID=" + counter;
+    };
+    window.onload = loadView;
+</script>
+
+
+<h2>Laporan</h2>
+
+<input class="hidenID" id="Counter" value=@Model.Counter style="display:none" />
+
+<div id="autoUpdate">
+    <iframe id="frameSuratJalanNF" width="100%" height="400px" ></iframe>
+</div>
+
+@Html.ActionLink("Back to List", "IndexNonPPN", "SuratJalanCetakRincians", new { id = @ViewBag.SuratJalanID }, null)
+
+ 

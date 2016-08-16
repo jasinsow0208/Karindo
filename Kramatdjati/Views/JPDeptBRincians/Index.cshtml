@@ -1,0 +1,65 @@
+﻿@model IEnumerable<Kramatdjati.Models.JPDeptBRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Jadual Produksi Departemen B</h2>
+<h3>Perincian</h3>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "JPDeptBRincians", new { id = @ViewBag.JPDeptBID }, new { @class = "btn btn-primary" })
+</p>
+<h4><b>Tgl Produksi:@ViewBag.TglProduksi</b></h4>
+<h4>Tgl Produksi Dept A:@ViewBag.TglProduksiDeptA</h4>
+<h4>Catatan:@ViewBag.Catatan </h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().lpDeptARincian.jpDeptARincian.KodeBarangJadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.UkuranTebal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Banyaknya)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.JmlBahan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+    
+        <td>
+            @Html.DisplayFor(modelItem => item.lpDeptARincian.jpDeptARincian.KodeBarangJadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.UkuranTebal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Banyaknya)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JmlBahan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keterangan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.JPDeptBRincianID }, new { @class = "btn btn-xs btn-primary" }) 
+            @*@Html.ActionLink("Details", "Details", new { id = item.JPDeptBRincianID }, new { @class = "btn btn-xs btn-primary" })*@ 
+            @Html.ActionLink("Delete", "Delete", new { id = item.JPDeptBRincianID }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "JPDeptBs")
+</div>

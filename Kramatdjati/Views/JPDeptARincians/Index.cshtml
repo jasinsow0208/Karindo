@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Kramatdjati.Models.JPDeptARincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Jadual Produksi Departemen A</h2>
+<h3>Perincian</h3>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "JPDeptARincians", new { id = @ViewBag.JPDeptAID }, new { @class = "btn btn-primary" })
+</p>
+<h4><b>Tgl Produksi:@ViewBag.TglProduksi</b></h4>
+<h4>Catatan:@ViewBag.Catatan </h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.KodeBarangJadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Batch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Lembar)
+        </th>
+ 
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().resep.KodeResep)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().NoLot )
+        </th>
+        @*<th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Posting )
+        </th>*@
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.KodeBarangJadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Batch)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lembar)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.Keterangan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.resep.KodeResep)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoLot )
+        </td>
+        @*<td>
+            @Html.DisplayFor(modelItem => item.Posting )
+        </td>*@
+        <td>
+     
+                @Html.ActionLink("Edit", "Edit", new { id = item.JPDeptARincianID }, new { @class = "btn btn-xs btn-primary" })
+                @Html.ActionLink("Delete", "Delete", new { id = item.JPDeptARincianID }, new { @class = "btn btn-xs btn-danger" })
+                @*@Html.ActionLink("Posting", "Details", new { id = item.JPDeptARincianID }, new { @class = "btn btn-xs btn-success" })*@
+
+        
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "JPDeptAs")
+</div>

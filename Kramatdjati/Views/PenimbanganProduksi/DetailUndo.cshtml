@@ -1,0 +1,73 @@
+﻿@model Kramatdjati.Models.JPDeptARincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Posting</h2>
+<h4>Pemakaian Produksi</h4>
+<hr />
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KodeBarangJadi)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodeBarangJadi)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Batch)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Batch)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Lembar)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Lembar)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NoLot)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoLot)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.jpDeptA.DibuatOleh)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.jpDeptA.DibuatOleh)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Penimbang)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Penimbang)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Undo Posting", "UndoPosting", new { id = Model.JPDeptARincianID }, new { @class = "btn btn-default" })
+    @Html.ActionLink("Back to List", "Index", new { TglProduksi = @ViewBag.TglProduksi })
+</p>

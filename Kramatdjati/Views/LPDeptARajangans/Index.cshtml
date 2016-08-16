@@ -1,0 +1,49 @@
+﻿@model IEnumerable<Kramatdjati.Models.LPDeptARajangan>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Jadual Produksi Departemen A</h2>
+<h3>Perincian Rajangan</h3>
+
+<p>
+     @Html.ActionLink("Tambah", "Create", "LPDeptARajangans", new { id = @ViewBag.LPDeptAID }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahanBaku.bahanBaku.KodeBahanBaku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Jumlah)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahanBaku.bahanBaku.satuan.Keterangan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.gudangBahanBaku.bahanBaku.KodeBahanBaku)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Jumlah )
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.gudangBahanBaku.bahanBaku.satuan.Keterangan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.LPDeptARajanganID }, new { @class = "btn btn-xs btn-primary" })
+            @Html.ActionLink("Delete", "Delete", new { id = item.LPDeptARajanganID }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+
+<div>
+    @Html.ActionLink("Back to List", "Index", "LPDeptAs")
+</div>

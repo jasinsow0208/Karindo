@@ -1,0 +1,71 @@
+﻿@model IEnumerable<Kramatdjati.Models.JenisDetail>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Resep</h2>
+<h3>@ViewBag.KodeJenis</h3>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "JenisDetails", new { id = ViewBag.JenisID }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Bahan.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BahanBaku.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BahanBakuID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Berat)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BahanBaku.satuan.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Bahan.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BahanBaku.KodeBahanBaku )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BahanBaku.Keterangan )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Berat)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BahanBaku.satuan.Keterangan )
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.JenisDetailID }, new { @class = "btn btn-xs btn-primary" }) 
+                    @Html.ActionLink("Delete", "Delete", new { id = item.JenisDetailID }, new { @class = "btn btn-xs btn-danger" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+<div>
+    @Html.ActionLink("Back to Jenis", "Index", "Jenis")
+</div>

@@ -1,0 +1,138 @@
+﻿@model IEnumerable<Kramatdjati.Models.SuratJalanCetakRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br class="hidden-print" />
+<a href="#" class="btn btn-primary hidden-print" onclick="window.print(); return false;">Print</a>
+<h2 class="hidden-print">Surat Jalan</h2>
+
+<h4 class="hidden-print"><b>Customer:@ViewBag.Customer</b></h4>
+<h4 class="hidden-print">No. Surat Jalan:@ViewBag.NoSO </h4>
+<h4 class="hidden-print">Tgl Transaksi:@ViewBag.TglTransaksi</h4>
+<h4 class="hidden-print ">Tgl Surat Jalan:@ViewBag.TglSuratJalan</h4>
+
+<table class="table hidden-print">
+    <thead>
+        <tr>
+            <th>
+                No
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahanBku.bahanBaku.Keterangan)
+            </th>
+            <th>
+                Banyaknya
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().Keterangan)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @{
+            int intNo = 0;
+
+            foreach (var item in Model)
+            {
+                intNo = intNo + 1;
+                <tr>
+                    <td>
+                        @intNo
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.gudangBahanBku.bahanBaku.KodeBahanBaku)
+                    </td>
+                    <td>
+                        @string.Format("{0:N0}", item.Jumlah) @Html.DisplayFor(modelItem => item.gudangBahanBku.bahanBaku.satuan.Keterangan)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.Keterangan)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.SuratJalanCetakRincianID }, new { @class = "btn btn-xs btn-primary" })
+                    </td>
+                </tr>
+            }
+        }
+
+    </tbody>
+</table>
+
+<div class="visible-print SectionPrint">
+    @*<div style=" height:4px"></div>*@
+    <div class="col-xs-12">
+        <div class="col-xs-12"><font size="3">CV KARINDO</font></div>
+        <div class="col-xs-5"><font size="2">SURAT JALAN</font></div>
+        <div class="col-xs-4 col-xs-offset-2"><font size="1"><b>Kepada Yth,</b></font></div>
+        <div class="col-xs-5 col-xs-offset-7"><font size="1"><b>@ViewBag.Customer</b></font></div>
+        <div class="col-xs-5"><div class="col-xs-3">No.</div><div class="col-xs-1"><font size="1">:@ViewBag.NoSO</font></div></div>
+        <div class="col-xs-4 col-xs-offset-2"><font size="1">@ViewBag.Alamat</font></div>
+        <div class="col-xs-5"><div class="col-xs-3">Tanggal</div><div class="col-xs-1"><font size="1">:@ViewBag.TglSuratJalan</font></div></div>
+        <div class="col-xs-4 col-xs-offset-2"><font size="1">@ViewBag.Kota</font></div>
+        <div class="col-xs-12"></div>
+        <div class="col-xs-12"><font size="2">HARAP DITERIMA BARANG-BARANG TERSEBUT DIBAWAH INI</font></div>
+    </div>
+    <div class="col-xs-12">
+        <div class="col-xs-2"><font size="1">No.</font></div>
+        <div class="col-xs-5"><font size="2">Nama Barang</font></div>
+        <div class="col-xs-2"><font size="2">Banyaknya</font></div>
+        <div class="col-xs-3"><font size="2">Keterangan</font></div>
+    </div>
+    <div style="height:300px; padding :0px">
+        <font size="1">
+            @{
+                int intNoVis = 0;
+
+                foreach (var item in Model)
+                {
+                    intNoVis = intNoVis + 1;
+                    <div class="col-xs-2" style="border-left : 1px solid black"><font size="1">@intNoVis</font></div>
+
+                    <div class="col-xs-5"><font size="1">@Html.DisplayFor(modelItem => item.gudangBahanBku.bahanBaku.KodeBahanBaku)</font></div>
+
+                    <div class="col-xs-2">
+                        <font size="1">
+                            @string.Format("{0:N0}", item.Jumlah) @Html.DisplayFor(modelItem => item.gudangBahanBku.bahanBaku.satuan.Keterangan)
+                        </font>
+                    </div>
+                    <div class="col-xs-3" style="border-right: 1px solid black"><font size="1">@Html.DisplayFor(modelItem => item.Keterangan)</font></div>
+                }
+
+                if (intNoVis <= 10)
+                {
+                    for (int i = 1; i <= 10 - intNoVis; i++)
+                    {
+                        <div class="col-xs-12" style="border-left :1px solid black;border-right:1px solid black"><font size="1"></font></div>
+                    }
+                }
+            }
+        </font>
+
+    </div>
+
+    <div class="col-xs-6" style="height:100px">
+        <div class="col-xs-12"><font size="1">Klaim/retur atas barang hanya dilayani maksimal 7 hari setelah barang diterima</font></div>
+        <div class="col-xs-4" style="height:150px;border:1px solid black;padding : 0px">
+            <div class="col-xs-12" style="height:50px;border-bottom:1px solid black"><font size="1">ADM PENJUALAN</font></div>
+        </div>
+        <div class="col-xs-4" style="height:150px;border:1px solid black;padding : 0px">
+            <div class="col-xs-12" style="height:50px;border-bottom:1px solid black"><font size="1">GUDANG</font></div>
+        </div>
+        <div class="col-xs-4" style="height:150px;border:1px solid black;padding : 0px">
+            <div class="col-xs-12" style="height:50px;border-bottom:1px solid black"><font size="1">PENGIRIM</font></div>
+        </div>
+    </div>
+    <div class="col-xs-6 " style="height:190px;border:1px solid black;padding : 0px">
+        <div class="col-xs-12"><font size="1">Barang-barang diatas telah kami periksa kuantitas dan kualitasnya, serta diterima dalam kedaan baik</font></div>
+        <div class="col-xs-12"><font size="1">Tanggal:</font></div>
+        <div class="col-xs-12"><font size="1">Jam    :</font></div>
+        <div class="col-xs-5 col-xs-offset-6"><font size="1">PENERIMA</font></div>
+        <div class="col-xs-12" style="height:50px; "><font size="1"></font></div>
+        <div class="col-xs-7 col-xs-offset-5"><font size="1">(NAMA && CAP PERUSAHAAN)</font></div>
+    </div>
+</div>
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index", "SuratJalans")
+</div>

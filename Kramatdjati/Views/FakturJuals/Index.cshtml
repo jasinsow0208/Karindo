@@ -1,0 +1,98 @@
+﻿@model IEnumerable<Kramatdjati.Models.FakturJual>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Faktur Jual</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "FakturJuals", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.NoFaktur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglFaktur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().suratJalanCetak.suratJalan.NoSuratJalan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.customer.Perusahaan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NomorSeri)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglPesan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TglJatuhTempo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PPN)
+        </th>
+        <th>
+            Total
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoFaktur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglFaktur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.suratJalanCetak.suratJalan.NoSuratJalan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer.Perusahaan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NomorSeri)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglPesan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglJatuhTempo)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PPN)
+        </td>
+        <td>
+            @String.Format("{0:N2}", item.Total)
+        </td>
+        <td>
+            @if (item.Posting == true)
+            {
+                @Html.ActionLink("Details", "Index", "FakturJualRincians", new { id = item.FakturJualID }, new { @class = "btn btn-xs btn-success" })
+                if (item.PPN == true)
+                {
+                    @Html.ActionLink("Cetak", "FakturJualPPN", "CetakLaporan", new { id = item.FakturJualID }, new { @class = "btn btn-xs btn-primary" })
+                }
+                else
+                {
+                    @Html.ActionLink("Cetak", "FakturJualNonPPN", "CetakLaporan", new { id = item.FakturJualID }, new { @class = "btn btn-xs btn-primary" })
+                }
+                @Html.ActionLink("Undo Posting", "UndoDetails", "FakturJuals", new { id = item.FakturJualID }, new { @class = "btn btn-xs btn-primary" })
+            }
+            else
+            {
+                @Html.ActionLink("Edit", "Edit", "FakturJuals", new { id = item.FakturJualID }, new { @class = "btn btn-xs btn-primary" })
+                @Html.ActionLink("Delete", "Delete", "FakturJuals", new { id = item.FakturJualID }, new { @class = "btn btn-xs btn-danger" })
+                @Html.ActionLink("Posting", "Details", "FakturJuals", new { id = item.FakturJualID }, new { @class = "btn btn-xs btn-primary" })
+            }
+        </td>
+    </tr>
+}
+
+</table>

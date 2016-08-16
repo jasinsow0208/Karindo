@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Kramatdjati.Models.ViewBukuBesar>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Buku Besar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal ">
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().tblGLAccountId, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("tblGLAccountId", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().AccYear, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("AccYear", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstOrDefault().AccPeriod, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("AccPeriod", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Proses" class="btn btn-default" />
+            </div>
+        </div>
+        <h4>
+             Saldo Awal: @string.Format("{0:N2}",ViewBag.SaldoAwal)
+        </h4>
+    </div>
+}
+
+
+  @*  @Html.LabelFor(model => model.FirstOrDefault().SaldoAwal , htmlAttributes: new { @class = "control-label col-md-2" })*@
+    
+    
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tblGLBatchId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglTransaksi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglKomputer)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.NoRef)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.Debet)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.Kredit)
+            </th>
+            <th class="text-right ">
+                @Html.DisplayNameFor(model => model.Saldo)
+            </th>
+
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblGLBatchId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglTransaksi)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglKomputer)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NoRef)
+                </td>
+                <td class="text-right ">
+                    @string.Format("{0:N2}", item.Debet )
+                </td>
+                <td class="text-right ">
+                    @string.Format("{0:N2}", item.Kredit)
+                </td>
+                <td class="text-right ">
+                    @string.Format("{0:N2}", item.Saldo)
+                </td>
+                <td>
+                    @Html.ActionLink("Lihat Batch", "LihatBatch", new { id = item.tblGLBatchId }, new { @class = "btn btn-xs btn-default" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

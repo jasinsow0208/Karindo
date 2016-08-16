@@ -1,0 +1,95 @@
+﻿@model IEnumerable<Kramatdjati.Models.BahanBaku>
+
+@{
+    ViewBag.Title = "Persediaan";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>Persediaan</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "BahanBakus", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Tambah Barang Jadi", "BarangJadi", "BahanBakus", null, new { @class = "btn btn-primary" })
+    @Html.ActionLink("Kalkulasi Kartu Stok", "InfoKalkulasi", "BahanBakus", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KodeBahanBaku)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Stok)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SatuanID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HargaRata2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HargaTerakhir)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.HargaJual)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Discontinue)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KodeBahanBaku)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Stok)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.satuan.Keterangan )
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.HargaRata2)
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.HargaTerakhir)
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.HargaJual)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Discontinue )
+                </td>
+                <td>
+                    <span>
+                        <a href="@Url.Action("Edit",  new { id = item.BahanBakuID })" class="btn btn-xs btn-primary">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            <span class="sr-only">Edit</span>
+                        </a>
+                    </span>
+                    <span>
+                        <a href="@Url.Action("Delete",  new { id = item.BahanBakuID })" class="btn btn-xs btn-danger">
+                            <i class="glyphicon glyphicon-trash"></i>
+                            <span class="sr-only">Delete</span>
+                        </a>
+                    </span>
+                    @*@Html.ActionLink("Edit ", "Edit", "BahanBakus", new { id = item.BahanBakuID }, new { @class = "btn btn-xs btn-primary" })
+                    @Html.ActionLink("Hapus ", "Delete", "BahanBakus", new { id = item.BahanBakuID  }, new { @class = "btn btn-xs btn-danger" })*@
+                    @Html.ActionLink("Kemasan", "Index", "JenisKemasans", new { id = item.BahanBakuID }, new { @class = "btn btn-xs btn-success" })
+                    @Html.ActionLink("Kartu Stok", "Index", "KartuStoks", new { id = item.BahanBakuID , GudangID=0}, new { @class = "btn btn-xs btn-success" })
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

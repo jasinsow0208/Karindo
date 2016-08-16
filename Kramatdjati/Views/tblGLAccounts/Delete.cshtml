@@ -1,0 +1,70 @@
+﻿@model Kramatdjati.Models.tblGLAccount
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Hapus</h2>
+<h4>GL Account</h4>
+<h3>Apakah data GL Account akan dihapus?</h3>
+<div>
+     <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLAccountType.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGLAccountType.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RetainedEarnings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RetainedEarnings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

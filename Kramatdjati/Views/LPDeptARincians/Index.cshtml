@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Kramatdjati.Models.LPDeptARincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Laporan Produksi Departemen A</h2>
+<h3>Perincian</h3>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "LPDeptARincians", new { id = @ViewBag.LPDeptAID }, new { @class = "btn btn-primary" })
+</p>
+<h4><b>Tgl Produksi:@ViewBag.TglProduksi</b></h4>
+<h4>Catatan:@ViewBag.Catatan </h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().jpDeptARincian.KodeBarangJadi )
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().jpDeptARincian.Lembar)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hasil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cacat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.SisaCompound)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.jpDeptARincian.KodeBarangJadi)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.jpDeptARincian.Lembar)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hasil)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Cacat)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SisaCompound)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Keterangan)
+        </td>
+         <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.LPDeptARincianID }, new { @class = "btn btn-xs btn-primary" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.LPDeptARincianID }, new { @class = "btn btn-xs btn-danger" })
+            @*@Html.ActionLink("Posting", "Details", new { id = item.LPDeptARincianID }, new { @class = "btn btn-xs btn-primary" })*@
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index", "LPDeptAs")
+</div>

@@ -1,0 +1,129 @@
+﻿@model Kramatdjati.Models.BahanBaku
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Hapus</h2>
+<h4>Bahan Baku</h4>
+<hr />
+<h3>Apakah data akan dihapus?</h3>
+<div>
+   
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.KodeBahanBaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.KodeBahanBaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Stok)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Stok)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SatuanID )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.satuan.Keterangan  )
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.JenisPersediaanID )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JenisPersediaan.Keterangan )
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StokItem )
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.StokItem)
+        </dd>  
+        @if (@Model.StokItem)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.NoRekInventoryID)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NoRekInventory.AccCode)
+                @Html.DisplayFor(model => model.NoRekInventory.AccDescription)
+            </dd>
+        }  
+    
+        <dt>
+            @Html.DisplayNameFor(model => model.SaleItem )
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.SaleItem )
+        </dd>
+        @if (@Model.SaleItem)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.HargaJual)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.HargaJual )
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.NoRekSaleID)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NoRekSale.AccCode)
+                @Html.DisplayFor(model => model.NoRekSale.AccDescription)
+            </dd>
+        }  
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PurchaseItem )
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.PurchaseItem)
+        </dd>
+        @if (@Model.PurchaseItem)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.NoRekCOGSID )
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.NoRekCOGS.AccCode)
+                @Html.DisplayFor(model => model.NoRekCOGS.AccDescription)
+            </dd>
+        }  
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Discontinue )
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Discontinue )
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Kramatdjati.Models.Gudang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Gudang</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create","Gudangs", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Lokasi)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Lokasi)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.GudangID },new { @class = "btn btn-xs btn-primary " })*@
+            @*@Html.ActionLink("Delete", "Delete", new { id = item.GudangID }, new { @class = "btn btn-xs btn-danger" })*@
+            <span>
+                <a href="@Url.Action("Edit",  new { id = item.GudangID })" class="btn btn-xs btn-primary">
+                    <i class="glyphicon glyphicon-pencil"></i>
+                    <span class="sr-only">Edit</span>
+                </a>
+            </span>
+            <span>
+                <a href="@Url.Action("Delete",  new { id = item.GudangID })" class="btn btn-xs btn-danger">
+                    <i class="glyphicon glyphicon-trash"></i>
+                    <span class="sr-only">Delete</span>
+                </a> 
+            </span>
+            @Html.ActionLink("Persediaan", "Index", "GudangBahanBakus", new { id = item.GudangID }, new { @class = "btn btn-xs btn-success" })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Kramatdjati.Models.Departemen>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Departemen</h2>
+<h4>Divisi @ViewBag.Divisi</h4>
+
+<p>
+    @Html.ActionLink("Tambah", "Create",new { id = ViewBag.DivisiId }, new { @class = "btn btn-primary" })
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+         <td>
+            @Html.DisplayFor(modelItem => item.Keterangan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id = item.DepartemenID }, new { @class = "btn btn-xs btn-primary" }) 
+            @Html.ActionLink("Delete", "Delete", new { id = item.DepartemenID }, new { @class = "btn btn-xs btn-danger" })
+        </td>
+    </tr>
+}
+
+</table>
+<div>
+    @Html.ActionLink("Back to List", "Index","Divisis")
+</div>

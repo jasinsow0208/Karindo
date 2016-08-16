@@ -1,0 +1,85 @@
+﻿@model IEnumerable<Kramatdjati.Models.LPDeptBRincian>
+
+@{
+    ViewBag.Title = "Index";
+}
+<br />
+<a href="#" class="btn btn-primary hidden-print" onclick="window.print(); return false;">Print</a>
+<h2>Laporan Produksi Departemen B</h2>
+<h4><b>Tgl Produksi:@ViewBag.TglProduksi</b></h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().jpDeptBRincian.lpDeptARincian.jpDeptARincian.KodeBarangJadi)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().jpDeptBRincian.UkuranTebal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().jpDeptBRincian.Banyaknya)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hasil)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Cacat)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </th>
+       
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.jpDeptBRincian.lpDeptARincian.jpDeptARincian.KodeBarangJadi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jpDeptBRincian.UkuranTebal)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.jpDeptBRincian.Banyaknya)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Hasil)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cacat)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keterangan)
+            </td>
+ 
+        </tr>
+    }
+
+</table>
+<h4>Dilaporkan:@ViewBag.DibuatOleh</h4>
+<h4>Diketahui:@ViewBag.Diketahui</h4>
+<div class="col-md-6">
+    <div class="form-group">
+        <label for="comment">Catatan:</label>
+        <textarea class="form-control" rows="5" id="comment">@ViewBag.Catatan</textarea>
+    </div>
+</div>
+<div class="col-md-6" style="height:150px">
+    <dl class="dl-horizontal">
+        @if (Model.FirstOrDefault().lpDeptB.JamKerjaAwal  != null)
+        {
+            <dt>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().lpDeptB.JamKerjaAwal )
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.FirstOrDefault().lpDeptB.JamKerjaAwal ) s/d @Html.DisplayFor(model => model.FirstOrDefault().lpDeptB.JamKerjaAkhir )
+            </dd>
+        }
+
+  
+    </dl>
+</div>
+<div class="hidden-print">
+    @Html.ActionLink("Back to List", "Index", "LPDeptBs")
+</div>

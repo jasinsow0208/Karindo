@@ -1,0 +1,74 @@
+﻿@model IEnumerable<Kramatdjati.Models.PenimbanganProduksi>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Laporan Penimbangan</h2>
+<table>
+    <tr>
+        <th width="400px">
+            <h4><b>Jenis:@ViewBag.KodeBarangJadi</b></h4>
+            <h4>Jumlah:@ViewBag.Batch</h4>
+        </th>
+        <th>
+            <h4>Lot No.:@ViewBag.NoLot</h4>
+            <h4>Tanggal:@ViewBag.TanggalProduksi </h4>
+        </th>
+    </tr>
+</table>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahanBaku.bahanBaku.Keterangan)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().gudangBahanBaku.bahanBaku.KodeBahanBaku)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Jumlah)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstOrDefault().Keterangan)
+        </th>
+     </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.gudangBahanBaku.bahanBaku.Keterangan)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.gudangBahanBaku.bahanBaku.KodeBahanBaku)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Jumlah)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Keterangan)
+            </td>
+       </tr>
+    }
+
+</table>
+<br />
+<table >
+    <tr>
+        <th width="400px" >
+            Dibuat Oleh:
+            @Html.DisplayFor(model => model.FirstOrDefault().jpDeptARincian.jpDeptA.DibuatOleh)
+        </th>
+        <th >
+            Diterima Oleh:
+            @Html.DisplayFor(model => model.FirstOrDefault().jpDeptARincian.Penimbang )
+        </th>
+    </tr>
+</table>
+<br />
+<br />
+<br />
+
+<div class="hidden-print">
+    <a href="#" class="btn btn-primary hidden-print" onclick="window.print(); return false;">Print</a><br />
+    @Html.ActionLink("Back to List", "Index", "PenimbanganProduksi", new { TglProduksi = @ViewBag.TglProduksi },null)
+</div>

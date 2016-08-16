@@ -1,0 +1,79 @@
+﻿@model IEnumerable<Kramatdjati.Models.Resep>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>BOM</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "Reseps", null, new { @class = "btn btn-primary" })
+</p>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    <div class="form-horizontal pull-right">
+        <div class="form-group">
+            @*@Html.LabelFor(model => model.FirstOrDefault().Posting , htmlAttributes: new { @class = "control-label col-md-2" })*@
+            <div class="col-md-12">
+                Posting
+                @Html.EditorFor(model => model.FirstOrDefault().Posting, new { @class = "form-control" })
+                <input type="submit" value="Proses" class="btn btn-default" />
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+
+            </div>
+        </div>
+    </div>
+}
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.KodeResep)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Keterangan)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TglBuat)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.KodeResep)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Keterangan)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.TglBuat)
+                </td>
+                <td>
+                    @if (item.Posting != true)
+                    {
+                        @Html.ActionLink("Edit", "Edit", new { id = item.ResepID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Details", "Index", "ResepRincians", new { id = item.ResepID }, new { @class = "btn btn-xs btn-primary" })
+                        @Html.ActionLink("Delete", "Delete", new { id = item.ResepID }, new { @class = "btn btn-xs btn-danger" })
+                        @Html.ActionLink("Posting", "Details", new { id = item.ResepID }, new { @class = "btn btn-xs btn-success" })
+                    }
+                    else
+                    {
+                        @Html.ActionLink("Details", "Cetak", new { id = item.ResepID }, new { @class = "btn btn-xs btn-success" })
+                        @Html.ActionLink("Buka Posting", "DetailBukaPosting", new { id = item.ResepID }, new { @class = "btn btn-xs btn-success" })
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Kramatdjati.Models.tblGLAccount>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutTable.cshtml";
+}
+
+<h2>GL Account</h2>
+
+<p>
+    @Html.ActionLink("Tambah", "Create", "tblGLAccounts", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.tblGLAccountType.Type)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AccDescription)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RetainedEarnings)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FirstOrDefault().AccKas)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Active)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.tblGLAccountType.Type)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccCode)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccDescription)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RetainedEarnings)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.AccKas)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Active)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit ", "Edit", "tblGLAccounts", new { id = item.tblGLAccountId }, new { @class = "btn btn-xs btn-primary" })
+                    @Html.ActionLink("Hapus ", "Delete", "tblGLAccounts", new { id = item.tblGLAccountId }, new { @class = "btn btn-xs btn-danger" })
+
+
+                    @*@Html.ActionLink("Edit", "Edit", new { id=item.tblGLAccountId }) |
+                        @Html.ActionLink("Details", "Details", new { id=item.tblGLAccountId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id=item.tblGLAccountId })*@
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

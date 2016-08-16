@@ -1,0 +1,46 @@
+﻿@model Kramatdjati.Models.BPPB
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Posting</h2>
+<h4>Bukti Permintaan & Pengeluaran Barang</h4>
+<hr />
+
+<div>
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NoBPPB)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NoBPPB)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TglPenimbangan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TglPenimbangan)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TglProduksi)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.TglProduksi)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+    </dl>
+    <p>
+        @Html.ActionLink("Posting", "Posting", new { id = Model.BPPBID }, new { @class = "btn btn-default" })
+    </p>
+</div>
+<p>
+     @Html.ActionLink("Back to List", "Index")
+</p>

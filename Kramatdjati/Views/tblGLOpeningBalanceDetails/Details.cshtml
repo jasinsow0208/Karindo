@@ -1,0 +1,58 @@
+﻿@model Kramatdjati.Models.tblGLOpeningBalanceDetail
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblGLOpeningBalanceDetail</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLAccount.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGLAccount.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLOpeningBalance.tblGLOpeningBalanceId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGLOpeningBalance.tblGLOpeningBalanceId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Debet)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Debet)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Kredit)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Kredit)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Keterangan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Keterangan)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.tblGLOpeningBalanceDetailId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

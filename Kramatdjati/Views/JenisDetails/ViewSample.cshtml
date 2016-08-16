@@ -1,0 +1,71 @@
+﻿@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>jQuery UI Autocomplete - Default functionality</title>
+
+    <link href="~/Content/jqueryui/jquery-ui.min.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="~/Content/jqueryui/jquery-ui.min.js"></script>
+    @*<link rel="stylesheet" href="/resources/demos/style.css">*@
+    <script>
+        $(function () {
+            var availableTags = [
+              "ActionScript",
+              "AppleScript",
+              "Asp",
+              "BASIC",
+              "C",
+              "C++",
+              "Clojure",
+              "COBOL",
+              "ColdFusion",
+              "Erlang",
+              "Fortran",
+              "Groovy",
+              "Haskell",
+              "Java",
+              "JavaScript",
+              "Lisp",
+              "Perl",
+              "PHP",
+              "Python",
+              "Ruby",
+              "Scala",
+              "Scheme"
+            ];
+            $("#tags").autocomplete({
+                source: '@Url.Action("getBahanBaku","JenisDetails")',
+                focus: function( event, ui ) {
+                    $( "#tags" ).val( ui.item.KodeBahanBaku );
+                    return false;
+                },   
+                select: function (event, ui) {
+                    $("#tags").val(ui.item.KodeBahanBaku);
+                    $("#BahanBakuID").val(ui.item.BahanBakuID);
+                    $("#Keterangan").html(ui.item.Keterangan);
+                    return false;
+                }
+              
+            }).autocomplete("instance")._renderItem = function (ul, item) {
+                return $("<li>")
+                  .append("<a>" + item.KodeBahanBaku + "<br>" + item.Keterangan + "</a>")
+                  .appendTo(ul);
+            };
+        });
+    </script>
+</head>
+<body>
+    <div class="ui-widget">
+        <label for="tags">Tags: </label>
+        <input id="tags">
+        <input type ="hidden" id="BahanBakuID" />
+       <label id="Keterangan"></label>
+    </div>
+</body>
+</html>

@@ -1,0 +1,42 @@
+﻿@model Kramatdjati.Models.PenerimaanBarangRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PenerimaanBarangRincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.pemesananBarangRincian.PemesananBarangRincianID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pemesananBarangRincian.PemesananBarangRincianID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.penerimaanBarang.NoSuratJalan)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.penerimaanBarang.NoSuratJalan)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JumlahDiTerima)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JumlahDiTerima)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PenerimaanBarangRincianID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

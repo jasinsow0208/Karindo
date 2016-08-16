@@ -1,0 +1,74 @@
+﻿@model Kramatdjati.Models.tblGLAccount
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tblGLAccount</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.tblGLAccountType.Type)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblGLAccountType.Type)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccDescription)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccDescription)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RetainedEarnings)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RetainedEarnings)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Active)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Active)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.AccKas)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.AccKas)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.tblGLAccountId }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

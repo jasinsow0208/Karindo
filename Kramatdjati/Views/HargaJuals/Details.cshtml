@@ -1,0 +1,42 @@
+﻿@model Kramatdjati.Models.HargaJual
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HargaJual</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TglBerlaku)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TglBerlaku)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.JenisSpon)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.JenisSpon)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Harga)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Harga)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.HargaJualID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

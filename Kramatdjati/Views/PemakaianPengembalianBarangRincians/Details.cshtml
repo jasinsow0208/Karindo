@@ -1,0 +1,42 @@
+﻿@model Kramatdjati.Models.PemakaianPengembalianBarangRincian
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>PemakaianPengembalianBarangRincian</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.gudangBahaBaku.GudangBahanBakuID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.gudangBahaBaku.GudangBahanBakuID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.pemakaianPengembalianBarang.NoSuratPemakaian)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.pemakaianPengembalianBarang.NoSuratPemakaian)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Jumlah)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Jumlah)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PemakaianPengembalianBarangRincianID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

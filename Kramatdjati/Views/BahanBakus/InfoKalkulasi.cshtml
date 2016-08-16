@@ -1,0 +1,18 @@
+﻿
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Kalkulasi Kartu Stok</h2>
+<h4>Persediaan</h4>
+<hr />
+
+<div>
+    <h3>Apakah kartu stok seluruh barang akan dikalkulasi ulang?</h3>
+    <p>
+        @Html.ActionLink("Kalkulasi", "KalkulasiKartuStok",null, new { @class = "btn btn-default" })
+    </p>
+</div>
+<p>
+    @Html.ActionLink("Back to List", "Index")
+</p>
