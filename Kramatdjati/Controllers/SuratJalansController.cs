@@ -144,16 +144,16 @@ namespace Kramatdjati.Controllers
                 }
 
                 //Total jumlah Faktur Jual per Customer
-                var fakturJual = db.FakturJuals.Where(x => x.ContactID == suratJalan.ContactID);
+                var fakturJual = db.FakturJuals.Where(x => x.ContactID == suratJalan.ContactID).ToList();
                 decimal TotalFaktur = 0;
 
-                if (fakturJual != null)
+                if (fakturJual.Count() > 0)
                 {
-                    TotalFaktur = fakturJual.Sum(x=>x.Total);
+                    TotalFaktur = fakturJual.Sum(x => x.Total);
                 }
 
                 //Total jumlah pembayaran per Customer
-                var pembayaranSOes = db.PembayaranSOes.Where(x => x.ContactID == suratJalan.ContactID && x.PostingBayar== true);
+                var pembayaranSOes = db.PembayaranSOes.Where(x => x.ContactID == suratJalan.ContactID && x.PostingBayar == true);
                 decimal jmlBayar = 0;
                 if (pembayaranSOes.Count() != 0)
                 {
@@ -183,8 +183,7 @@ namespace Kramatdjati.Controllers
                         db.SaveChanges();
                         return RedirectToAction("Index");
                     }
-
-                };
+                }
 
                 if (customer.StatusKredit == "CBD")
                 {
@@ -202,26 +201,25 @@ namespace Kramatdjati.Controllers
                         db.SaveChanges();
                         return RedirectToAction("Index");
                     }
-
                 }
 
                 if (customer.StatusKredit == "Kredit")
                 {
 
-                if (customer.KreditLimit < TotalSAPiutang + TotalFaktur)
-                {
-                    ViewBag.Info = "Telah melebihi batas kredit";
-                    return View("Informasi");
+                    if (customer.KreditLimit < TotalSAPiutang + TotalFaktur)
+                    {
+                        ViewBag.Info = "Telah melebihi batas kredit";
+                        return View("Informasi");
+                    }
+
+                    suratJalan.TglTransaksi = DateTime.Now;
+                    suratJalan.TglTerima = DateTime.Parse("2001-01-01");
+                    suratJalan.TglPosting = DateTime.Parse("2001-01-01");
+                    db.SuratJalans.Add(suratJalan);
+                    db.SaveChanges();
+                    return RedirectToAction("Index");
                 }
-
-                suratJalan.TglTransaksi = DateTime.Now;
-                suratJalan.TglTerima = DateTime.Parse("2001-01-01");
-                suratJalan.TglPosting = DateTime.Parse("2001-01-01");
-                db.SuratJalans.Add(suratJalan);
-                db.SaveChanges();
-                return RedirectToAction("Index");
             }
-
             ViewBag.ContactID = new SelectList(db.Contacts.Where(x => x.Customer == true), "ContactID", "Perusahaan", suratJalan.ContactID);
             //ViewBag.SalesOrderID = new SelectList(db.SalesOrders, "SalesOrderID", "NoSO", suratJalan.SalesOrderID);
             return View(suratJalan);

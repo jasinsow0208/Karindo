@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Kramatdjati.Models.UmurPiutang>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Laporan Piutang</h2>
+
+<table class="table">
+    @{ decimal currentSum=0;
+        decimal piutang30Sum=0;
+        decimal piutang60Sum=0;
+        decimal piutang90Sum=0;
+        decimal piutangAlertSum=0;}
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NamaPerusahaan)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Current)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Piutang30)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Piutang60)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.Piutang90)
+            </th>
+            <th class="text-right">
+                @Html.DisplayNameFor(model => model.PiutangAlert)
+            </th>
+            <th class="text-right">Total</th>
+
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            currentSum= currentSum + item.Current;
+            piutang30Sum= piutang30Sum + item.Piutang30;
+            piutang60Sum= piutang60Sum + item.Piutang60;
+            piutang90Sum= piutang90Sum + item.Piutang90;
+            piutangAlertSum= piutangAlertSum + item.PiutangAlert;
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.NamaPerusahaan)
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.Current)
+                    @Html.ActionLink("...", "Details", new { id = item.ContactID, time = "0" }, new { @class = "btn btn-xs btn-success" })
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.Piutang30)
+                    @Html.ActionLink("...", "Details", new { id = item.ContactID, time = "1" }, new { @class = "btn btn-xs btn-success" })
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.Piutang60)
+                    @Html.ActionLink("...", "Details", new { id = item.ContactID, time = "2" }, new { @class = "btn btn-xs btn-success" })
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.Piutang90)
+                    @Html.ActionLink("...", "Details", new { id = item.ContactID, time = "3" }, new { @class = "btn btn-xs btn-success" })
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.PiutangAlert)
+                    @Html.ActionLink("...", "Details", new { id = item.ContactID, time = "4" }, new { @class = "btn btn-xs btn-success" })
+                </td>
+                <td class="text-right">
+                    @String.Format("{0:N2}", item.Current + item.Piutang30 + item.Piutang60 + item.Piutang90 + item.PiutangAlert)
+                </td>
+            </tr>
+        }
+    </tbody>
+    <tfoot>
+        <tr>
+            <th>
+                
+            </th>
+            <th class="text-right">
+                @string.Format("{0:N2}", currentSum )
+            </th>
+            <th class="text-right">
+                @string.Format("{0:N2}", piutang30Sum)
+            </th>
+            <th class="text-right">
+               @string.Format("{0:N2}", piutang60Sum)
+            </th>
+            <th class="text-right">
+                @string.Format("{0:N2}", piutang90Sum)
+            </th>
+            <th class="text-right">
+                @string.Format("{0:N2}", piutangAlertSum)
+            </th>
+            <th class="text-right">
+                @string.Format("{0:N2}", currentSum+ piutang30Sum + piutang60Sum + piutang90Sum + piutangAlertSum)
+            </th>
+
+        </tr>
+    </tfoot>
+</table>

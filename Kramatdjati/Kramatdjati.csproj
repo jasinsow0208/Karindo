@@ -19,6 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -458,6 +459,7 @@
     <Compile Include="Controllers\tblGLOpeningBalancesController.cs" />
     <Compile Include="Controllers\TutupSalesOrderRinciansController.cs" />
     <Compile Include="Controllers\TutupSalesOrdersController.cs" />
+    <Compile Include="Controllers\UmurPiutangController.cs" />
     <Compile Include="Controllers\UserRolesController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -735,6 +737,10 @@
     <Compile Include="Migrations\201608130324221_Contact2.cs" />
     <Compile Include="Migrations\201608130324221_Contact2.Designer.cs">
       <DependentUpon>201608130324221_Contact2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201608160712064_PostingBayar.cs" />
+    <Compile Include="Migrations\201608160712064_PostingBayar.Designer.cs">
+      <DependentUpon>201608160712064_PostingBayar.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AppRole.cs" />
@@ -1385,6 +1391,8 @@
     <Content Include="Views\PembayaranSODetails\Informasi.cshtml" />
     <Content Include="Views\StatusKredit\Edit.cshtml" />
     <Content Include="Views\StatusKredit\Index.cshtml" />
+    <Content Include="Views\UmurPiutang\Index.cshtml" />
+    <Content Include="Views\UmurPiutang\Details.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -1597,6 +1605,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201608130324221_Contact2.resx">
       <DependentUpon>201608130324221_Contact2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201608160712064_PostingBayar.resx">
+      <DependentUpon>201608160712064_PostingBayar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="RPTReports\rptdaftarBarangIsian.rdlc" />
     <EmbeddedResource Include="RPTReports\rptdaftarBarang.rdlc" />

@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Kramatdjati.Models.FakturJual>
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.customer.Perusahaan)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.TglFaktur)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NoFaktur)
+        </th>
+         <th>
+            @Html.DisplayNameFor(model => model.TglJatuhTempo)
+        </th>
+         <th class="text-right">
+            @Html.DisplayNameFor(model => model.Total)
+        </th>
+        <th class="text-right">
+            @Html.DisplayNameFor(model => model.Pembayaran)
+        </th>
+        <th class="text-right">
+            Sisa
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.customer.Perusahaan)
+        </td>
+         <td>
+            @Html.DisplayFor(modelItem => item.TglFaktur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoFaktur)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TglJatuhTempo)
+        </td>
+        <td class="text-right">
+            @string.Format("{0:N2}", item.Total)
+        </td>
+        <td class="text-right">
+            @string.Format("{0:N2}", item.Pembayaran)
+        </td>
+        <td class="text-right">
+            @string.Format("{0:N2}", item.Total - item.Pembayaran)
+        </td>
+        <td>
+            @Html.ActionLink("Details", "Details", new { id=item.FakturJualID }) 
+         </td>
+    </tr>
+}
+
+</table>
